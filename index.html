@@ -114,6 +114,7 @@
 *{box-sizing:border-box}
 [hidden]{display:none !important}
 html{background:var(--noche)}
+html,body{overflow-x:clip}
 body{margin:0;color:var(--tinta);
   background:
     radial-gradient(ellipse 120% 50% at 50% -6%, rgba(92,134,168,.16), transparent 60%),
@@ -246,6 +247,23 @@ button.b[aria-pressed="true"]{border-color:var(--cuero);color:var(--cuero)}
 .asomo svg{width:100%;height:auto;display:block;filter:drop-shadow(0 3px 8px rgba(0,0,0,.5))}
 .asomo.mira{opacity:1;transform:translateY(calc(-62% + 2px))}
 .asomo.mira.falla{transform:translateY(calc(-40% + 2px));transition:transform .5s ease-out, opacity .2s ease}
+/* LOS OTROS ASOMOS, del sistema de la casa: el kan por la izquierda cuando
+   la cuenta se para («el kan espera»), Listubotai de cuerpo entero con el
+   palo de contar al ascender, y un caballo del yam que cruza el taller a
+   los diez aciertos seguidos. Nadie se redibuja: son los retratos de la
+   línea con un objeto de más. */
+.asomo.lado{left:0;right:auto;top:18px;width:70px;transform:translateX(-80px)}
+.asomo.lado.mira{opacity:1;transform:translateX(-26px)}
+.asomo.entero{right:14px;top:-10px;width:76px;transform:translateY(-20px) scale(.6)}
+.asomo.entero.mira{opacity:1;transform:translateY(-70%) scale(1)}
+.globo{position:absolute;left:52px;top:22px;max-width:190px;background:var(--fieltro);color:#141A24;border-radius:12px;padding:8px 11px;
+  font-size:13px;line-height:1.35;z-index:5;opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease;pointer-events:none}
+.globo::after{content:'';position:absolute;left:-8px;top:14px;border:6px solid transparent;border-right-color:var(--fieltro)}
+.globo.mira{opacity:1;transform:none}
+.caballo{position:absolute;left:-110px;top:38%;width:100px;pointer-events:none;z-index:5;animation:cruza 3s linear forwards}
+.caballo svg{width:100%;height:auto;display:block;animation:galopa .28s ease-in-out infinite alternate;filter:drop-shadow(0 3px 8px rgba(0,0,0,.5))}
+@keyframes cruza{from{left:-110px}to{left:100%}}
+@keyframes galopa{from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-6px) rotate(3deg)}}
 
 /* EL ÍNDICE, EL GLOSARIO, LAS DEUDAS: los muebles de la casa. */
 .listaEnc{margin-top:8px;max-height:260px;overflow-y:auto;
@@ -373,6 +391,7 @@ footer.pie svg circle{fill:var(--tenue)}
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:.001ms !important;transition-duration:.001ms !important}
   .asomo.mira,.asomo.mira.falla{transform:translateY(calc(-62% + 2px))}
+  .caballo{animation:none;left:auto;right:14px}
 }
 </style>
 </head><body>
@@ -413,6 +432,9 @@ footer.pie svg circle{fill:var(--tenue)}
 </header>
 
 <div class="panel encargo" id="pEncargo">
+  <div class="asomo lado" id="asomoLado" aria-hidden="true"></div>
+  <div class="globo" id="globoLado" aria-hidden="true"></div>
+  <div class="asomo entero" id="asomoEntero" aria-hidden="true"></div>
   <div class="cara" id="caraKan"></div>
   <div class="quien">Jefén Giskan, el kan</div>
   <p class="encTxt" id="encTxt"></p>
@@ -432,7 +454,7 @@ footer.pie svg circle{fill:var(--tenue)}
 
 <!-- ═══ EL TALLER ═══ -->
 <div class="panel taller" id="pTaller" hidden>
-  <div class="salaRot"><b>El taller</b><span>práctica libre, y a la sala si hace falta</span></div>
+    <div class="salaRot"><b>El taller</b><span>práctica libre, y a la sala si hace falta</span></div>
   <div class="tipos" id="tipos"></div>
   <div class="ejer" id="ejer"></div>
   <div class="fila" style="margin-top:6px" id="filaSiNo" hidden>
@@ -734,6 +756,21 @@ const CARA_GENERAL = `<svg viewBox="0 0 46 48" aria-hidden="true">
 $('caraKan').innerHTML = CARA_KAN;
 $('caraGeneral').innerHTML = CARA_GENERAL;
 $('asomo').innerHTML = CARA_GENERAL;
+/* Listubotai con el palo de contar en alto: el retrato de la línea y un ala
+   más, con el palo y sus muescas. Y el kan, tal cual, para asomar de lado. */
+const dentroDe = svg => svg.replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+const GENERAL_PALO = '<svg viewBox="0 -10 46 58" aria-hidden="true">' + dentroDe(CARA_GENERAL)
+  + '<path d="M36 34 Q46 26 42 10" fill="none" stroke="#241C36" stroke-width="5" stroke-linecap="round"/>'
+  + '<path d="M36 34 Q46 26 42 10" fill="none" stroke="#4E6B8C" stroke-width="3.2" stroke-linecap="round"/>'
+  + '<path d="M36 12 L48 6" stroke="#C08A5E" stroke-width="2.6" stroke-linecap="round"/>'
+  + '<g stroke="#241C36" stroke-width=".9"><path d="M38.5 9.6 v3"/><path d="M41 8.4 v3"/><path d="M43.5 7.2 v3"/><path d="M46 6 v3"/></g></svg>';
+$('asomoLado').innerHTML = CARA_KAN;
+$('asomoEntero').innerHTML = GENERAL_PALO;
+const CABALLO_YAM = '<svg viewBox="370 118 110 70" aria-hidden="true">'
+  + '<path d="M380 178 Q372 150 392 142 L432 142 Q444 130 452 140 L462 136 L456 150 Q470 156 462 178 L452 178 L450 162 L400 162 L396 178 Z" fill="#C08A5E" stroke="#5F676F" stroke-width="1.5" stroke-linejoin="round"/>'
+  + '<circle cx="452" cy="146" r="1.6" fill="#141A24"/><path d="M430 142 Q420 124 400 128 Q410 136 418 142" fill="#5F676F"/>'
+  + '<path d="M378 172 Q366 166 372 152" fill="none" stroke="#5F676F" stroke-width="2.4" stroke-linecap="round"/>'
+  + '<rect x="404" y="128" width="6" height="12" rx="1.5" fill="#E8DFC9" stroke="#9A6C44" stroke-width=".8"/></svg>';
 
 /* ── EL SONIDO, sintetizado al vuelo: el tambor del recuento, el silbido
    de la flecha y el relincho corto. Sin archivos y con botón de apagar. ── */
@@ -1481,12 +1518,36 @@ function revisa(){ const e = ENCARGOS[enc]; if(!e || e.ops || !hechos.has(enc)) 
 
 /* EL ASOMO: Listubotai se asoma por el borde del informe a ver la cuenta.
    Bien, cabeza entera; mal, a media altura. Se esconde solo. */
-let asomoReloj = null;
-function asomate(bien){
-  const a = $('asomo'); clearTimeout(asomoReloj);
-  a.className = 'asomo'; void a.offsetWidth;
-  a.className = 'asomo mira' + (bien ? '' : ' falla');
-  asomoReloj = setTimeout(() => { a.className = 'asomo'; }, 2400);
+const asomoReloj = {};
+function asoma(id, clase, ms){
+  const a = $(id); clearTimeout(asomoReloj[id]);
+  const base = a.className.replace(/\s*\b(mira|falla)\b/g, '');
+  a.className = base; void a.offsetWidth;
+  a.className = base + ' ' + clase;
+  asomoReloj[id] = setTimeout(() => { a.className = base; }, ms);
+}
+function asomate(bien){ asoma('asomo', bien ? 'mira' : 'mira falla', 2400); }
+function asciende(){ asoma('asomoEntero', 'mira', 2600); }
+/* el kan espera: si la cuenta se para más de un minuto, asoma por la
+   izquierda con cara de haber esperado ya bastante */
+const KAN_ESPERA = ['El kan espera.', 'El kan espera. Y el kan no espera bien.', 'Desde la yurta se oye el silencio de la cuenta.',
+                    '¿Se ha perdido el mensajero, o se ha perdido el general?', 'Un tumen entero está esperando a que salga esa cifra.'];
+let quieto = null, kanReloj = null;
+function kanFuera(){ clearTimeout(kanReloj); $('asomoLado').classList.remove('mira'); $('globoLado').classList.remove('mira'); }
+function kanAsoma(){
+  if(taller.enTaller || $('pEncargo').hidden || !$('tourCapa').hidden || !$('mAjustes').hidden || !$('mAlbaran').hidden || document.hidden) return;
+  $('globoLado').textContent = KAN_ESPERA[Math.floor(Math.random() * KAN_ESPERA.length)];
+  $('asomoLado').classList.add('mira'); $('globoLado').classList.add('mira');
+  kanReloj = setTimeout(kanFuera, 6000);
+}
+function armaQuieto(){ clearTimeout(quieto); kanFuera(); quieto = setTimeout(kanAsoma, 60000); }
+['pointerdown', 'keydown', 'scroll'].forEach(ev => addEventListener(ev, armaQuieto, {passive:true}));
+/* el caballo del yam: a los diez aciertos seguidos cruza el taller. Relevo. */
+function caballo(){
+  const viejo = document.querySelector('.caballo'); if(viejo) viejo.remove();
+  const c = document.createElement('div'); c.className = 'caballo'; c.innerHTML = CABALLO_YAM;
+  $('pTaller').appendChild(c); Ruido.flecha();
+  setTimeout(() => c.remove(), 3400);
 }
 $('comprobar').addEventListener('click', () => {
   const e = ENCARGOS[enc], inf = $('informe');
@@ -1509,7 +1570,7 @@ $('comprobar').addEventListener('click', () => {
   if(bien){
     hechos.add(enc);
     const r = rangoDe(hechos.size).n;
-    if(r !== ultimoRango){ ultimoRango = r; Ruido.asciende(); $('infTxt').innerHTML += '<br><b>Asciende a ' + r.toLowerCase() + '.</b>'; }
+    if(r !== ultimoRango){ ultimoRango = r; Ruido.asciende(); asciende(); $('infTxt').innerHTML += '<br><b>Asciende a ' + r.toLowerCase() + '.</b>'; }
     else Ruido.bien();
     pintaEncargo(); inf.hidden = false; $('infTxt').innerHTML = dice + (r !== rangoDe(hechos.size - 1).n ? '<br><b>Asciende a ' + r.toLowerCase() + '.</b>' : '');
     guardaTurno();
@@ -1670,7 +1731,8 @@ function corrige(dado){
   const ver = $('verTaller'); ver.hidden = false;
   ver.className = 'veredicto' + (bien ? ' bien' : '');
   const solTxt = typeof taller.ej.sol === 'number' ? (Number.isInteger(taller.ej.sol) ? cifra(taller.ej.sol, 0) : decimalLargo(taller.ej.sol, 4)) : taller.ej.sol;
-  if(bien){ taller.ac++; taller.racha++; taller.mejor = Math.max(taller.mejor, taller.racha); ver.innerHTML = '<b>Bien.</b> ' + taller.ej.exp; Ruido.bien(); }
+  if(bien){ taller.ac++; taller.racha++; taller.mejor = Math.max(taller.mejor, taller.racha); ver.innerHTML = '<b>Bien.</b> ' + taller.ej.exp; Ruido.bien();
+            if(taller.racha === 10){ caballo(); ver.innerHTML += ' <i>Diez seguidos: un caballo del yam cruza el taller. Relevo de postas.</i>'; } }
   else { taller.racha = 0; ver.innerHTML = 'No. La respuesta era <b>' + solTxt + '</b>. ' + taller.ej.exp; Ruido.mal(); }
   taller.corregido = true; $('verlo').hidden = !taller.ej.pon; pintaTipos(); guardaTurno();
 }
@@ -1857,6 +1919,7 @@ Object.keys(SALAS).forEach(k => {
   }
   aplicaAjustes();
   pintaEncargo();
+  armaQuieto();
   document.addEventListener('pointerdown', () => Ruido.despierta(), {once:true});
 }
 

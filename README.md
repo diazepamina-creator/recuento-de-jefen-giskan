@@ -69,6 +69,10 @@ coma se queda quieta donde el jinete.
 - **Autodiagnóstico**: quince comprobaciones que prueban cada cuenta contra sí
   misma —el acarreo, la escalera, la forma del yam, los generadores—.
 - **El turno se guarda en el propio aparato** y caduca a las cuatro horas.
+- **Los personajes se asoman**: Listubotai por encima del informe al
+  comprobar, y de cuerpo entero con el palo de contar al ascender; el kan por
+  la izquierda si la cuenta se para más de un minuto; y a los diez aciertos
+  seguidos del taller, un caballo del yam cruza la pantalla.
 
 ## Lo que aún no está
 
