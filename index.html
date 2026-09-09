@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!--
+  EL RECUENTO DE JEFÉN GISKAN · potencias de diez y notación científica
+  Manipulativo para 2.º de ESO · prototipo v0.1
+  © 2026 Andrés Asensio · CC BY-NC-SA 4.0
+
+  EL MODELO. Una potencia de diez es un SITIO en el recuento. El ejército de
+  la estepa se contaba así: diez jinetes son un arban, diez arbanes un
+  zuun, diez zuunes un myangan y diez myanganes un tumen. Cada vez que hay
+  diez de algo, se convierte en UNO del nivel siguiente. Y eso es todo lo
+  que hay que saber, porque de ahí sale lo demás sin regla nueva:
+    · 10ⁿ ............. el tamaño del grupo del nivel n
+    · 10⁰ = 1 ......... el jinete solo es el nivel cero
+    · ×10 ............. subir un nivel: las cifras no cambian, el sitio sí
+    · ÷10 ............. bajar un nivel; por debajo del jinete, las décimas
+    · 3,4 × 10⁴ ....... «tres tumenes y cuatro myanganes», dicho en corto
+    · 10³ × 10² = 10⁵ . un myangan de zuunes: los niveles se apilan
+  «Mover la coma» no es una regla: es lo que se ve cuando las cifras suben
+  de nivel y la coma se queda quieta donde está el jinete.
+
+  QUIÉN HABLA. Jefén Giskan manda y Listubotai lleva la cuenta. El kan
+  quiere números exactos y no soporta «muchos», «unos cuantos» ni «más o
+  menos»; el que se los dice se queda una semana contando ovejas. El
+  general los cuenta con palos y nudos, y contesta con calma. Es el mismo
+  reparto de la casa —Jeff y Liz, Jefeops y Listahmes—, con otro bicho y
+  otro siglo. Los dos están copiados de la línea del tiempo tal cual, no
+  redibujados: son los mismos.
+
+  EL HUMOR, ligero y de la casa: el mensajero del yam no puede llevar
+  palabras de más porque cada palabra pesa; el kan cuenta a ojo y el
+  general con palos; y los rangos del alumno son los del ejército de
+  verdad —jinete, jefe de arban, de zuun, de myangan, de tumen—, así que
+  ascender ES subir un nivel en la potencia de diez. La broma es la idea.
+
+  DE DÓNDE SALE ESTO
+  · LA ORGANIZACIÓN DECIMAL del ejército mongol está documentada en la
+    Historia secreta de los mongoles (s. XIII): arban, zuun (jaghun),
+    myangan (minghan) y tumen. No es un decorado: es un sistema posicional
+    en base diez con nombre propio para cada sitio, exactamente lo que
+    hace falta para enseñar qué significa cada cifra de un número.
+  · EL YAM, el correo de postas del imperio, con relevos de caballos cada
+    pocas decenas de kilómetros: aquí es la excusa para la notación
+    científica —decir un número enorme en pocas palabras—, que es para lo
+    que sirve de verdad.
+  · WU. La definición se enuncia y se usa: «10ⁿ es diez multiplicado por
+    sí mismo n veces» vale para n entero positivo, y 10⁰ y 10⁻ⁿ no se
+    definen por capricho sino para que la única regla que había —bajar un
+    nivel es dividir entre diez— siga valiendo. Lo que se define, se dice
+    que se define; lo que se demuestra, se demuestra; y lo que es un
+    convenio (que la primera cifra vaya entre 1 y 9) se llama convenio.
+  · BASS Y BALL. El error del alumno es una idea razonable mal aplicada:
+    «10⁰ es cero», «34 × 10³ vale igual que 3,4 × 10⁴ así que da lo mismo
+    cómo se escriba», «el que tiene la cifra más grande gana». Cada una
+    se refuta con un contraejemplo del campamento, no con un «no».
+
+  LAS CINCO SALAS
+  1. EL CAMPAMENTO · cinco mandos, uno por nivel, y el número que sale de
+     ellos. Cada cifra en su sitio y cada sitio con su nombre.
+  2. LA COLUMNA EN MARCHA · multiplicar por diez es formar diez columnas
+     como ésta: cada grupo sube un nivel. Las cifras se mueven por la
+     escalera; la coma se queda donde el jinete.
+  3. EL MENSAJERO DEL YAM · un ejército dicho en corto: cuántos del grupo
+     más grande, con decimales. 3,4217 tumenes es 3,4217 × 10⁴.
+  4. EL REPARTO DEL BOTÍN · dividir entre diez es bajar un nivel, y por
+     debajo del jinete la escalera sigue: décimas, centésimas. 10⁻ⁿ.
+  5. LOS DOS EJÉRCITOS · comparar: el nivel manda antes que la cifra. Y un
+     myangan de zuunes: 10³ × 10² = 10⁵, porque los niveles se apilan.
+
+  LO DE LA TERMINAL. Esta app lleva lo que la Terminal J&L tiene y las
+  demás no: pantalla de arranque, cabecera con reloj, franja de rango con
+  barra, guía visual por la pantalla, glosario, ajustes (contraste,
+  texto, tipografía, movimiento, sonido), albarán de sesión que se copia
+  al portapapeles, y el asomo. Y lo de la casa entera: interfaz común
+  (rótulo, mandos, escena, lectura), índice de salas, taller con hoja de
+  diez, deudas, autodiagnóstico y turno guardado en el aparato.
+
+  LO QUE AÚN NO ESTÁ (v0.1): el valenciano y el panel docente.
+-->
+<meta name="author" content="Andrés Asensio">
+<meta name="description" content="Potencias de diez y notación científica para 2.º de ESO: el ejército de la estepa contado en arbanes, zuunes, myanganes y tumenes.">
+<meta name="theme-color" content="#141A24">
+<title>El recuento de Jefén Giskan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* La estepa a la hora azul, con las hogueras encendidas. Fieltro, cuero,
+     hierro y hierba seca; el rojo de los estandartes y el oro de la paiza.
+     El cuero es el color que la casa ya le dio a esta parada. */
+  --noche:#141A24; --panel:#1C2430; --panel2:#26303D; --linea:#3A4756;
+  --tinta:#F1EBDD; --tenue:#A6AEB8;
+  --cuero:#C08A5E; --cueroO:#9A6C44; --fieltro:#E8DFC9;
+  --hierro:#8C949C; --hierroO:#5F676F;
+  --rojo:#B8433A; --oro:#D9A441; --fuego:#E58A3C;
+  --hierba:#7E8F55; --cielo:#5C86A8;
+  --sombra:rgba(0,0,0,.5);
+  --cuenta:#C08A5E;
+  --texto:15px;
+}
+[data-tema="papel"]{
+  --noche:#F8F4EC; --panel:#FFFFFF; --panel2:#F1ECE1; --linea:#CDC3B2;
+  --tinta:#23201B; --tenue:#66605A;
+  --cuero:#9A6C44; --cueroO:#7A5433; --fieltro:#E3D8BE;
+  --hierro:#7A8288; --hierroO:#4E555B;
+  --rojo:#9E3229; --oro:#A6781F; --fuego:#B8621E;
+  --hierba:#5E6F3B; --cielo:#3F6A8C;
+  --sombra:rgba(0,0,0,.12);
+  --cuenta:#7A5433;
+}
+[data-texto="grande"]{--texto:17.5px}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{background:var(--noche)}
+body{margin:0;color:var(--tinta);
+  background:
+    radial-gradient(ellipse 120% 50% at 50% -6%, rgba(92,134,168,.16), transparent 60%),
+    radial-gradient(ellipse 60% 30% at 20% 100%, rgba(229,138,60,.10), transparent 70%),
+    radial-gradient(ellipse 60% 30% at 85% 100%, rgba(229,138,60,.08), transparent 70%),
+    var(--noche);
+  background-attachment:fixed;
+  font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:var(--texto);line-height:1.55;
+  padding:12px 12px 40px;max-width:580px;margin:0 auto;-webkit-text-size-adjust:100%}
+[data-fuente="casa"] body{font-family:'Philosopher','Atkinson Hyperlegible',system-ui,sans-serif}
+[data-movimiento="menos"] *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+
+/* EL HORIZONTE. El remate de arriba es una fila de gers en la hierba, con
+   el humo de las hogueras: lo que se ve de un campamento desde lejos. */
+.horizonte{height:16px;margin:0 -12px 8px;opacity:.7;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='16'><path d='M0 15.5 H56' stroke='%237E8F55' stroke-width='1.2'/><path d='M8 15.5 Q8 8 16 6.5 Q24 8 24 15.5 Z' fill='%23E8DFC9' stroke='%233A4756' stroke-width='.9'/><path d='M14.5 15.5 V11 H17.5 V15.5' fill='%23B8433A'/><path d='M16 6.5 Q16.4 3.6 18 2' stroke='%23A6AEB8' stroke-width='.9' fill='none' stroke-linecap='round'/><path d='M36 15.5 Q36 10 41 9 Q46 10 46 15.5 Z' fill='%23E8DFC9' stroke='%233A4756' stroke-width='.8'/><path d='M4 15.5 V12 M2.8 15.5 V13.4 M5.2 15.5 V13.6 M30 15.5 V12.4 M31.4 15.5 V13.8 M52 15.5 V12 M53.4 15.5 V13.6' stroke='%237E8F55' stroke-width='.9' stroke-linecap='round'/></svg>") repeat-x center bottom / 56px 16px}
+
+/* LA CABECERA: el título como estandarte, con el reloj del yam al lado. */
+header .cabeza{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+h1{font-family:'Philosopher',serif;font-weight:700;font-size:27px;letter-spacing:.3px;
+  margin:0;color:var(--oro);line-height:1.05}
+.sub{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.6px;
+  text-transform:uppercase;color:var(--tenue);margin:3px 0 0}
+.reloj{margin-left:auto;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.4px;
+  color:var(--tenue);border:1px solid var(--linea);border-radius:20px;padding:4px 10px;
+  display:inline-flex;gap:8px;align-items:baseline}
+.reloj b{color:var(--cuero);font-weight:400}
+.barra{display:flex;gap:2px 14px;align-items:center;flex-wrap:wrap;margin:10px 0 4px}
+.barra a,.barra button{font-family:'Philosopher',serif;font-weight:700;font-size:13.5px;
+  letter-spacing:1px;text-transform:uppercase;color:var(--tenue);
+  background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:none}
+.barra a:hover,.barra button:hover,.barra button[aria-pressed="true"]{color:var(--oro)}
+button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{
+  outline:2px solid var(--oro);outline-offset:3px;border-radius:4px}
+
+/* LA FRANJA DE RANGO. El rango del alumno es el del ejército de verdad, y
+   subir de rango es subir un nivel en la potencia de diez: la broma es la
+   idea. Rango y cuenta en la misma línea, la barra debajo. */
+.franja{margin:8px 0 2px;padding:8px 12px;border:1px solid var(--linea);border-radius:10px;
+  background:linear-gradient(180deg,var(--panel),var(--panel2))}
+.franja .linea1{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.franja .rango{font-family:'Philosopher',serif;font-weight:700;font-size:15px;color:var(--oro);letter-spacing:.4px}
+.franja .rango small{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.4px;
+  text-transform:uppercase;color:var(--tenue);margin-left:8px;font-weight:400}
+.franja .cuenta{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.2px;
+  text-transform:uppercase;color:var(--tenue)}
+.franja .barraR{height:6px;border-radius:3px;background:var(--noche);margin-top:7px;overflow:hidden}
+.franja .barraR i{display:block;height:100%;width:0;border-radius:3px;
+  background:linear-gradient(90deg,var(--cuero),var(--oro));transition:width .5s ease}
+
+.panel{background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid var(--linea);border-radius:12px;padding:14px 14px 12px;margin:10px 0;
+  box-shadow:0 6px 18px var(--sombra);position:relative}
+.salaRot{margin:-2px 0 10px}
+.salaRot b{font-family:'Philosopher',serif;font-weight:700;font-size:16px;letter-spacing:.6px;
+  text-transform:uppercase;color:var(--oro)}
+.salaRot b::before{content:'';display:inline-block;width:9px;height:9px;border-radius:50%;
+  background:var(--rojo);margin-right:8px;vertical-align:1px;box-shadow:0 0 0 2px var(--panel),0 0 0 3px var(--rojo)}
+.salaRot span{font-family:'Philosopher',serif;font-style:italic;font-size:14px;color:var(--tenue);margin-left:8px}
+
+/* LOS MANDOS. Aquí el mando de la casa es el DIAL: un nivel, su nombre, y
+   la cifra que hay en él, con más y menos. Cinco diales en fila son el
+   número entero, con cada cifra en su sitio. */
+.fila{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.etq{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.4px;
+  text-transform:uppercase;color:var(--tenue);min-width:74px}
+.diales{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+.dial{display:flex;flex-direction:column;align-items:center;gap:3px;
+  background:var(--noche);border:1px solid var(--linea);border-radius:10px;padding:6px 6px 5px;min-width:64px}
+.dial .nom{font-family:'Philosopher',serif;font-size:12.5px;color:var(--cuero);letter-spacing:.4px}
+.dial .pot{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--tenue);letter-spacing:.8px}
+.dial .cif{font-family:'Space Mono',monospace;font-weight:700;font-size:24px;color:var(--tinta);
+  line-height:1;min-height:26px;font-variant-numeric:tabular-nums}
+.dial .mm{display:flex;gap:4px}
+.dial button{font-family:'Space Mono',monospace;font-weight:700;font-size:15px;width:28px;height:28px;
+  border-radius:7px;border:1px solid var(--linea);background:var(--panel);color:var(--tinta);cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center}
+.dial button:hover{border-color:var(--oro)}
+.dial.coma{min-width:auto;border:0;background:none;padding:6px 0;justify-content:flex-end}
+.dial.coma .cif{color:var(--fuego)}
+button.n{font-family:'Space Mono',monospace;font-weight:700;font-size:14px;
+  min-width:34px;min-height:34px;padding:5px 9px;border-radius:8px;
+  border:1px solid var(--linea);background:var(--panel);color:var(--tinta);cursor:pointer}
+button.n[aria-pressed="true"]{background:var(--oro);border-color:var(--oro);color:#1B1408}
+button.b{font-family:'Philosopher',serif;font-weight:700;font-size:14px;letter-spacing:.8px;
+  text-transform:uppercase;min-height:38px;padding:8px 14px;border-radius:9px;
+  border:1px solid var(--linea);background:var(--panel);color:var(--tinta);cursor:pointer}
+button.b:hover{border-color:var(--oro)}
+button.b.ok{background:var(--oro);border-color:var(--oro);color:#1B1408}
+button.b:disabled{opacity:.4;cursor:default}
+button.b.armado{border-color:var(--rojo);color:var(--rojo)}
+button.b[aria-pressed="true"]{border-color:var(--cuero);color:var(--cuero)}
+
+.escena{background:var(--noche);border:1px solid var(--linea);border-radius:10px;
+  padding:10px;margin-top:10px;overflow-x:auto}
+.escena svg{display:block;width:100%;height:auto}
+.lectura{margin:10px 0 0;font-size:calc(var(--texto) - .5px);color:var(--tinta)}
+.lectura b{color:var(--oro)}
+.lectura .cuenta{font-family:'Space Mono',monospace;font-size:13.5px;color:var(--cuenta);
+  display:block;margin:6px 0 0;overflow-x:auto;white-space:nowrap;padding-bottom:2px}
+.lectura .def{display:block;margin:0 0 6px;padding:6px 10px;border-left:3px solid var(--rojo);
+  font-family:'Philosopher',serif;font-style:italic;font-size:calc(var(--texto) + .5px);color:var(--tinta)}
+
+/* EL ENCARGO y EL INFORME: quién habla, con su cara. */
+.encargo{padding-left:70px;min-height:82px}
+.cara{position:absolute;left:12px;top:11px;width:46px;height:48px}
+.cara svg{width:100%;height:100%;display:block}
+.quien{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:1.6px;
+  text-transform:uppercase;color:var(--hierba);margin-bottom:4px}
+.informe .quien{color:var(--oro)}
+.informe{border-left:3px solid var(--oro)}
+.informe.mal{border-left-color:var(--rojo)}
+.encTxt{margin:0}
+.encTxt b{color:var(--oro)}
+.ops{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.op{font-family:inherit;font-size:calc(var(--texto) - 1px);text-align:left;
+  padding:10px 12px;border-radius:9px;border:1px solid var(--linea);
+  background:var(--panel);color:var(--tinta);cursor:pointer;line-height:1.4}
+.op[aria-pressed="true"]{border-color:var(--oro);background:var(--panel2)}
+.op.fallada{border-color:var(--rojo);opacity:.65}
+.paso{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.3px;
+  text-transform:uppercase;color:var(--tenue);margin-left:auto}
+
+/* EL ASOMO, prestado de la terminal y del templo: Listubotai se asoma por
+   el borde del informe a ver cómo ha quedado la cuenta. Si está bien saca
+   la cabeza entera; si no, se queda a media altura. */
+.asomo{position:absolute;right:14px;top:0;width:60px;pointer-events:none;z-index:4;
+  opacity:0;transform:translateY(20px);overflow:hidden;
+  transition:transform .44s cubic-bezier(.34,1.56,.64,1), opacity .2s ease}
+.asomo svg{width:100%;height:auto;display:block;filter:drop-shadow(0 3px 8px rgba(0,0,0,.5))}
+.asomo.mira{opacity:1;transform:translateY(calc(-62% + 2px))}
+.asomo.mira.falla{transform:translateY(calc(-40% + 2px));transition:transform .5s ease-out, opacity .2s ease}
+
+/* EL ÍNDICE, EL GLOSARIO, LAS DEUDAS: los muebles de la casa. */
+.listaEnc{margin-top:8px;max-height:260px;overflow-y:auto;
+  border:1px solid var(--linea);border-radius:9px;background:var(--noche)}
+.listaEnc button{display:block;width:100%;text-align:left;background:none;border:0;
+  border-bottom:1px solid var(--linea);color:var(--tenue);cursor:pointer;
+  font-family:inherit;font-size:13px;padding:9px 11px}
+.listaEnc button:last-child{border-bottom:0}
+.listaEnc button:hover{background:var(--panel2);color:var(--tinta)}
+.listaEnc button b{color:var(--cuero);font-family:'Space Mono',monospace;font-size:11px;margin-right:6px}
+.listaEnc button.hecho b{color:var(--hierba)}
+.listaEnc button.actual{color:var(--tinta);background:var(--panel2)}
+#diag{font-family:'Space Mono',monospace;font-size:11.5px;line-height:1.5;margin-top:10px}
+#diag .ok{color:var(--hierba)} #diag .ko{color:var(--rojo)}
+.glosa{border-top:1px solid var(--linea);padding:9px 0;display:grid;grid-template-columns:110px 1fr;gap:4px 12px}
+.glosa:last-child{border-bottom:1px solid var(--linea)}
+.glosa b{font-family:'Philosopher',serif;color:var(--cuero);font-size:15px}
+.glosa i{font-family:'Space Mono',monospace;font-style:normal;font-size:10px;color:var(--tenue);display:block;letter-spacing:1px}
+.glosa p{margin:0;font-size:14px;color:var(--tinta)}
+@media (max-width:460px){ .glosa{grid-template-columns:1fr} }
+.deuda{border-top:1px solid var(--linea);padding:10px 0}
+.deuda:last-child{border-bottom:1px solid var(--linea)}
+.deuda summary{cursor:pointer;font-weight:700;color:var(--tinta);font-size:15px;list-style:none;
+  display:flex;gap:10px;align-items:baseline}
+.deuda summary::-webkit-details-marker{display:none}
+.deuda summary::before{content:'¿por qué es así?';font-family:'Space Mono',monospace;font-size:9.5px;
+  letter-spacing:1.3px;text-transform:uppercase;color:var(--oro);white-space:nowrap}
+.deuda[open] summary::before{content:'porque'}
+.deuda p{margin:8px 0 0;font-size:14px;color:var(--tenue);max-width:62ch}
+.deuda p b{color:var(--tinta)}
+.aviso{font-size:12.5px;color:var(--tenue);margin:8px 0 0}
+
+/* EL TALLER. */
+.taller{border-left:3px solid var(--oro)}
+.tipos{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tipos button.b{font-size:12.5px;padding:6px 10px;min-height:34px}
+.ejer{font-size:17px;margin:14px 0 8px;line-height:1.5}
+.ejer b{color:var(--oro)}
+.resp{font-family:'Space Mono',monospace;font-size:16px;padding:8px 10px;border-radius:9px;
+  border:1px solid var(--linea);background:var(--noche);color:var(--tinta);width:170px}
+.veredicto{margin-top:9px;padding:9px 11px;border:1px solid var(--linea);border-radius:9px;
+  font-size:14px;color:var(--tinta);background:var(--noche)}
+.veredicto.bien{border-color:var(--oro)}
+.veredicto b{color:var(--oro)}
+.marcador{display:flex;gap:16px;margin-top:10px;font-family:'Space Mono',monospace;font-size:11px;
+  letter-spacing:1.2px;text-transform:uppercase;color:var(--tenue)}
+.marcador b{color:var(--oro);font-size:13px;margin-left:4px}
+.hoja{display:none}
+body.imprimiendo .hoja{display:block;background:#fff;color:#222;padding:20px;font-family:Georgia,serif}
+body.imprimiendo > *:not(.hoja){display:none !important}
+.hoja h2{font-family:'Philosopher',serif;font-size:20px;margin:0 0 4px}
+.hoja .cab{font-size:12px;color:#666;margin-bottom:14px}
+.hoja ol{padding-left:22px;font-size:15px;line-height:2.1}
+.hoja .clave{break-before:page;page-break-before:always;margin-top:30px;border-top:1px solid #999;padding-top:10px}
+.hoja .clave ol{line-height:1.7;font-size:13px}
+@media print{ .hoja{display:block} }
+
+/* LOS MODALES: ajustes y albarán, como en la terminal. */
+.modal{position:fixed;inset:0;z-index:60;background:rgba(10,14,20,.72);display:flex;
+  align-items:center;justify-content:center;padding:16px}
+.modal .caja{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--linea);
+  border-radius:14px;padding:18px 18px 14px;width:min(520px,100%);max-height:92vh;overflow:auto;
+  box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.modal h2{font-family:'Philosopher',serif;font-weight:700;font-size:18px;color:var(--oro);margin:0 0 2px;letter-spacing:.4px}
+.modal .sub{margin-bottom:12px}
+.aj{display:grid;grid-template-columns:110px 1fr;gap:8px 12px;align-items:center;margin-top:6px}
+.aj .etq{min-width:0}
+.aj .ops2{display:flex;gap:6px;flex-wrap:wrap}
+.aj .ops2 button{font-family:'Space Mono',monospace;font-size:11.5px;padding:6px 10px;border-radius:8px;
+  border:1px solid var(--linea);background:var(--noche);color:var(--tinta);cursor:pointer}
+.aj .ops2 button[aria-pressed="true"]{background:var(--oro);border-color:var(--oro);color:#1B1408}
+.aj .ops2 button:disabled{opacity:.4;cursor:default}
+@media (max-width:460px){ .aj{grid-template-columns:1fr} }
+.albaran{font-family:'Space Mono',monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;
+  background:var(--noche);border:1px solid var(--linea);border-radius:9px;padding:12px;margin-top:10px;
+  color:var(--tinta);max-height:40vh;overflow:auto}
+.albaran .sello{color:var(--rojo)}
+input.nombre{font-family:inherit;font-size:15px;padding:8px 10px;border-radius:9px;
+  border:1px solid var(--linea);background:var(--noche);color:var(--tinta);width:100%}
+
+/* LA GUÍA VISUAL: una capa oscura con un hueco de luz sobre lo que se está
+   explicando, y el globo al lado. Se sale tocando fuera. */
+.tourCapa{position:fixed;inset:0;z-index:80;cursor:pointer}
+.tourFoco{position:fixed;border-radius:12px;border:2px solid var(--oro);pointer-events:none;
+  box-shadow:0 0 0 9999px rgba(10,14,20,.78), 0 0 22px rgba(217,164,65,.45);
+  transition:top .28s ease,left .28s ease,width .28s ease,height .28s ease}
+.tourGlobo{position:fixed;z-index:81;width:min(320px,calc(100vw - 32px));
+  background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--oro);
+  border-radius:12px;padding:12px 14px;box-shadow:0 12px 40px rgba(0,0,0,.6)}
+.tourGlobo b{font-family:'Philosopher',serif;font-size:15px;color:var(--oro);display:block;margin-bottom:4px}
+.tourGlobo p{margin:0;font-size:14px;color:var(--tinta)}
+.tourGlobo .pie{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px}
+.tourGlobo .num{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.2px;color:var(--tenue)}
+.tourGlobo button{font-family:'Philosopher',serif;font-weight:700;font-size:13px;letter-spacing:.8px;text-transform:uppercase;
+  padding:6px 12px;border-radius:8px;border:1px solid var(--linea);background:var(--panel);color:var(--tinta);cursor:pointer}
+.tourGlobo button.pri{background:var(--oro);border-color:var(--oro);color:#1B1408}
+
+/* EL ARRANQUE: la estepa de noche, el recuento que pasa lista nivel a
+   nivel, y «toca para saltar». Dos segundos y medio, y se va solo. */
+.boot{position:fixed;inset:0;z-index:9999;background:var(--noche);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px;padding:24px;text-align:center;
+  transition:opacity .5s ease}
+.boot.fuera{opacity:0;pointer-events:none}
+.boot .tit{font-family:'Philosopher',serif;font-weight:700;font-size:clamp(24px,6vw,34px);color:var(--oro);
+  letter-spacing:.5px;margin-bottom:6px}
+.boot .lista{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--tenue);display:flex;flex-direction:column;gap:4px;min-height:120px}
+.boot .lista span{opacity:0;animation:pasaLista .3s forwards}
+.boot .lista span b{color:var(--cuero);font-weight:400}
+.boot .saltar{position:absolute;bottom:26px;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.6px;
+  text-transform:uppercase;color:var(--tenue);opacity:.8}
+@keyframes pasaLista{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+.nueva{animation:aparece .28s ease-out}
+
+footer.pie{margin-top:28px;padding-top:14px;border-top:1px solid var(--linea);
+  display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
+  font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.2px;
+  text-transform:uppercase;color:var(--tenue)}
+footer.pie a{color:var(--tenue);text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+footer.pie a:hover{color:var(--oro)}
+footer.pie svg{height:22px;width:auto;display:block}
+footer.pie svg text{font-family:'Space Mono',monospace;font-weight:700;font-size:9.5px;fill:var(--noche)}
+footer.pie svg circle{fill:var(--tenue)}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  .asomo.mira,.asomo.mira.falla{transform:translateY(calc(-62% + 2px))}
+}
+</style>
+</head><body>
+
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="tit">El recuento de Jefén Giskan</div>
+  <div class="lista" id="bootLista"></div>
+  <div class="saltar">toca para saltar</div>
+</div>
+
+<header>
+  <div class="horizonte" aria-hidden="true"></div>
+  <div class="cabeza">
+    <div>
+      <h1>El recuento de Jefén Giskan</h1>
+      <p class="sub">Potencias de diez · notación científica · la estepa</p>
+    </div>
+    <div class="reloj" aria-label="Hora del yam"><span>yam</span><b id="reloj">--:--</b></div>
+  </div>
+  <nav class="barra" id="barra">
+    <a href="https://diazepamina-creator.github.io/linea.html">← Materiales</a>
+    <button id="bGuia">Guía</button>
+    <button id="bTaller" aria-pressed="false">Taller</button>
+    <button id="bIndice" aria-pressed="false">Salas</button>
+    <button id="bGlosario" aria-pressed="false">Glosario</button>
+    <button id="bDeudas" aria-pressed="false">Deudas</button>
+    <span style="flex:1"></span>
+    <button id="bAlbaran">Albarán</button>
+    <button id="bAjustes">Ajustes</button>
+  </nav>
+  <div class="franja" id="franja">
+    <div class="linea1">
+      <span class="rango"><span id="rangoNom">Jinete</span><small id="rangoSig"></small></span>
+      <span class="cuenta" id="rangoCuenta"></span>
+    </div>
+    <div class="barraR"><i id="rangoBarra"></i></div>
+  </div>
+</header>
+
+<div class="panel encargo" id="pEncargo">
+  <div class="cara" id="caraKan"></div>
+  <div class="quien">Jefén Giskan, el kan</div>
+  <p class="encTxt" id="encTxt"></p>
+  <div class="ops" id="ops" hidden></div>
+  <div class="fila">
+    <button class="b" id="atras" aria-label="Encargo anterior">◀</button>
+    <button class="b ok" id="comprobar">Comprobar</button>
+    <span class="paso" id="cual"></span>
+  </div>
+</div>
+<div class="panel informe encargo" id="informe" hidden>
+  <div class="asomo" id="asomo" aria-hidden="true"></div>
+  <div class="cara" id="caraGeneral"></div>
+  <div class="quien">Listubotai, que lleva la cuenta</div>
+  <p class="encTxt" id="infTxt"></p>
+</div>
+
+<!-- ═══ EL TALLER ═══ -->
+<div class="panel taller" id="pTaller" hidden>
+  <div class="salaRot"><b>El taller</b><span>práctica libre, y a la sala si hace falta</span></div>
+  <div class="tipos" id="tipos"></div>
+  <div class="ejer" id="ejer"></div>
+  <div class="fila" style="margin-top:6px" id="filaSiNo" hidden>
+    <button class="b" id="bSi">Sí</button>
+    <button class="b" id="bNo">No</button>
+  </div>
+  <div class="fila" style="margin-top:6px" id="filaResp">
+    <input class="resp" id="resp" type="text" inputmode="decimal" autocomplete="off" placeholder="tu respuesta">
+    <button class="b ok" id="corrige">Corregir</button>
+  </div>
+  <div class="fila" style="margin-top:6px">
+    <button class="b" id="otro">Otro</button>
+    <button class="b" id="verlo" hidden>Verlo en la sala</button>
+  </div>
+  <div class="veredicto" id="verTaller" hidden></div>
+  <div class="marcador">
+    <span>aciertos <b id="tAc">0</b></span><span>racha <b id="tRacha">0</b></span>
+    <span>mejor <b id="tMejor">0</b></span>
+  </div>
+  <div class="fila">
+    <button class="b" id="hojaDiez">Imprimir una hoja de diez</button>
+    <span class="etq" style="min-width:0">con la clave en hoja aparte</span>
+  </div>
+</div>
+<div class="hoja" id="hoja"></div>
+
+<!-- ═══ EL GLOSARIO ═══ -->
+<div class="panel" id="pGlosario" hidden>
+  <div class="salaRot"><b>El glosario</b><span>las palabras de la estepa</span></div>
+  <div id="glosas"></div>
+</div>
+
+<!-- ═══ LAS DEUDAS ═══ -->
+<div class="panel" id="pDeudas" hidden>
+  <div class="salaRot"><b>Las deudas</b><span>lo que se define, lo que se demuestra y lo que es un convenio</span></div>
+  <p class="aviso" style="margin:0 0 10px">Tres cosas de esta app no son lo que parecen. Dos son definiciones que se
+  eligen para que una regla siga valiendo, y una es un convenio, un acuerdo entre mensajeros. Saber cuál
+  es cuál es parte del oficio.</p>
+  <details class="deuda">
+    <summary>Por qué 10⁰ vale 1 y no cero</summary>
+    <p>Nadie ha multiplicado diez por sí mismo cero veces: eso no significa nada. 10⁰ no se <b>calcula</b>,
+    se <b>define</b>. Y se define así para que la única regla que había —bajar un nivel es dividir entre
+    diez— siga valiendo un escalón más: 10³ ÷ 10 = 10², 10² ÷ 10 = 10¹, y 10¹ ÷ 10 tiene que ser 10⁰.
+    Como 10 ÷ 10 = 1, 10⁰ = 1. El jinete solo es el nivel cero: un grupo de uno.</p>
+    <p>Si se definiera como cero, la escalera se rompería justo ahí, y a partir de ese peldaño nada
+    encajaría. Es una definición, pero no es libre: es la única que no rompe nada.</p>
+  </details>
+  <details class="deuda">
+    <summary>Por qué 10⁻² es una centésima</summary>
+    <p>Misma escalera, un peldaño más abajo. Si bajar un nivel es dividir entre diez, de 10⁰ = 1 se baja
+    a 1 ÷ 10 = una décima, y de ahí a una centésima. Para que el exponente siga contando peldaños hacia
+    abajo, la décima se escribe <b>10⁻¹</b> y la centésima <b>10⁻²</b>. El signo menos no es «un número
+    negativo»: es «tantos peldaños por debajo del jinete».</p>
+    <p>La prueba de que la definición es buena es que la regla de multiplicar sigue funcionando sin
+    excepciones: 10² × 10⁻² = 10⁰ = 1, y en efecto cien centésimas son uno.</p>
+  </details>
+  <details class="deuda">
+    <summary>Por qué la primera cifra del mensaje va entre 1 y 9</summary>
+    <p>Esto no es matemática: es un <b>convenio</b>. 34 × 10³, 3,4 × 10⁴ y 0,34 × 10⁵ son el mismo
+    número, y las tres formas son correctas. Pero si cada mensajero elige la suya, dos mensajes iguales
+    parecen distintos y hay que ponerse a calcular para compararlos. Así que los mensajeros acuerdan
+    decir siempre <b>el grupo más grande que hay</b>, y por eso la cifra de delante queda entre 1 y 9.</p>
+    <p>Con el acuerdo, comparar dos ejércitos es mirar primero el exponente y luego la cifra. Sin él,
+    no. Un convenio se elige porque es útil, no porque sea verdad; y se dice que es un convenio.</p>
+  </details>
+</div>
+
+<!-- ═══ EL ÍNDICE DE SALAS ═══ -->
+<div class="panel" id="pIndice" hidden>
+  <div class="salaRot"><b>Índice</b><span>las salas, sueltas</span></div>
+  <div class="fila"><span class="etq">salas</span><span id="ixSalas"></span></div>
+  <div class="fila">
+    <button class="b" id="ixCerrar">Volver al encargo</button>
+    <button class="b" id="ixTodo">Marcar todo hecho</button>
+    <button class="b" id="ixCero">Empezar de cero</button>
+  </div>
+  <div class="etq" style="margin-top:12px">los encargos</div>
+  <div class="listaEnc" id="ixLista"></div>
+  <div class="fila">
+    <button class="b" id="ixDiag">Autodiagnóstico</button>
+    <span class="etq" style="min-width:0">prueba cada cuenta contra sí misma</span>
+  </div>
+  <div id="diag" hidden></div>
+</div>
+
+<!-- ═══ SALA 1 · EL CAMPAMENTO ═══ -->
+<div class="panel" id="pCampamento">
+  <div class="diales" id="dCamp"></div>
+  <div class="escena"><svg id="svgCamp" viewBox="0 0 540 300" role="img"
+    aria-label="El campamento: los jinetes agrupados por niveles, de tumen a jinete suelto"></svg></div>
+  <p class="lectura" id="lecCamp"></p>
+</div>
+
+<!-- ═══ SALA 2 · LA COLUMNA EN MARCHA ═══ -->
+<div class="panel" id="pColumna" hidden>
+  <div class="diales" id="dCol"></div>
+  <div class="fila" style="justify-content:center">
+    <button class="b" id="colDiv">÷ 10 · repartir en diez</button>
+    <button class="b ok" id="colMul">× 10 · diez columnas como ésta</button>
+  </div>
+  <div class="escena"><svg id="svgCol" viewBox="0 0 540 300" role="img"
+    aria-label="La escalera de niveles con las cifras subiendo o bajando"></svg></div>
+  <p class="lectura" id="lecCol"></p>
+</div>
+
+<!-- ═══ SALA 3 · EL MENSAJERO DEL YAM ═══ -->
+<div class="panel" id="pMensajero" hidden>
+  <div class="diales" id="dMsg"></div>
+  <div class="fila">
+    <span class="etq">dice el grupo</span><span id="mNivel"></span>
+  </div>
+  <div class="escena"><svg id="svgMsg" viewBox="0 0 540 300" role="img"
+    aria-label="El mensajero del yam con el mensaje y lo que pesa"></svg></div>
+  <p class="lectura" id="lecMsg"></p>
+</div>
+
+<!-- ═══ SALA 4 · EL REPARTO DEL BOTÍN ═══ -->
+<div class="panel" id="pBotin" hidden>
+  <div class="fila" style="margin-top:0">
+    <span class="etq">monedas</span><span id="mMonedas"></span>
+  </div>
+  <div class="fila">
+    <span class="etq">entre</span><span id="mEntre"></span>
+  </div>
+  <div class="escena"><svg id="svgBotin" viewBox="0 0 540 300" role="img"
+    aria-label="La escalera de niveles por debajo del jinete: décimas y centésimas"></svg></div>
+  <p class="lectura" id="lecBotin"></p>
+</div>
+
+<!-- ═══ SALA 5 · LOS DOS EJÉRCITOS ═══ -->
+<div class="panel" id="pEjercitos" hidden>
+  <div class="fila" style="margin-top:0">
+    <span class="etq">ejército 1</span><span id="mA1"></span><span class="etq" style="min-width:0">× 10</span><span id="mE1"></span>
+  </div>
+  <div class="fila">
+    <span class="etq">ejército 2</span><span id="mA2"></span><span class="etq" style="min-width:0">× 10</span><span id="mE2"></span>
+  </div>
+  <div class="fila">
+    <span class="etq">el truco</span>
+    <button class="b" id="ejZuunes" aria-pressed="false">Cada jinete del 1 es un zuun</button>
+  </div>
+  <div class="escena"><svg id="svgEj" viewBox="0 0 540 300" role="img"
+    aria-label="Los dos ejércitos, comparados por nivel y por cifra"></svg></div>
+  <p class="lectura" id="lecEj"></p>
+</div>
+
+<!-- ═══ LOS MODALES ═══ -->
+<div class="modal" id="mAjustes" hidden>
+  <div class="caja" role="dialog" aria-modal="true" aria-labelledby="ajTit">
+    <h2 id="ajTit">Ajustes</h2>
+    <p class="sub">Para el aula y para cada aparato</p>
+    <div class="aj" id="aj"></div>
+    <div class="fila" style="margin-top:14px">
+      <button class="b" id="ajCerrar">Cerrar</button>
+      <span class="etq" style="min-width:0">se guardan en este aparato</span>
+    </div>
+  </div>
+</div>
+<div class="modal" id="mAlbaran" hidden>
+  <div class="caja" role="dialog" aria-modal="true" aria-labelledby="albTit">
+    <h2 id="albTit">Albarán del recuento</h2>
+    <p class="sub">Lo hecho en esta sesión, para copiar y pegar donde haga falta</p>
+    <input class="nombre" id="albNombre" placeholder="Nombre del jinete" autocomplete="off" aria-label="Nombre">
+    <div class="albaran" id="albTexto"></div>
+    <div class="fila" style="margin-top:12px">
+      <button class="b ok" id="albCopiar">Copiar</button>
+      <button class="b" id="albCerrar">Cerrar</button>
+      <span class="etq" id="albAviso" style="min-width:0"></span>
+    </div>
+  </div>
+</div>
+<div class="tourCapa" id="tourCapa" hidden>
+  <div class="tourFoco" id="tourFoco"></div>
+  <div class="tourGlobo" id="tourGlobo" role="dialog" aria-modal="true">
+    <b id="tourTit"></b><p id="tourTxt"></p>
+    <div class="pie"><span class="num" id="tourNum"></span>
+      <span><button id="tourSalir">Salir</button> <button class="pri" id="tourSig">Siguiente</button></span></div>
+  </div>
+</div>
+
+<footer class="pie">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"
+     aria-label="Licencia Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0">
+    <svg viewBox="0 0 100 22" aria-hidden="true">
+      <circle cx="11" cy="11" r="10"/><text x="11" y="14.5" text-anchor="middle">CC</text>
+      <circle cx="37" cy="11" r="10"/><text x="37" y="14.5" text-anchor="middle">BY</text>
+      <circle cx="63" cy="11" r="10"/><text x="63" y="14.5" text-anchor="middle">NC</text>
+      <circle cx="89" cy="11" r="10"/><text x="89" y="14.5" text-anchor="middle">SA</text>
+    </svg>
+    <span>© 2026 Andrés Asensio · CC BY-NC-SA 4.0</span>
+  </a>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const NS = 'http://www.w3.org/2000/svg';
+
+/* ── LAS CIFRAS, EN CASTELLANO: punto de millar y coma decimal. ── */
+const redondo = (x, n = 2) => Math.round(x * 10**n) / 10**n;
+function cifra(x, n = 2){
+  const v = redondo(x, n);
+  let [ent, dec] = String(v).split('.');
+  if(Math.abs(v) < 1e-6 && n > 0 && String(v).includes('e')) { ent = '0'; dec = ''; }
+  return ent.replace(/\B(?=(\d{3})+$)/g, '.') + (dec ? ',' + dec : '');
+}
+/* cifras pequeñas sin notación del ordenador: 0,0001 y no 1e-4 */
+function decimalLargo(x, n){
+  return x.toFixed(n).replace('.', ',').replace(/,?0+$/, '') || '0';
+}
+/* la potencia escrita con su exponente arriba: 10⁴, 10⁻²  */
+const SUP = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+const sup = n => String(n).split('').map(c => SUP[c] || c).join('');
+const pot = n => '10' + sup(n);
+
+/* ── LOS NIVELES DEL RECUENTO. Cada sitio tiene su nombre; por debajo del
+   jinete siguen los nombres de siempre, porque la estepa no repartía
+   jinetes, pero sí botín. ── */
+const NIVELES = {
+  4:{nom:'tumen',    pl:'tumenes',   col:'var(--rojo)'},
+  3:{nom:'myangan',  pl:'myanganes', col:'var(--oro)'},
+  2:{nom:'zuun',     pl:'zuunes',    col:'var(--cuero)'},
+  1:{nom:'arban',    pl:'arbanes',   col:'var(--hierro)'},
+  0:{nom:'jinete',   pl:'jinetes',   col:'var(--fieltro)'},
+  '-1':{nom:'décima',      pl:'décimas',      col:'var(--cielo)'},
+  '-2':{nom:'centésima',   pl:'centésimas',   col:'var(--cielo)'},
+  '-3':{nom:'milésima',    pl:'milésimas',    col:'var(--cielo)'},
+  '-4':{nom:'diezmilésima',pl:'diezmilésimas',col:'var(--cielo)'},
+  5:{nom:'diez tumenes',   pl:'diez tumenes', col:'var(--rojo)'},
+  6:{nom:'cien tumenes',   pl:'cien tumenes', col:'var(--rojo)'},
+  7:{nom:'mil tumenes',    pl:'mil tumenes',  col:'var(--rojo)'}
+};
+const nivel = k => NIVELES[k] || {nom:pot(k), pl:pot(k), col:'var(--rojo)'};
+
+/* ── LOS RETRATOS: copiados de la línea del tiempo, no redibujados. ── */
+const CARA_KAN = `<svg viewBox="0 0 46 48" aria-hidden="true">
+  <!-- JEFÉN GISKAN · el que cuenta de diez en diez. De Gengis Kan,
+       partido en dos como Jeff Azzo y Liz Stillo, y con el mismo
+       verde de la casa debajo del gorro. Deel cruzado con faja, gorro de
+       fieltro con vuelta de piel, y el arco corto a la espalda: lo que hace
+       falta para contar un ejército organizado en potencias de diez. -->
+  <path d="M5 46 Q6 32 17 29 L29 29 Q40 32 41 46 Z" fill="#4E6B8C" stroke="#241C36" stroke-width="1.3"/>
+  <path d="M17 29 Q23 36 29 29 L31.6 30.2 Q23 40 14.4 30.2 Z" fill="#3E5570" stroke="#241C36" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M11 38 H35 L34.4 43 H11.6 Z" fill="#8E2F2A" stroke="#241C36" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M12 40.4 H34" stroke="#E0B24A" stroke-width="1" opacity=".8"/>
+  <!-- el arco corto, asomando por detrás del hombro -->
+  <path d="M36.6 24 Q42.6 31 38.4 39" fill="none" stroke="#C08A5E" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M36.6 24 Q40.4 31.4 38.4 39" fill="none" stroke="#241C36" stroke-width="1" stroke-dasharray="2 2"/>
+  <circle cx="23" cy="18" r="9.4" fill="#7FA35C" stroke="#241C36" stroke-width="1.3"/>
+  <path d="M18.6 18.4 L8.4 18.4 Q5 18.4 5 21.8 Q5 25.2 8.4 25.2 L18.6 25.2 Z" fill="#7FA35C" stroke="#241C36" stroke-width="1.3" stroke-linejoin="round"/>
+  <rect x="15" y="18.8" width="4.4" height="6" fill="#7FA35C"/>
+  <circle cx="7.6" cy="20.8" r=".8" fill="#241C36"/>
+  <path d="M6.8 23.9 H15.6" stroke="#241C36" stroke-width="1" stroke-linecap="round"/>
+  <path d="M27 14 L30.6 9.6 L29 15.6" fill="none" stroke="#5B6B3D" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="19.6" cy="17" r="3.6" fill="#f2f6fb" stroke="#241C36" stroke-width="1.3"/>
+  <circle cx="27.4" cy="16.6" r="3.6" fill="#f2f6fb" stroke="#241C36" stroke-width="1.3"/>
+  <path d="M23.2 16.9 H23.8" stroke="#241C36" stroke-width="1.3"/>
+  <circle cx="19.9" cy="17.2" r="1.4" fill="#140F1F"/><circle cx="27.7" cy="16.8" r="1.4" fill="#140F1F"/>
+  <!-- el gorro de fieltro con la vuelta de piel y su remate -->
+  <path d="M14.4 11.6 Q23 2.4 31.6 11.6 Z" fill="#6E5A46" stroke="#241C36" stroke-width="1.3" stroke-linejoin="round"/>
+  <path d="M12.6 10.8 Q23 6.4 33.4 10.8 L32.8 14.2 Q23 9.8 13.2 14.2 Z"
+        fill="#B9A88C" stroke="#241C36" stroke-width="1.3" stroke-linejoin="round"/>
+  <g stroke="#241C36" stroke-width=".7" opacity=".45">
+    <path d="M16.4 10.6 V13.4"/><path d="M20 9.4 V12.6"/><path d="M26 9.4 V12.6"/><path d="M29.6 10.6 V13.4"/></g>
+  <circle cx="23" cy="3.4" r="1.8" fill="#E0B24A" stroke="#241C36" stroke-width="1.1"/>
+</svg>`;
+const CARA_GENERAL = `<svg viewBox="0 0 46 48" aria-hidden="true">
+  <!-- LISTUBOTAI · el que lleva la cuenta. De Subotai, el general que
+       planificaba las campañas. ORDEN: cuerpo · orejeras (detrás) ·
+       cabeza · casco · pico · ojos · cejas · varillas. Las orejeras iban
+       por delante y flotaban como unos cascos de música, además de
+       cortarle el pico; ahora salen de debajo del casco, que es de donde
+       salen. -->
+  <path d="M7 46 Q8 34 18 31 L28 31 Q38 34 39 46 Z" fill="#4E6B8C" stroke="#241C36" stroke-width="1.3"/>
+  <path d="M7 46 Q8 34 18 31 L20 31 Q14 37 14 46 Z" fill="#3E5570" opacity=".8"/>
+  <path d="M18 31 Q23 37.6 28 31 L30 32 Q23 40 16 32 Z" fill="#3E5570" stroke="#241C36" stroke-width="1.2" stroke-linejoin="round"/>
+  <!-- las orejeras de piel, POR DETRÁS y pegadas al casco -->
+  <path d="M15.4 13.4 Q11.6 18.4 12.6 27.6 L17.4 26.2 Q15.6 19.4 17 14.6 Z"
+        fill="#B9A88C" stroke="#241C36" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M30.6 13.4 Q34.4 18.4 33.4 27.6 L28.6 26.2 Q30.4 19.4 29 14.6 Z"
+        fill="#B9A88C" stroke="#241C36" stroke-width="1.2" stroke-linejoin="round"/>
+  <circle cx="23" cy="21.2" r="9" fill="#5FA0BE" stroke="#241C36" stroke-width="1.3"/>
+  <path d="M23 12.2 a9 9 0 0 0 0 18 a6 9 0 0 1 0 -18 z" fill="#7FC9E2" opacity=".5"/>
+  <!-- el casco, encima de la cabeza y tapando el nacimiento de las orejeras -->
+  <path d="M13.6 15.8 Q23 6 32.4 15.8 Q23 12 13.6 15.8 Z" fill="#6E5A46" stroke="#241C36" stroke-width="1.3" stroke-linejoin="round"/>
+  <path d="M13.2 14.8 Q23 9.6 32.8 14.8 L32.4 17.2 Q23 12.4 13.6 17.2 Z"
+        fill="#B0392C" stroke="#241C36" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M23 7.4 L23 2.8" stroke="#241C36" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="23" cy="2.2" r="1.5" fill="#E0B24A" stroke="#241C36" stroke-width="1"/>
+  <!-- el pico, el último de la cara: antes se lo comía la orejera -->
+  <path d="M28.8 21.2 L34.9 23.1 L28.8 25 Z" fill="#E0B24A" stroke="#241C36" stroke-width="1.1" stroke-linejoin="round"/>
+  <circle cx="25.2" cy="20.6" r="2.1" fill="#f2f6fb"/><circle cx="20.4" cy="20.6" r="1.9" fill="#f2f6fb"/>
+  <circle cx="25.5" cy="20.8" r=".95" fill="#140F1F"/><circle cx="20.7" cy="20.8" r=".85" fill="#140F1F"/>
+  <!-- cejas rectas y serenas: atento, no furioso -->
+  <path d="M23.6 18 Q25.4 17.2 27.2 18" stroke="#241C36" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+  <path d="M22.4 18 Q20.6 17.2 18.8 18" stroke="#241C36" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+  <g><path d="M9.5 45.5 L-2.7 33.7" stroke="#C08A5E" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 45.5 L-0.6 31.8" stroke="#C08A5E" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 45.5 L1.8 30.4" stroke="#C08A5E" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 45.5 L4.4 29.3" stroke="#C08A5E" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 45.5 L7.1 28.7" stroke="#C08A5E" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 45.5 L9.9 28.5" stroke="#C08A5E" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 45.5 L12.7 28.8" stroke="#C08A5E" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 45.5 L15.5 29.6" stroke="#C08A5E" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 45.5 L18.0 30.8" stroke="#C08A5E" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 45.5 L20.3 32.4" stroke="#C08A5E" stroke-width="1.5" stroke-linecap="round"/></g>
+  <ellipse cx="9.5" cy="44.6" rx="3.4" ry="2.4" fill="#B0392C" stroke="#241C36" stroke-width="1.2"/>
+</svg>`;
+$('caraKan').innerHTML = CARA_KAN;
+$('caraGeneral').innerHTML = CARA_GENERAL;
+$('asomo').innerHTML = CARA_GENERAL;
+
+/* ── EL SONIDO, sintetizado al vuelo: el tambor del recuento, el silbido
+   de la flecha y el relincho corto. Sin archivos y con botón de apagar. ── */
+const Ruido = (() => {
+  let ctx = null;
+  const ac = () => { try{ if(!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)(); return ctx; }catch(e){ return null; } };
+  const on = () => AJ.sonido === 'si';
+  const tono = (f, dur, vol = .08, tipo = 'sine', t0 = 0) => {
+    const c = ac(); if(!c || !on()) return;
+    const o = c.createOscillator(), g = c.createGain();
+    o.type = tipo; o.frequency.value = f;
+    g.gain.setValueAtTime(0, c.currentTime + t0);
+    g.gain.linearRampToValueAtTime(vol, c.currentTime + t0 + .01);
+    g.gain.exponentialRampToValueAtTime(.0001, c.currentTime + t0 + dur);
+    o.connect(g); g.connect(c.destination); o.start(c.currentTime + t0); o.stop(c.currentTime + t0 + dur + .02);
+  };
+  return {
+    despierta(){ const c = ac(); if(c && c.state === 'suspended') c.resume(); },
+    tambor(){ tono(90, .18, .14, 'sine'); tono(60, .26, .1, 'triangle', .02); },
+    bien(){ tono(523, .14, .07, 'triangle'); tono(784, .22, .06, 'triangle', .1); },
+    mal(){ tono(150, .22, .1, 'square'); },
+    flecha(){ tono(1800, .06, .04, 'sawtooth'); tono(900, .12, .03, 'sawtooth', .04); },
+    asciende(){ tono(90, .16, .14); tono(90, .16, .14, 'sine', .2); tono(120, .3, .14, 'sine', .4); tono(659, .3, .06, 'triangle', .45); }
+  };
+})();
+
+/* ── LOS AJUSTES, con los de la terminal: se guardan en el aparato. ── */
+const AJ = {tema:'noche', texto:'normal', fuente:'legible', movimiento:'normal', sonido:'si', lang:'es'};
+const AJ_OPS = {
+  tema:      {etq:'contraste',   ops:[['noche','noche'], ['papel','papel · proyector']]},
+  texto:     {etq:'texto',       ops:[['normal','normal'], ['grande','grande']]},
+  fuente:    {etq:'tipografía',  ops:[['legible','legible'], ['casa','de la estepa']]},
+  movimiento:{etq:'movimiento',  ops:[['normal','normal'], ['menos','menos']]},
+  sonido:    {etq:'sonido',      ops:[['si','sí'], ['no','no']]},
+  lang:      {etq:'idioma',      ops:[['es','castellano'], ['va','valencià · pronto']]}
+};
+function aplicaAjustes(){
+  const r = document.documentElement;
+  r.dataset.tema = AJ.tema; r.dataset.texto = AJ.texto; r.dataset.fuente = AJ.fuente; r.dataset.movimiento = AJ.movimiento;
+  document.querySelectorAll('#aj button').forEach(b =>
+    b.setAttribute('aria-pressed', String(AJ[b.dataset.k] === b.dataset.v)));
+}
+function pintaAjustes(){
+  const c = $('aj'); c.innerHTML = '';
+  Object.entries(AJ_OPS).forEach(([k, o]) => {
+    const e = document.createElement('span'); e.className = 'etq'; e.textContent = o.etq; c.appendChild(e);
+    const w = document.createElement('div'); w.className = 'ops2';
+    o.ops.forEach(([v, t]) => {
+      const b = document.createElement('button'); b.textContent = t; b.dataset.k = k; b.dataset.v = v;
+      if(k === 'lang' && v === 'va') b.disabled = true;
+      b.addEventListener('click', () => { AJ[k] = v; aplicaAjustes(); Ruido.despierta(); guardaTurno(); });
+      w.appendChild(b);
+    });
+    c.appendChild(w);
+  });
+  aplicaAjustes();
+}
+
+/* ── EL DIAL. El mando propio de esta casa: un nivel con su nombre, su
+   potencia y la cifra que hay en él, con más y menos. Y con ACARREO: nueve
+   arbanes y uno más no son diez arbanes, son un zuun. Eso, que es la idea
+   entera de la app, lo hace el propio mando sin que nadie lo explique. ── */
+function diales(donde, estado, ks, alCambiar, opciones = {}){
+  const c = $(donde); c.innerHTML = '';
+  ks.forEach((k, idx) => {
+    const d = document.createElement('div'); d.className = 'dial';
+    const n = nivel(k);
+    d.innerHTML = '<span class="nom">' + n.nom + '</span><span class="pot">' + pot(k) + '</span>'
+      + '<span class="cif" id="' + donde + '_' + k + '">' + estado[k] + '</span>'
+      + '<span class="mm"><button aria-label="menos ' + n.nom + '">−</button><button aria-label="más ' + n.nom + '">+</button></span>';
+    const [menos, mas] = d.querySelectorAll('button');
+    /* el acarreo lo hacen dialMas y dialMenos, que el autodiagnóstico prueba */
+    mas.addEventListener('click', () => { const r = dialMas(estado, ks, k); alCambiar(r.k, r.d, r.que); });
+    menos.addEventListener('click', () => { const r = dialMenos(estado, ks, k); alCambiar(r.k, r.d, r.que); });
+    c.appendChild(d);
+    if(opciones.coma === k){
+      const m = document.createElement('div'); m.className = 'dial coma';
+      m.innerHTML = '<span class="cif">,</span>'; c.appendChild(m);
+    }
+  });
+}
+function refrescaDiales(donde, estado, ks){
+  ks.forEach(k => { const e = $(donde + '_' + k); if(e) e.textContent = estado[k]; });
+}
+const valorDe = (estado, ks) => ks.reduce((s, k) => s + estado[k] * 10**k, 0);
+
+/* ── LOS ICONOS DE LOS GRUPOS, un dibujo por nivel: el tumen es el
+   cuadrado grande con su malla de cien; el jinete, un punto. Todos con la
+   misma paleta, y cada nivel es reconocible por forma y por tamaño, no
+   solo por color. ── */
+function icono(g, k, x, y, esc = 1, viva = true){
+  const el = (t, at) => { const e = document.createElementNS(NS, t); for(const q in at) e.setAttribute(q, at[q]); g.appendChild(e); return e; };
+  const col = nivel(k).col, op = viva ? 1 : .3;
+  if(k <= 0){ el('circle', {cx:x, cy:y, r:4 * esc, fill:col, 'fill-opacity':op, stroke:'var(--hierroO)', 'stroke-width':.8}); return 10 * esc; }
+  if(k === 1){
+    el('rect', {x:x - 12*esc, y:y - 4*esc, width:24*esc, height:8*esc, rx:3*esc, fill:col, 'fill-opacity':op, stroke:'var(--hierroO)', 'stroke-width':.8});
+    for(let i = 0; i < 10; i++) el('circle', {cx:x - 10.5*esc + i * 2.33*esc, cy:y, r:.8*esc, fill:'var(--noche)', 'fill-opacity':.7});
+    return 12 * esc;
+  }
+  const lado = (k === 2 ? 18 : k === 3 ? 27 : k === 4 ? 38 : 46) * esc, malla = k === 2 ? 0 : k === 3 ? 3 : k === 4 ? 4 : 5;
+  el('rect', {x:x - lado/2, y:y - lado/2, width:lado, height:lado, rx:3*esc, fill:col, 'fill-opacity':op, stroke:'var(--hierroO)', 'stroke-width':1});
+  for(let i = 1; i < malla; i++){
+    const p = x - lado/2 + lado * i / malla, q = y - lado/2 + lado * i / malla;
+    el('line', {x1:p, y1:y - lado/2, x2:p, y2:y + lado/2, stroke:'var(--noche)', 'stroke-width':.7, 'stroke-opacity':.6});
+    el('line', {x1:x - lado/2, y1:q, x2:x + lado/2, y2:q, stroke:'var(--noche)', 'stroke-width':.7, 'stroke-opacity':.6});
+  }
+  if(k >= 5) el('text', {x, y:y + 4, fill:'var(--noche)', 'text-anchor':'middle', 'font-family':"'Space Mono',monospace", 'font-size':11 * esc, 'font-weight':700}).textContent = pot(k);
+  return lado + 4 * esc;
+}
+const txt = (g, x, y, t, at = {}) => {
+  const e = document.createElementNS(NS, 'text');
+  const base = {x, y, fill:'var(--tenue)', 'font-family':"'Space Mono',monospace", 'font-size':12.5};
+  Object.assign(base, at); for(const q in base) e.setAttribute(q, base[q]);
+  e.textContent = t; g.appendChild(e); return e;
+};
+
+/* ═══ SALA 1 · EL CAMPAMENTO ══════════════════════════════════════════
+   Cinco diales, uno por nivel, y el número que sale de ellos. Es la
+   escritura posicional hecha mando: cada cifra en su sitio y cada sitio
+   con su nombre. El acarreo lo hace el dial.                          */
+const KS = [4, 3, 2, 1, 0];
+const camp = {4:3, 3:4, 2:2, 1:1, 0:7, aviso:''};
+
+function pintaCamp(){
+  const g = $('svgCamp'); g.innerHTML = '';
+  const N = valorDe(camp, KS);
+  KS.forEach((k, i) => {
+    const x = 54 + i * 108, n = camp[k];
+    const paso = k === 4 ? 27 : k === 3 ? 22 : k === 2 ? 18 : k === 1 ? 13 : 11;
+    const esc = k === 4 ? .62 : k === 3 ? .7 : 1;
+    const y0 = 214 - Math.max(0, n - 1) * paso / 2 - (n ? 0 : 0);
+    for(let j = 0; j < n; j++){
+      const gg = document.createElementNS(NS, 'g'); gg.setAttribute('class', j === n - 1 ? 'nueva' : ''); g.appendChild(gg);
+      icono(gg, k, x, 118 + (j - (n - 1) / 2) * paso, esc);
+    }
+    if(!n) txt(g, x, 122, '·', {'text-anchor':'middle', 'font-size':20, fill:'var(--linea)'});
+    txt(g, x, 244, String(n), {'text-anchor':'middle', 'font-size':26, 'font-weight':700, fill:n ? 'var(--tinta)' : 'var(--tenue)'});
+    txt(g, x, 264, nivel(k).nom, {'text-anchor':'middle', 'font-size':12, fill:nivel(k).col, 'font-family':"'Philosopher',serif"});
+    txt(g, x, 280, pot(k) + ' = ' + cifra(10**k, 0), {'text-anchor':'middle', 'font-size':10.5});
+    if(i < 4) txt(g, x + 54, 246, '×10', {'text-anchor':'middle', 'font-size':10, fill:'var(--hierroO)'});
+  });
+  txt(g, 12, 22, N ? cifra(N, 0) + ' jinetes' : 'el campamento está vacío', {fill:'var(--oro)', 'font-size':14});
+  if(camp.aviso) txt(g, 528, 22, camp.aviso, {'text-anchor':'end', fill:'var(--fuego)', 'font-size':11.5});
+}
+function leeCamp(){
+  const N = valorDe(camp, KS);
+  const partes = KS.filter(k => camp[k]).map(k => '<b>' + camp[k] + '</b> ' + (camp[k] === 1 ? nivel(k).nom : nivel(k).pl));
+  const mayor = KS.find(k => camp[k]);
+  $('lecCamp').innerHTML =
+    '<span class="def">Una potencia de diez es el tamaño del grupo de un nivel: ' + pot(3) + ' es diez multiplicado por sí '
+    + 'mismo tres veces, mil, un myangan. El jinete solo es el nivel cero: ' + pot(0) + ' = 1.</span>'
+    + (N === 0 ? 'No hay nadie. Suba algún dial.'
+      : 'Hay <b>' + cifra(N, 0) + '</b> jinetes, y el número lo dice por niveles: ' + partes.join(', ')
+        + '. Cada cifra vale según <b>el sitio</b> en que está: '
+        + (mayor !== undefined ? 'el ' + camp[mayor] + ' de ' + (camp[mayor] === 1 ? nivel(mayor).nom : nivel(mayor).pl)
+          + ' vale ' + camp[mayor] + ' × ' + pot(mayor) + ' = <b>' + cifra(camp[mayor] * 10**mayor, 0) + '</b>. ' : '')
+        + 'Y no se puede tener diez de nada: diez arbanes ya son un zuun. Pruebe a subir un dial que esté en nueve.')
+    + '<span class="cuenta">' + KS.filter(k => camp[k]).map(k => camp[k] + '·' + pot(k)).join(' + ') + (N ? ' = ' + cifra(N, 0) : '') + '</span>';
+}
+function pintaCamp2(){ refrescaDiales('dCamp', camp, KS); pintaCamp(); leeCamp(); revisa(); }
+diales('dCamp', camp, KS, (k, d, que) => {
+  camp.aviso = que === 'acarreo' ? 'diez ' + nivel(k - 1).pl + ' → un ' + nivel(k).nom
+    : que === 'prestamo' ? 'un ' + nivel(k + 1).nom + ' → diez ' + nivel(k).pl
+    : que === 'tope' ? 'el campamento no admite más' : que === 'vacio' ? 'no queda nadie que quitar' : '';
+  if(que === 'acarreo') Ruido.tambor(); else if(d) Ruido.flecha();
+  pintaCamp2();
+});
+
+/* ═══ SALA 2 · LA COLUMNA EN MARCHA ═══════════════════════════════════
+   Multiplicar por diez es formar diez columnas como ésta: cada grupo sube
+   un nivel. Las cifras no cambian; el sitio sí. La coma se queda quieta
+   donde el jinete, y por eso «mover la coma» sale solo.                 */
+const KC = [2, 1, 0];
+const col = {2:3, 1:4, 0:2, k:0};
+const ESCALA = [5, 4, 3, 2, 1, 0, -1, -2, -3];
+
+function pintaCol(){
+  const g = $('svgCol'); g.innerHTML = '';
+  const n = valorDe(col, KC), v = n * 10**col.k;
+  const W = 540, sx = (W - 20) / ESCALA.length;
+  /* la escalera: un cajón por nivel, con la coma clavada entre el jinete y la décima */
+  ESCALA.forEach((k, i) => {
+    const x = 10 + i * sx;
+    const e = document.createElementNS(NS, 'rect');
+    ['x', x + 2, 'y', 60, 'width', sx - 4, 'height', 120, 'rx', 8].forEach((v, j, a) => j % 2 === 0 && e.setAttribute(v, a[j + 1]));
+    e.setAttribute('fill', k >= 0 ? 'var(--panel)' : 'var(--panel2)'); e.setAttribute('stroke', 'var(--linea)'); g.appendChild(e);
+    txt(g, x + sx/2, 200, nivel(k).nom, {'text-anchor':'middle', 'font-size':10.5, fill:nivel(k).col, 'font-family':"'Philosopher',serif"});
+    txt(g, x + sx/2, 216, pot(k), {'text-anchor':'middle', 'font-size':10.5});
+    if(k === 0){
+      txt(g, x + sx - 2, 156, ',', {'text-anchor':'middle', 'font-size':40, 'font-weight':700, fill:'var(--fuego)'});
+      txt(g, x + sx - 2, 236, 'la coma, quieta', {'text-anchor':'middle', 'font-size':10, fill:'var(--fuego)'});
+    }
+  });
+  /* las cifras, cada una en su sitio: la de los zuunes va al nivel k+2 */
+  const cifras = [[2, col[2]], [1, col[1]], [0, col[0]]];
+  const kMax = 2 + col.k, kMin = Math.min(0, col.k);
+  ESCALA.forEach((k, i) => {
+    const x = 10 + i * sx + sx/2;
+    const c = cifras.find(q => q[0] + col.k === k);
+    if(c){
+      const t = txt(g, x, 134, String(c[1]), {'text-anchor':'middle', 'font-size':38, 'font-weight':700, fill:'var(--tinta)'});
+      t.setAttribute('class', 'nueva');
+    }else if(k < kMax && k >= kMin && k >= Math.min(0, col.k)){
+      txt(g, x, 134, '0', {'text-anchor':'middle', 'font-size':38, 'font-weight':700, fill:'var(--tenue)', opacity:.55});
+    }
+  });
+  txt(g, 12, 30, cifra(n, 0) + (col.k ? ' × ' + pot(col.k) : '') + ' = ' + (col.k >= 0 ? cifra(v, 0) : decimalLargo(v, 3)),
+      {fill:'var(--oro)', 'font-size':14});
+  txt(g, 528, 30, col.k > 0 ? cifra(10**col.k, 0) + ' columnas como ésta' : col.k < 0 ? 'repartido entre ' + cifra(10**(-col.k), 0) : 'una columna',
+      {'text-anchor':'end', 'font-size':11.5, fill:'var(--tenue)'});
+  txt(g, 270, 274, '← subir de nivel es ×10 · bajar es ÷10 →', {'text-anchor':'middle', 'font-size':11, fill:'var(--hierroO)'});
+}
+function leeCol(){
+  const n = valorDe(col, KC), v = n * 10**col.k;
+  const kk = col.k;
+  const suben = KC.filter(k => col[k]).map(k => 'el ' + col[k] + ' pasa de ' + nivel(k).nom + ' a ' + nivel(k + kk).nom);
+  $('lecCol').innerHTML =
+    (kk === 0 ? 'Una columna de <b>' + cifra(n, 0) + '</b>. Fórmela diez veces —diez columnas como ésta— y mire qué pasa con cada cifra.'
+    : kk > 0 ? cifra(10**kk, 0) + ' columnas como ésta son <b>' + cifra(v, 0) + '</b>. Las cifras no han cambiado: '
+        + (suben.length ? suben.join(', ') : 'no hay nadie') + '. Cada grupo ha subido <b>' + kk + (kk === 1 ? ' nivel' : ' niveles')
+        + '</b>, y lo que era ' + cifra(n, 0) + ' se escribe con ' + kk + (kk === 1 ? ' cero más' : ' ceros más')
+        + '. Multiplicar por ' + pot(kk) + ' es <b>subir ' + kk + (kk === 1 ? ' peldaño' : ' peldaños') + '</b>.'
+    : 'Repartida entre ' + cifra(10**(-kk), 0) + ', la columna es <b>' + decimalLargo(v, 3) + '</b>. Cada cifra ha bajado '
+        + (-kk) + (kk === -1 ? ' nivel' : ' niveles') + ', y las que pasan por debajo del jinete caen en las décimas y centésimas. '
+        + 'La coma no se ha movido: <b>se han movido las cifras</b>. Por eso «mover la coma» funciona: es lo que se ve desde fuera.')
+    + '<span class="cuenta">' + cifra(n, 0) + ' × ' + pot(kk) + ' = ' + (kk >= 0 ? cifra(v, 0) : decimalLargo(v, 3)) + '</span>';
+}
+function pintaCol2(){ refrescaDiales('dCol', col, KC); pintaCol(); leeCol(); revisa(); }
+diales('dCol', col, KC, () => { Ruido.flecha(); pintaCol2(); });
+$('colMul').addEventListener('click', () => { if(col.k < 3){ col.k++; Ruido.tambor(); pintaCol2(); } });
+$('colDiv').addEventListener('click', () => { if(col.k > -3){ col.k--; Ruido.flecha(); pintaCol2(); } });
+
+/* ═══ SALA 3 · EL MENSAJERO DEL YAM ═══════════════════════════════════
+   Un ejército dicho en corto: cuántos del grupo más grande, con decimales.
+   3,4217 tumenes es 3,4217 × 10⁴. Cada palabra pesa, y el mensajero dice
+   el grupo más grande que hay: ése es el convenio, y se llama convenio. */
+const msg = {4:3, 3:4, 2:2, 1:1, 0:7, nivel:4};
+
+function pintaMsg(){
+  const g = $('svgMsg'); g.innerHTML = '';
+  const N = valorDe(msg, KS), k = msg.nivel, mant = N / 10**k;
+  const mayor = KS.find(q => msg[q]);
+  const forma = mayor !== undefined && k === mayor;
+  const el = (t, at) => { const e = document.createElementNS(NS, t); for(const q in at) e.setAttribute(q, at[q]); g.appendChild(e); return e; };
+  /* el rollo del mensaje */
+  el('rect', {x:30, y:40, width:300, height:150, rx:10, fill:'var(--fieltro)', stroke:'var(--cueroO)', 'stroke-width':2});
+  el('rect', {x:30, y:40, width:300, height:22, rx:10, fill:'var(--cuero)'});
+  txt(g, 180, 56, 'MENSAJE DEL YAM', {'text-anchor':'middle', 'font-size':11, fill:'var(--noche)', 'font-weight':700});
+  if(N === 0){
+    txt(g, 180, 120, 'no hay ejército', {'text-anchor':'middle', 'font-size':16, fill:'var(--hierroO)', 'font-family':"'Philosopher',serif"});
+  }else{
+    const mantTxt = decimalLargo(mant, 4);
+    txt(g, 180, 100, mantTxt + ' ' + (Math.abs(mant - 1) < 1e-9 ? nivel(k).nom : nivel(k).pl),
+        {'text-anchor':'middle', 'font-size':22, fill:'var(--noche)', 'font-family':"'Philosopher',serif", 'font-weight':700});
+    txt(g, 180, 136, '= ' + mantTxt + ' × ' + pot(k), {'text-anchor':'middle', 'font-size':18, fill:'var(--cueroO)', 'font-weight':700});
+    txt(g, 180, 170, forma ? '✓ forma del yam: cifra de delante entre 1 y 9' : 'vale, pero no es la forma del yam',
+        {'text-anchor':'middle', 'font-size':10.5, fill:forma ? 'var(--hierba)' : 'var(--rojo)'});
+  }
+  /* el caballo del mensajero y lo que pesa el mensaje */
+  const pesa = N === 0 ? 0 : decimalLargo(mant, 4).replace(',', '').length + 2;
+  el('path', {d:'M380 178 Q372 150 392 142 L432 142 Q444 130 452 140 L462 136 L456 150 Q470 156 462 178 L452 178 L450 162 L400 162 L396 178 Z',
+              fill:'var(--cueroO)', stroke:'var(--hierroO)', 'stroke-width':1.5, 'stroke-linejoin':'round'});
+  el('circle', {cx:452, cy:146, r:1.6, fill:'var(--noche)'});
+  el('path', {d:'M430 142 Q420 124 400 128 Q410 136 418 142', fill:'var(--hierroO)'});
+  for(let i = 0; i < Math.min(pesa, 9); i++)
+    el('rect', {x:388 + i * 7, y:128 - (i % 3) * 3, width:6, height:12, rx:1.5, fill:'var(--fieltro)', stroke:'var(--cueroO)', 'stroke-width':.8});
+  txt(g, 425, 200, pesa ? 'pesa ' + pesa + ' signos' : 'sin carga', {'text-anchor':'middle', 'font-size':11});
+  txt(g, 425, 216, 'cada signo de más es un caballo menos', {'text-anchor':'middle', 'font-size':9.5, fill:'var(--hierroO)'});
+  txt(g, 12, 22, N ? cifra(N, 0) + ' jinetes' : 'el campamento está vacío', {fill:'var(--oro)', 'font-size':14});
+  /* la escalera del mensaje: qué nivel está diciendo */
+  KS.forEach((q, i) => {
+    const x = 60 + i * 105;
+    txt(g, x, 262, nivel(q).nom, {'text-anchor':'middle', 'font-size':11, fill:q === k ? 'var(--oro)' : 'var(--tenue)', 'font-family':"'Philosopher',serif"});
+    txt(g, x, 278, pot(q), {'text-anchor':'middle', 'font-size':10.5, fill:q === k ? 'var(--oro)' : 'var(--tenue)'});
+    if(q === k) el('path', {d:'M' + (x - 8) + ' 244 L' + (x + 8) + ' 244 L' + x + ' 252 Z', fill:'var(--oro)'});
+  });
+}
+function leeMsg(){
+  const N = valorDe(msg, KS), k = msg.nivel, mant = N / 10**k;
+  const mayor = KS.find(q => msg[q]);
+  const forma = mayor !== undefined && k === mayor;
+  $('lecMsg').innerHTML =
+    (N === 0 ? 'Sin ejército no hay mensaje. Suba algún dial.'
+    : 'El kan tiene <b>' + cifra(N, 0) + '</b> jinetes y el mensajero no puede decir tantas cifras. Dice cuántos '
+      + '<b>' + nivel(k).pl + '</b> hay, con decimales: <b>' + decimalLargo(mant, 4) + ' × ' + pot(k) + '</b>. '
+      + (forma
+        ? 'Ha elegido el grupo más grande que hay, así que la cifra de delante queda entre 1 y 9: es <b>la forma del yam</b>, '
+          + 'la que todos los mensajeros usan para que dos mensajes se puedan comparar de un vistazo. Lo que ustedes llamarán '
+          + '<b>notación científica</b>.'
+        : mayor !== undefined && k < mayor
+          ? 'Es verdad —' + decimalLargo(mant, 4) + ' ' + nivel(k).pl + ' son ' + cifra(N, 0) + '—, pero el mensajero ha elegido un grupo '
+            + 'pequeño y le sale una cifra de delante de más de una. La forma del yam dice el <b>' + nivel(mayor).nom + '</b>, que es el '
+            + 'grupo más grande que hay.'
+          : 'Ha elegido un grupo que no hay: la cifra de delante queda por debajo de 1. La forma del yam dice el '
+            + '<b>' + nivel(mayor).nom + '</b>, que es el grupo más grande que hay.'))
+    + '<span class="cuenta">' + (N ? cifra(N, 0) + ' = ' + decimalLargo(mant, 4) + ' × ' + pot(k) + '   ·   ' + (forma ? 'forma del yam' : 'forma libre') : '') + '</span>';
+}
+function mandosMsg(){
+  const c = $('mNivel'); c.innerHTML = '';
+  KS.forEach(k => {
+    const b = document.createElement('button'); b.className = 'n'; b.textContent = nivel(k).nom;
+    b.style.fontFamily = "'Philosopher',serif"; b.style.fontSize = '13px';
+    b.setAttribute('aria-pressed', String(msg.nivel === k));
+    b.addEventListener('click', () => { msg.nivel = k; Ruido.flecha(); pintaMsg2(); });
+    c.appendChild(b);
+  });
+}
+function pintaMsg2(){ refrescaDiales('dMsg', msg, KS); mandosMsg(); pintaMsg(); leeMsg(); revisa(); }
+diales('dMsg', msg, KS, (k, d, que) => { if(que === 'acarreo') Ruido.tambor(); else if(d) Ruido.flecha(); pintaMsg2(); });
+
+/* ═══ SALA 4 · EL REPARTO DEL BOTÍN ═══════════════════════════════════
+   Dividir entre diez es bajar un nivel. Por debajo del jinete la escalera
+   sigue —décimas, centésimas—, y el exponente negativo cuenta peldaños
+   hacia abajo. No es una regla nueva: es la misma, sin excepciones.   */
+const botin = {monedas:1, entre:100};
+
+function pintaBotin(){
+  const g = $('svgBotin'); g.innerHTML = '';
+  const el = (t, at) => { const e = document.createElementNS(NS, t); for(const q in at) e.setAttribute(q, at[q]); g.appendChild(e); return e; };
+  const kk = Math.round(Math.log10(botin.entre));
+  const cada = botin.monedas / botin.entre;
+  /* la escalera, de pie: del myangan arriba a la diezmilésima abajo, y el
+     suelo —el jinete— marcado. Se baja tantos peldaños como ceros tiene el
+     «entre». */
+  const niveles = [3, 2, 1, 0, -1, -2, -3, -4];
+  const y0 = 30, paso = 30;
+  niveles.forEach((k, i) => {
+    const y = y0 + i * paso, activo = k === -kk, suelo = k === 0;
+    el('rect', {x:200, y:y - 11, width:180, height:24, rx:6, fill:activo ? 'var(--oro)' : suelo ? 'var(--panel2)' : 'var(--panel)',
+                stroke:suelo ? 'var(--fuego)' : 'var(--linea)', 'stroke-width':suelo ? 1.8 : 1});
+    txt(g, 210, y + 5, nivel(k).nom, {'font-size':12, fill:activo ? 'var(--noche)' : nivel(k).col, 'font-family':"'Philosopher',serif"});
+    txt(g, 372, y + 5, pot(k), {'text-anchor':'end', 'font-size':11.5, fill:activo ? 'var(--noche)' : 'var(--tenue)'});
+    txt(g, 392, y + 4, k >= 0 ? cifra(10**k, 0) : decimalLargo(10**k, 4), {'font-size':11, fill:activo ? 'var(--oro)' : 'var(--tenue)'});
+    if(i < niveles.length - 1) txt(g, 190, y + 20, '÷10', {'text-anchor':'end', 'font-size':9.5, fill:'var(--hierroO)'});
+  });
+  txt(g, 468, y0 + 3 * paso + 4, '← el suelo', {'font-size':10.5, fill:'var(--fuego)', 'text-anchor':'start'});
+  /* la moneda y el reparto */
+  el('circle', {cx:80, cy:70, r:26, fill:'var(--oro)', stroke:'var(--cueroO)', 'stroke-width':2});
+  el('circle', {cx:80, cy:70, r:18, fill:'none', stroke:'var(--cueroO)', 'stroke-width':1, 'stroke-dasharray':'2 2'});
+  txt(g, 80, 76, botin.monedas + (botin.monedas === 1 ? ' moneda' : ' monedas'), {'text-anchor':'middle', 'font-size':11, fill:'var(--noche)', 'font-weight':700});
+  el('path', {d:'M80 100 L80 150', stroke:'var(--tenue)', 'stroke-width':1.4, 'stroke-dasharray':'4 3'});
+  el('path', {d:'M74 144 L80 152 L86 144', fill:'none', stroke:'var(--tenue)', 'stroke-width':1.4});
+  txt(g, 80, 170, 'entre ' + cifra(botin.entre, 0), {'text-anchor':'middle', 'font-size':12, fill:'var(--tinta)'});
+  txt(g, 80, 186, '= bajar ' + kk + (kk === 1 ? ' peldaño' : ' peldaños'), {'text-anchor':'middle', 'font-size':10.5});
+  txt(g, 80, 226, 'cada uno recibe', {'text-anchor':'middle', 'font-size':10.5});
+  txt(g, 80, 250, decimalLargo(cada, 4), {'text-anchor':'middle', 'font-size':22, 'font-weight':700, fill:'var(--oro)'});
+  txt(g, 80, 270, botin.monedas + ' × ' + pot(-kk), {'text-anchor':'middle', 'font-size':12, fill:'var(--cuero)'});
+}
+function leeBotin(){
+  const kk = Math.round(Math.log10(botin.entre)), cada = botin.monedas / botin.entre;
+  $('lecBotin').innerHTML =
+    '<span class="def">Bajar un nivel es dividir entre diez, y eso vale en toda la escalera: ' + pot(3) + ' ÷ 10 = ' + pot(2)
+    + ', ' + pot(1) + ' ÷ 10 = ' + pot(0) + ' = 1, y de ahí para abajo ' + pot(-1) + ' es una décima.</span>'
+    + botin.monedas + (botin.monedas === 1 ? ' moneda' : ' monedas') + ' entre <b>' + cifra(botin.entre, 0) + '</b> jinetes: '
+    + 'es bajar <b>' + kk + (kk === 1 ? ' peldaño' : ' peldaños') + '</b> por debajo del jinete, y a cada uno le toca '
+    + '<b>' + decimalLargo(cada, 4) + '</b>, que es ' + botin.monedas + ' × ' + pot(-kk) + '. '
+    + 'El exponente negativo no es «un número negativo»: es <b>cuántos peldaños por debajo del suelo</b>. '
+    + 'Y la prueba de que la escalera está bien construida: ' + cifra(botin.entre, 0) + ' jinetes con '
+    + decimalLargo(cada, 4) + ' cada uno vuelven a sumar ' + botin.monedas + '.'
+    + '<span class="cuenta">' + botin.monedas + ' ÷ ' + pot(kk) + ' = ' + botin.monedas + ' × ' + pot(-kk) + ' = ' + decimalLargo(cada, 4) + '</span>';
+}
+function tira(donde, valores, lee, pon, rotula = v => typeof v === 'number' ? cifra(v, 2) : v){
+  const c = $(donde); c.innerHTML = '';
+  valores.forEach(v => {
+    const b = document.createElement('button'); b.className = 'n'; b.textContent = rotula(v);
+    b.setAttribute('aria-pressed', String(lee() === v));
+    b.addEventListener('click', () => { pon(v); });
+    c.appendChild(b);
+  });
+}
+function mandosBotin(){
+  tira('mMonedas', [1, 2, 3, 5, 7, 9], () => botin.monedas, v => { botin.monedas = v; Ruido.flecha(); pintaBotin2(); }, v => String(v));
+  tira('mEntre', [10, 100, 1000, 10000], () => botin.entre, v => { botin.entre = v; Ruido.flecha(); pintaBotin2(); }, v => cifra(v, 0));
+}
+function pintaBotin2(){ mandosBotin(); pintaBotin(); leeBotin(); revisa(); }
+
+/* ═══ SALA 5 · LOS DOS EJÉRCITOS ══════════════════════════════════════
+   Comparar: el nivel manda antes que la cifra. Y el truco del myangan de
+   zuunes: cada jinete es un zuun, así que cada grupo sube dos niveles y
+   los exponentes se suman. 10³ × 10² = 10⁵ porque los niveles se apilan. */
+const ej = {a1:8, e1:3, a2:3, e2:4, zuunes:false};
+
+function pintaEj(){
+  const g = $('svgEj'); g.innerHTML = '';
+  const el = (t, at) => { const e = document.createElementNS(NS, t); for(const q in at) e.setAttribute(q, at[q]); g.appendChild(e); return e; };
+  const e1 = ej.e1 + (ej.zuunes ? 2 : 0);
+  const v1 = ej.a1 * 10**e1, v2 = ej.a2 * 10**ej.e2;
+  const gana = v1 > v2 ? 1 : v2 > v1 ? 2 : 0;
+  [[ej.a1, e1, 1, v1], [ej.a2, ej.e2, 2, v2]].forEach(([a, e, i, v]) => {
+    const y = i === 1 ? 92 : 210;
+    if(gana === i) el('rect', {x:8, y:y - 58, width:524, height:112, rx:12, fill:'var(--oro)', 'fill-opacity':.08, stroke:'var(--oro)', 'stroke-width':1.2});
+    txt(g, 16, y - 38, 'ejército ' + i, {'font-size':11, fill:'var(--tenue)'});
+    txt(g, 16, y - 20, a + ' × ' + pot(e) + ' = ' + cifra(v, 0), {'font-size':15, fill:gana === i ? 'var(--oro)' : 'var(--tinta)', 'font-weight':700});
+    txt(g, 16, y - 4, a + (a === 1 ? ' ' + nivel(e).nom : ' ' + nivel(e).pl), {'font-size':11.5, fill:nivel(e).col, 'font-family':"'Philosopher',serif"});
+    const esc = e >= 5 ? .7 : e === 4 ? .8 : 1;
+    const paso = e >= 4 ? 40 * esc : e === 3 ? 32 : e === 2 ? 24 : e === 1 ? 30 : 14;
+    for(let j = 0; j < a; j++){
+      const gg = document.createElementNS(NS, 'g'); gg.setAttribute('class', j === a - 1 ? 'nueva' : ''); g.appendChild(gg);
+      icono(gg, e, 200 + j * paso, y + 6, esc);
+    }
+    if(gana === i){
+      /* el tug del vencedor: el estandarte de colas de caballo */
+      el('path', {d:'M506 ' + (y - 44) + ' V' + (y + 30), stroke:'var(--cueroO)', 'stroke-width':2.5, 'stroke-linecap':'round'});
+      el('circle', {cx:506, cy:y - 48, r:4, fill:'var(--oro)'});
+      for(let j = -3; j <= 3; j++) el('path', {d:'M506 ' + (y - 40) + ' Q' + (506 + j * 5) + ' ' + (y - 24) + ' ' + (506 + j * 6) + ' ' + (y - 6),
+        stroke:'var(--fieltro)', 'stroke-width':1.3, fill:'none', 'stroke-linecap':'round'});
+    }
+  });
+  txt(g, 270, 284, gana ? 'gana el ejército ' + gana + ': ' + (e1 !== ej.e2 ? 'manda el nivel' : 'mismo nivel, manda la cifra')
+                       : 'los dos ejércitos son iguales', {'text-anchor':'middle', 'font-size':12, fill:'var(--oro)'});
+}
+function leeEj(){
+  const e1 = ej.e1 + (ej.zuunes ? 2 : 0);
+  const v1 = ej.a1 * 10**e1, v2 = ej.a2 * 10**ej.e2;
+  const gana = v1 > v2 ? 1 : v2 > v1 ? 2 : 0;
+  $('lecEj').innerHTML =
+    (ej.zuunes
+      ? 'El truco: cada jinete del ejército 1 es en realidad un <b>zuun</b>, cien. Así que cada grupo sube <b>dos niveles</b>: '
+        + ej.a1 + ' × ' + pot(ej.e1) + ' de zuunes son ' + ej.a1 + ' × ' + pot(ej.e1) + ' × ' + pot(2) + ' = ' + ej.a1 + ' × ' + pot(e1)
+        + '. <b>Los exponentes se suman</b> porque los niveles se apilan: un myangan de zuunes es ' + pot(3) + ' × ' + pot(2) + ' = ' + pot(5) + '. '
+      : '')
+    + (gana === 0 ? 'Los dos ejércitos son <b>iguales</b>: ' + cifra(v1, 0) + ' jinetes cada uno.'
+      : 'Gana el <b>ejército ' + gana + '</b>: ' + cifra(gana === 1 ? v1 : v2, 0) + ' contra ' + cifra(gana === 1 ? v2 : v1, 0) + '. '
+        + (e1 !== ej.e2
+          ? 'Y se sabe sin contar: <b>manda el nivel</b>. ' + pot(Math.max(e1, ej.e2)) + ' es más grande que cualquier cifra de ' + pot(Math.min(e1, ej.e2))
+            + ', aunque la cifra sea un 9 contra un 1. Primero el exponente; solo si empatan, la cifra.'
+          : 'Mismo nivel, ' + pot(e1) + ', así que manda <b>la cifra</b>: ' + Math.max(ej.a1, ej.a2) + ' contra ' + Math.min(ej.a1, ej.a2) + '.'))
+    + '<span class="cuenta">' + ej.a1 + '·' + pot(e1) + ' = ' + cifra(v1, 0) + '   ·   ' + ej.a2 + '·' + pot(ej.e2) + ' = ' + cifra(v2, 0) + '</span>';
+}
+function mandosEj(){
+  tira('mA1', [1,2,3,5,8,9], () => ej.a1, v => { ej.a1 = v; Ruido.flecha(); pintaEj2(); }, v => String(v));
+  tira('mE1', [0,1,2,3,4,5], () => ej.e1, v => { ej.e1 = v; Ruido.flecha(); pintaEj2(); }, v => sup(v));
+  tira('mA2', [1,2,3,5,8,9], () => ej.a2, v => { ej.a2 = v; Ruido.flecha(); pintaEj2(); }, v => String(v));
+  tira('mE2', [0,1,2,3,4,5], () => ej.e2, v => { ej.e2 = v; Ruido.flecha(); pintaEj2(); }, v => sup(v));
+  $('ejZuunes').setAttribute('aria-pressed', String(ej.zuunes));
+}
+function pintaEj2(){ mandosEj(); pintaEj(); leeEj(); revisa(); }
+$('ejZuunes').addEventListener('click', () => { ej.zuunes = !ej.zuunes; Ruido.tambor(); pintaEj2(); });
+
+/* ── LAS SALAS ─────────────────────────────────────────────────────── */
+const SALAS = {campamento:'pCampamento', columna:'pColumna', mensajero:'pMensajero', botin:'pBotin', ejercitos:'pEjercitos'};
+const LEMAS = {
+  campamento:['El campamento', 'cada cifra en su sitio, cada sitio con su nombre'],
+  columna:   ['La columna en marcha', 'subir de nivel es multiplicar por diez'],
+  mensajero: ['El mensajero del yam', 'un ejército dicho en corto'],
+  botin:     ['El reparto del botín', 'la escalera sigue por debajo del jinete'],
+  ejercitos: ['Los dos ejércitos', 'manda el nivel, y los niveles se apilan']
+};
+const PINTA = {campamento:pintaCamp2, columna:pintaCol2, mensajero:pintaMsg2, botin:pintaBotin2, ejercitos:pintaEj2};
+function muestraSala(cual){
+  for(const k in SALAS) $(SALAS[k]).hidden = (k !== cual);
+  PINTA[cual]();
+}
+
+
+/* ── EL ACARREO, en funciones que el autodiagnóstico pueda probar: nueve y
+   uno más son cero aquí y uno en el nivel de arriba. ── */
+function dialMas(estado, ks, k){
+  if(estado[k] < 9){ estado[k]++; return {k, d:+1, que:''}; }
+  /* acarreo en cadena: 99 y uno son 100, y 999 y uno son 1000. Se buscan
+     los nueves seguidos hacia arriba; si todo es nueve, el campamento está
+     al tope y no admite ni uno más. */
+  let i = ks.indexOf(k), j = i;
+  while(j >= 0 && estado[ks[j]] === 9) j--;
+  if(j < 0) return {k, d:0, que:'tope'};
+  for(let q = i; q > j; q--) estado[ks[q]] = 0;
+  estado[ks[j]]++;
+  return {k:ks[j], d:+1, que:'acarreo', desde:k};
+}
+function dialMenos(estado, ks, k){
+  if(estado[k] > 0){ estado[k]--; return {k, d:-1, que:''}; }
+  /* préstamo en cadena: de 100 se quita uno y quedan 99. */
+  let i = ks.indexOf(k), j = i;
+  while(j >= 0 && estado[ks[j]] === 0) j--;
+  if(j < 0) return {k, d:0, que:'vacio'};
+  estado[ks[j]]--;
+  for(let q = i; q > j; q--) estado[ks[q]] = 9;
+  return {k, d:-1, que:'prestamo', desde:ks[j]};
+}
+
+/* ── LOS ENCARGOS. El kan pide, se comprueba sobre el manipulativo y
+   Listubotai explica lo que ha salido. Los «mal» miran qué hay puesto y
+   dicen qué falta (Bass y Ball), en vez de repetir la consigna. ── */
+const ENCARGOS = [
+ {sala:'campamento', pre:() => { KS.forEach(k => camp[k] = 0); camp.aviso = ''; },
+  t:'Han llegado <b>34.217</b> jinetes y me lo han dicho así, de golpe, como si yo contara a ojo. '
+   +'Ponlos en el campamento <b>por niveles</b>, que quiero verlos.',
+  ok:() => valorDe(camp, KS) === 34217,
+  bien:'Tres tumenes, cuatro myanganes, dos zuunes, un arban y siete sueltos, mi kan. El número ya lo decía: '
+      +'<b>cada cifra es un nivel</b>, y cada nivel vale diez del anterior. Usted cuenta a ojo; yo cuento con '
+      +'palos; el número cuenta con <b>sitios</b>.',
+  mal:() => {
+    const obj = {4:3, 3:4, 2:2, 1:1, 0:7};
+    const f = KS.filter(k => camp[k] !== obj[k]).map(k => nivel(k).pl + ' ' + camp[k] + ' y son ' + obj[k]);
+    return f.length ? 'Casi, mi kan: ' + f.join('; ') + '.' : 'Ya está: pulse Comprobar.';
+  }},
+
+ {sala:'campamento', pre:() => { Object.assign(camp, {4:3, 3:4, 2:2, 1:1, 0:7}); camp.aviso = ''; },
+  t:'Ese <b>4</b> del 34.217. ¿Cuánto vale, en jinetes?',
+  ops:[
+    {t:'4.000: está en el sitio de los myanganes.', ok:true,
+     r:'Cuatro myanganes, 4 × ' + pot(3) + '. Un 4 no vale 4 hasta que no se sabe <b>dónde está</b>. Mírelo en el campamento: '
+      +'son cuatro cuadrados de mil, no cuatro jinetes.'},
+    {t:'4: un cuatro es un cuatro.', ok:false,
+     r:'Un cuatro es un cuatro <b>de algo</b>, mi kan. Ése es de myanganes. Si valiera 4, el campamento entero tendría diecisiete jinetes '
+      +'y sobrarían tres tumenes sin explicar.'},
+    {t:'400: dos sitios por delante del final.', ok:false,
+     r:'Ha contado un nivel de menos. Desde el jinete: arban, zuun, <b>myangan</b>. El 4 está en el tercer peldaño, ' + pot(3) + '.'},
+    {t:'40.000: es el segundo empezando por la izquierda.', ok:false,
+     r:'Por la izquierda no se cuenta: se cuenta <b>desde el jinete</b>, que es el suelo. El segundo por la izquierda solo vale '
+      +'diez mil si el número tiene seis cifras, y éste tiene cinco.'}]},
+
+ {sala:'campamento', pre:() => { Object.assign(camp, {4:0, 3:0, 2:0, 1:9, 0:9}); camp.aviso = ''; },
+  t:'Tengo <b>nueve arbanes y nueve jinetes sueltos</b>, y llega uno más. Ponlo en su sitio '
+   +'—con el dial de los jinetes, que es por donde entra—.',
+  ok:() => valorDe(camp, KS) === 100 && camp[2] === 1,
+  bien:'<b>Un zuun</b>, y nada más. Nueve sueltos y uno son diez, y diez sueltos son un arban; pero ya había nueve arbanes, así que '
+      +'diez arbanes son un zuun. <b>Dos acarreos seguidos</b>: por eso 99 y 1 se escribe 100, y no 9-10. No se puede tener diez de nada.',
+  mal:() => valorDe(camp, KS) === 99 ? 'Todavía no ha llegado: suba el dial de los <b>jinetes</b> una vez.'
+    : valorDe(camp, KS) === 100 ? 'Son cien, sí, pero mire dónde los tiene: han de ser <b>un zuun</b>, no diez arbanes ni cien sueltos.'
+    : 'Se ha ido a ' + cifra(valorDe(camp, KS), 0) + '. Vuelva a 99 —nueve arbanes, nueve jinetes— y suba <b>uno</b>.'},
+
+ {sala:'columna', pre:() => { Object.assign(col, {2:3, 1:4, 0:2, k:0}); },
+  t:'Una columna de <b>342</b>. Fórmame <b>diez columnas</b> como ésa, y luego <b>otras diez de cada una</b>.',
+  ok:() => valorDe(col, KC) === 342 && col.k === 2,
+  bien:'34.200, mi kan. Fíjese en lo que <b>no</b> ha pasado: las cifras son las mismas, 3, 4 y 2. Lo que ha pasado es que cada una ha '
+      +'subido <b>dos niveles</b>: el 3 de zuun a tumen. Y eso, escrito, son dos ceros más. Multiplicar por cien es subir dos peldaños.',
+  mal:() => valorDe(col, KC) !== 342 ? 'La columna tiene que ser de <b>342</b>: ponga 3 zuunes, 4 arbanes y 2 jinetes.'
+    : col.k < 2 ? 'Van ' + col.k + ' de las dos veces: pulse «× 10» ' + (2 - col.k === 1 ? 'una vez más' : 'dos veces') + '.'
+    : 'Se ha pasado: ' + col.k + ' veces. Son dos; reparta una.'},
+
+ {sala:'columna', pre:() => { Object.assign(col, {2:3, 1:4, 0:2, k:1}); },
+  t:'Mis escribas dicen que para multiplicar por diez «se mueve la coma». ¿Por qué funciona eso?',
+  ops:[
+    {t:'Porque la coma se queda quieta donde el jinete y son las cifras las que suben de nivel.', ok:true,
+     r:'Eso es. Nadie mueve la coma: la coma es el suelo. Lo que sube son las cifras, un peldaño por cada diez. Visto desde fuera parece '
+      +'que la coma se ha ido a la derecha, pero mírelo en la escalera: la coma no se ha movido ni un palmo.'},
+    {t:'Porque es una regla que se aprende y ya está.', ok:false,
+     r:'Las reglas que se aprenden sin razón se olvidan en la primera nevada, mi kan. Ésta tiene razón: las cifras cambian de sitio y la coma no.'},
+    {t:'Porque el diez lleva un cero y el cero se pega al final.', ok:false,
+     r:'Pegar un cero al final solo funciona con enteros. Con 3,42 no se pega nada: sale 34,2. Lo que pasa siempre es que <b>cada cifra sube un nivel</b>.'},
+    {t:'No funciona con decimales, solo con números enteros.', ok:false,
+     r:'Funciona igual: 3,42 × 10 = 34,2. El 3 pasa de jinete a arban, el 4 de décima a jinete. La escalera no distingue arriba de abajo.'}]},
+
+ {sala:'columna', pre:() => { Object.assign(col, {2:3, 1:4, 0:2, k:0}); },
+  t:'Ahora <b>reparte</b> esa columna de 342 <b>entre cien</b>.',
+  ok:() => valorDe(col, KC) === 342 && col.k === -2,
+  bien:'3,42. El 3 ha bajado dos niveles y se ha quedado en el jinete; el 4 y el 2 han caído <b>por debajo del suelo</b>: décimas y centésimas. '
+      +'La coma sigue en su sitio. Dividir entre cien es <b>bajar dos peldaños</b>, y por debajo del jinete la escalera sigue.',
+  mal:() => valorDe(col, KC) !== 342 ? 'La columna tiene que ser de <b>342</b>.'
+    : col.k > -2 ? 'Van ' + (-col.k) + ' de los dos repartos: pulse «÷ 10» ' + (2 + col.k === 1 ? 'una vez más' : 'dos veces') + '.'
+    : 'Se ha pasado de repartir. Son dos peldaños abajo, no ' + (-col.k) + '.'},
+
+ {sala:'mensajero', pre:() => { Object.assign(msg, {4:3, 3:4, 2:2, 1:1, 0:7, nivel:0}); },
+  t:'Manda al yam el recuento de <b>34.217</b>. Corto, que el caballo <b>no lleva palabras de sobra</b>.',
+  ok:() => valorDe(msg, KS) === 34217 && msg.nivel === 4,
+  bien:'<b>3,4217 × ' + pot(4) + '</b>: tres tumenes y pico. El mensajero dice el grupo más grande que hay y cuántos, con decimales. Así la cifra '
+      +'de delante queda entre 1 y 9, y dos mensajeros dicen lo mismo de la misma manera. Es <b>la forma del yam</b>; en su siglo la llamarán '
+      +'notación científica.',
+  mal:() => valorDe(msg, KS) !== 34217 ? 'El ejército tiene que ser de <b>34.217</b>; ponga los diales.'
+    : msg.nivel < 4 ? 'Ha dicho ' + nivel(msg.nivel).pl + ', y hay tumenes: diga el grupo <b>más grande</b>. El caballo se lo agradece.'
+    : 'Ya está.'},
+
+ {sala:'mensajero', pre:() => { Object.assign(msg, {4:5, 3:2, 2:0, 1:0, 0:0, nivel:4}); },
+  t:'Cincuenta y dos mil jinetes. ¿Cuál es <b>la forma del yam</b>?',
+  ops:[
+    {t:'5,2 × 10⁴', ok:true,
+     r:'Cinco tumenes y dos myanganes: el grupo más grande, con decimales. Cifra de delante entre 1 y 9. Ése es el mensaje.'},
+    {t:'52 × 10³', ok:false,
+     r:'Vale lo mismo —cincuenta y dos myanganes son 52.000—, pero el mensajero ha dicho myanganes teniendo tumenes. La forma del yam '
+      +'dice el grupo más grande, y por eso la cifra de delante nunca pasa de 9.'},
+    {t:'0,52 × 10⁵', ok:false,
+     r:'También vale lo mismo, pero ha dicho un grupo que no hay —diez tumenes— y le sale un cero delante. El grupo más grande que hay es el tumen.'},
+    {t:'520 × 10²', ok:false,
+     r:'Quinientos veinte zuunes. Correcto y larguísimo: el caballo se queda por el camino. Grupo más grande: tumen.'}]},
+
+ {sala:'mensajero', pre:() => { Object.assign(msg, {4:0, 3:0, 2:0, 1:0, 0:0, nivel:4}); },
+  t:'Me llega este mensaje del yam: «<b>2,5 × ' + pot(4) + '</b>». Ponme ese ejército en los diales, que quiero verlo.',
+  ok:() => valorDe(msg, KS) === 25000,
+  bien:'Veinticinco mil: dos tumenes y cinco myanganes. Del mensaje al campamento y del campamento al mensaje: es la misma cuenta leída en los '
+      +'dos sentidos. 2,5 tumenes son dos tumenes enteros y medio tumen, y medio tumen son cinco myanganes.',
+  mal:() => { const N = valorDe(msg, KS);
+    return N === 0 ? 'Los diales están a cero. 2,5 tumenes: ¿cuántos tumenes enteros, y qué es medio tumen?'
+      : N === 25 ? 'Ha puesto 25 jinetes. El mensaje dice 2,5 <b>tumenes</b>: cada tumen son diez mil.'
+      : N === 2500 ? 'Ha puesto 2.500: eso es 2,5 myanganes. El mensaje dice tumenes, un nivel más arriba.'
+      : 'Tiene ' + cifra(N, 0) + ', y el mensaje dice 2,5 × ' + pot(4) + ' = 25.000.'; }},
+
+ {sala:'botin', pre:() => { Object.assign(botin, {monedas:1, entre:10}); },
+  t:'<b>Una moneda</b> de oro para <b>cien</b> jinetes, a partes iguales. ¿Cuánto le toca a cada uno?',
+  ok:() => botin.monedas === 1 && botin.entre === 100,
+  bien:'Una centésima, mi kan: <b>' + pot(-2) + '</b>. Dos peldaños por debajo del jinete. Y no es una regla nueva: es la misma escalera '
+      +'del campamento, que sigue hacia abajo porque dividir entre diez es bajar un peldaño, esté uno donde esté.',
+  mal:() => botin.monedas !== 1 ? 'Es <b>una</b> moneda.' : 'Son <b>cien</b> jinetes: dos peldaños abajo, no ' + Math.round(Math.log10(botin.entre)) + '.'},
+
+ {sala:'botin', pre:() => { Object.assign(botin, {monedas:1, entre:10}); },
+  t:'Mis escribas discuten: ¿cuánto es <b>' + pot(0) + '</b>?',
+  ops:[
+    {t:'1: el jinete solo es el nivel cero.', ok:true,
+     r:'Un grupo de nivel cero es un jinete, y un jinete es uno. Y hay una razón mejor: ' + pot(1) + ' ÷ 10 tiene que ser ' + pot(0)
+      +' para que la escalera no se rompa, y 10 ÷ 10 es 1. No se calcula: se <b>define</b> así para que la regla siga valiendo.'},
+    {t:'0: diez elevado a nada es nada.', ok:false,
+     r:'Es la respuesta natural y es la que rompe la escalera: si ' + pot(0) + ' fuera 0, entonces ' + pot(1) + ' ÷ 10 sería 0, y no lo es. '
+      +'Mire el reparto: bajar un peldaño desde diez da uno, no cero.'},
+    {t:'10: siempre hay al menos un diez.', ok:false,
+     r:'Entonces ' + pot(1) + ' y ' + pot(0) + ' valdrían lo mismo y dos peldaños de la escalera serían el mismo. Diez es el arban; el jinete es uno.'},
+    {t:'No existe: no se puede elevar a cero.', ok:false,
+     r:'No existía, y por eso se define. Lo que no se puede es calcularlo multiplicando; lo que sí se puede es <b>decidir</b> que vale 1, '
+      +'porque es lo único que no rompe nada. Está en las deudas.'}]},
+
+ {sala:'botin', pre:() => { Object.assign(botin, {monedas:1, entre:100}); },
+  t:'Y ese <b>' + pot(-2) + '</b> del reparto: ¿por qué es una centésima y no «menos cien»?',
+  ops:[
+    {t:'Porque el exponente cuenta peldaños: dos hacia abajo desde el jinete, y cada peldaño abajo es dividir entre diez.', ok:true,
+     r:'El signo menos no vuelve negativo el número: dice <b>hacia dónde</b> se cuentan los peldaños. Dos abajo desde uno es un centésimo, '
+      +'y un centésimo es positivo: es lo que le toca a cada jinete, no lo que debe.'},
+    {t:'Porque el signo menos convierte el número en negativo.', ok:false,
+     r:'Si fuera así, a cada jinete le tocaría una deuda de cien monedas por una sola moneda repartida, y el kan tendría un motín. '
+      +'El menos está en el <b>exponente</b>, no en el número: cuenta peldaños hacia abajo.'},
+    {t:'Porque se ha acordado así, sin más razón.', ok:false,
+     r:'Hay razón: con esa definición la regla de multiplicar sigue sin excepciones. ' + pot(2) + ' × ' + pot(-2) + ' = ' + pot(0) + ' = 1, '
+      +'y en efecto cien centésimas son uno. Se elige la definición que no rompe nada.'}]},
+
+ {sala:'ejercitos', pre:() => { Object.assign(ej, {a1:8, e1:3, a2:3, e2:4, zuunes:false}); },
+  t:'Dos ejércitos me esperan: uno de <b>8 × ' + pot(3) + '</b> y otro de <b>3 × ' + pot(4) + '</b>. ¿Cuál es más grande? Y rápido, que están cerca.',
+  ops:[
+    {t:'El de 3 × 10⁴: manda el nivel, y luego la cifra.', ok:true,
+     r:'Treinta mil contra ocho mil. Un tumen es más grande que nueve myanganes juntos, así que el nivel decide antes de mirar la cifra. '
+      +'Por eso la forma del yam pone el nivel bien a la vista: se compara sin contar.'},
+    {t:'El de 8 × 10³: ocho es más que tres.', ok:false,
+     r:'Ocho <b>myanganes</b> contra tres <b>tumenes</b>. Ocho mil contra treinta mil. La cifra grande engaña cuando está en un nivel pequeño; '
+      +'mire los cuadrados en la escena.'},
+    {t:'Son iguales, porque 8 + 3 = 3 + 4… más o menos.', ok:false,
+     r:'«Más o menos» no se dice delante del kan. Y no se suman: se comparan los niveles. Cuatro es más que tres, y ya está decidido.'},
+    {t:'No se sabe sin contar jinete a jinete.', ok:false,
+     r:'Se sabe, y es la gracia de la forma del yam: primero el exponente, y solo si empatan, la cifra. Contar jinete a jinete es para el '
+      +'que no sabe leer el mensaje.'}]},
+
+ {sala:'ejercitos', pre:() => { Object.assign(ej, {a1:1, e1:3, a2:9, e2:4, zuunes:false}); },
+  t:'Mi myangan es <b>de zuunes</b>: cada jinete que ves es en realidad un zuun entero. <b>Activa el truco</b> y dime cuántos son, '
+   +'y si le ganan a los nueve tumenes de enfrente.',
+  ok:() => ej.zuunes && ej.a1 === 1 && ej.e1 === 3,
+  bien:'<b>' + pot(3) + ' × ' + pot(2) + ' = ' + pot(5) + '</b>: cien mil. Cada grupo sube dos niveles porque cada jinete es cien, y los exponentes '
+      +'<b>se suman</b> porque los niveles se apilan: un myangan de zuunes es mil veces cien. Y los nueve tumenes de enfrente, noventa mil, '
+      +'se quedan cortos: manda el nivel.',
+  mal:() => !ej.zuunes ? 'Falta activar el truco: el botón de «cada jinete del 1 es un zuun».'
+    : 'El ejército 1 tiene que ser <b>un myangan</b>: cifra 1 y nivel ' + sup(3) + '.'},
+
+ {sala:'ejercitos', pre:() => { Object.assign(ej, {a1:1, e1:3, a2:1, e2:5, zuunes:true}); },
+  t:'Última, y que la apunten los escribas: <b>' + pot(3) + ' × ' + pot(2) + '</b> es…',
+  ops:[
+    {t:'10⁵: tres peldaños y dos peldaños son cinco.', ok:true,
+     r:'Los niveles se apilan y los exponentes se suman. Es lo mismo que ha visto en el reparto al revés: ' + pot(2) + ' × ' + pot(-2) + ' = ' + pot(0)
+      +'. Y con eso, mi kan, el recuento está cerrado: <b>' + pot(3) + ' × ' + pot(2) + ' = ' + pot(5) + '</b>, cien mil, sin contar uno a uno.'},
+    {t:'10⁶: tres por dos, seis.', ok:false,
+     r:'Multiplicar los exponentes daría un millón, y un myangan de zuunes no llega: son cien mil. Los peldaños se <b>suman</b>: subir tres y '
+      +'luego dos es subir cinco.'},
+    {t:'100⁵: se multiplican las bases.', ok:false,
+     r:'Cien elevado a cinco son diez mil millones: ni el kan tiene tantos. La base es siempre diez —la escalera es la misma—; lo que cambia '
+      +'es cuántos peldaños.'},
+    {t:'10¹: tres menos dos.', ok:false,
+     r:'Restar sería bajar: eso es dividir. Un myangan de zuunes es más que un myangan, no menos. Se suben tres y luego dos.'}]}
+];
+
+/* ── LOS RANGOS. Los del ejército de verdad: ascender es subir un nivel en
+   la potencia de diez. La broma es la idea. ── */
+const RANGOS = [
+  {n:'Jinete',           k:0, hasta:3},
+  {n:'Jefe de arban',    k:1, hasta:6},
+  {n:'Jefe de zuun',     k:2, hasta:9},
+  {n:'Jefe de myangan',  k:3, hasta:12},
+  {n:'Jefe de tumen',    k:4, hasta:15},
+  {n:'Noyan del kan',    k:5, hasta:99}
+];
+function rangoDe(n){ return RANGOS.find(r => n < r.hasta) || RANGOS[RANGOS.length - 1]; }
+function pintaRango(){
+  const n = hechos.size, r = rangoDe(n), i = RANGOS.indexOf(r);
+  const desde = i ? RANGOS[i - 1].hasta : 0, tramo = Math.min(r.hasta, ENCARGOS.length) - desde;
+  $('rangoNom').textContent = r.n;
+  $('rangoSig').textContent = r.k <= 4 ? 'nivel ' + pot(r.k) : 'todos los niveles';
+  $('rangoCuenta').textContent = n >= ENCARGOS.length ? 'recuento cerrado · ' + n + ' de ' + ENCARGOS.length
+    : (n - desde) + ' de ' + tramo + ' para ' + (RANGOS[i + 1] ? RANGOS[i + 1].n.toLowerCase() : '');
+  $('rangoBarra').style.width = (n >= ENCARGOS.length ? 100 : Math.round((n - desde) / tramo * 100)) + '%';
+}
+
+/* ── EL MOTOR DEL ENCARGO ─────────────────────────────────────────────── */
+let enc = 0, elegida = null;
+const hechos = new Set();
+let ultimoRango = 'Jinete';
+
+const GUARDADO = 'jefen.turno.v1';
+const CADUCA = 4*60*60*1000;
+let t0 = Date.now();
+function guardaTurno(){
+  try{
+    localStorage.setItem(GUARDADO, JSON.stringify({
+      v:1, ts:Date.now(), t0, enc, hechos:[...hechos], nombre:$('albNombre').value || '',
+      taller:{ac:taller.ac, racha:taller.racha, mejor:taller.mejor}, aj:AJ
+    }));
+  }catch(e){}
+}
+function leeTurno(){
+  try{
+    const d = JSON.parse(localStorage.getItem(GUARDADO) || 'null');
+    if(!d || d.v !== 1 || !Array.isArray(d.hechos)) return null;
+    if(!(d.enc >= 0 && d.enc < ENCARGOS.length)) return null;
+    if(Date.now() - d.ts > CADUCA){ borraTurno(); return null; }
+    return d;
+  }catch(e){ return null; }
+}
+function borraTurno(){ try{ localStorage.removeItem(GUARDADO); }catch(e){} }
+
+function pintaOpciones(){
+  const e = ENCARGOS[enc], caja = $('ops');
+  caja.innerHTML = ''; caja.hidden = !e.ops;
+  if(!e.ops) return;
+  e.ops.forEach((o, i) => {
+    const b = document.createElement('button');
+    b.className = 'op'; b.textContent = o.t;
+    b.setAttribute('aria-pressed', String(elegida === i));
+    b.addEventListener('click', () => { if(hechos.has(enc)) return; elegida = i; pintaOpciones(); });
+    caja.appendChild(b);
+  });
+}
+function pintaEncargo(){
+  const e = ENCARGOS[enc], ultimo = enc === ENCARGOS.length - 1, hecho = hechos.has(enc);
+  if(e.pre) e.pre();
+  muestraSala(e.sala);
+  elegida = hecho && e.ops ? e.ops.findIndex(o => o.ok) : null;
+  pintaOpciones();
+  $('encTxt').innerHTML = (ultimo && hecho)
+    ? '<b>Recuento cerrado.</b> Todo lo que hemos hecho era lo mismo: mirar en qué <b>sitio</b> está cada cifra. Subir de nivel es '
+      + 'multiplicar por diez, bajar es dividir, y los niveles se apilan. El mensajero lo dice en corto, y por debajo del jinete la '
+      + 'escalera sigue. Y otra cosa que volverá, mi kan: dentro de unos siglos, en una fábrica, alguien contará reclamaciones '
+      + 'en vez de jinetes y hará gráficas con ellas. Los sitios serán los mismos.'
+    : e.t;
+  $('cual').textContent = (ultimo && hecho) ? 'recuento cerrado' : 'encargo ' + (enc + 1) + ' de ' + ENCARGOS.length;
+  $('atras').disabled = enc === 0;
+  $('comprobar').textContent = !hecho ? 'Comprobar' : (ultimo ? 'Empezar de nuevo' : 'Siguiente encargo →');
+  const inf = $('informe');
+  inf.hidden = !hecho;
+  if(hecho){ inf.className = 'panel informe encargo'; $('infTxt').innerHTML = e.ops ? e.ops.find(o => o.ok).r : e.bien; }
+  pintaIndice(); pintaRango();
+}
+function revisa(){ const e = ENCARGOS[enc]; if(!e || e.ops || !hechos.has(enc)) return; $('informe').hidden = false; }
+
+/* EL ASOMO: Listubotai se asoma por el borde del informe a ver la cuenta.
+   Bien, cabeza entera; mal, a media altura. Se esconde solo. */
+let asomoReloj = null;
+function asomate(bien){
+  const a = $('asomo'); clearTimeout(asomoReloj);
+  a.className = 'asomo'; void a.offsetWidth;
+  a.className = 'asomo mira' + (bien ? '' : ' falla');
+  asomoReloj = setTimeout(() => { a.className = 'asomo'; }, 2400);
+}
+$('comprobar').addEventListener('click', () => {
+  const e = ENCARGOS[enc], inf = $('informe');
+  Ruido.despierta();
+  if(hechos.has(enc)){
+    if(enc < ENCARGOS.length - 1){ enc++; pintaEncargo(); }
+    else { hechos.clear(); enc = 0; pintaEncargo(); }
+    guardaTurno(); return;
+  }
+  let bien, dice;
+  if(e.ops){
+    if(elegida === null){ bien = false; dice = 'Elija una, mi kan. «Ninguna» no es una respuesta.'; }
+    else { bien = e.ops[elegida].ok; dice = e.ops[elegida].r;
+           if(!bien) document.querySelectorAll('.op')[elegida].classList.add('fallada'); }
+  }else{ bien = e.ok(); dice = bien ? e.bien : (typeof e.mal === 'function' ? e.mal() : e.mal); }
+  inf.hidden = false;
+  inf.className = 'panel informe encargo' + (bien ? '' : ' mal');
+  $('infTxt').innerHTML = dice;
+  asomate(bien);
+  if(bien){
+    hechos.add(enc);
+    const r = rangoDe(hechos.size).n;
+    if(r !== ultimoRango){ ultimoRango = r; Ruido.asciende(); $('infTxt').innerHTML += '<br><b>Asciende a ' + r.toLowerCase() + '.</b>'; }
+    else Ruido.bien();
+    pintaEncargo(); inf.hidden = false; $('infTxt').innerHTML = dice + (r !== rangoDe(hechos.size - 1).n ? '<br><b>Asciende a ' + r.toLowerCase() + '.</b>' : '');
+    guardaTurno();
+  } else Ruido.mal();
+});
+$('atras').addEventListener('click', () => { if(enc > 0){ enc--; pintaEncargo(); guardaTurno(); } });
+
+/* ── EL ÍNDICE DE SALAS, EL GLOSARIO Y LAS DEUDAS ─────────────────────── */
+function pintaIndice(){
+  const s = $('ixSalas');
+  if(!s.dataset.puesto){
+    s.dataset.puesto = '1';
+    Object.keys(SALAS).forEach(k => {
+      const b = document.createElement('button'); b.className = 'b'; b.textContent = LEMAS[k][0];
+      b.addEventListener('click', () => { muestraSala(k); cierraPaneles(); $(SALAS[k]).scrollIntoView({behavior:'smooth', block:'start'}); });
+      s.appendChild(b);
+    });
+  }
+  const l = $('ixLista'); l.innerHTML = '';
+  ENCARGOS.forEach((e, i) => {
+    const b = document.createElement('button');
+    b.className = (hechos.has(i) ? 'hecho ' : '') + (i === enc ? 'actual' : '');
+    b.innerHTML = '<b>' + String(i + 1).padStart(2, '0') + '</b>' + LEMAS[e.sala][0] + ' · ' + e.t.replace(/<[^>]*>/g, '').slice(0, 52) + '…';
+    b.addEventListener('click', () => { enc = i; pintaEncargo(); cierraPaneles(); guardaTurno(); scrollTo({top:0, behavior:'smooth'}); });
+    l.appendChild(b);
+  });
+}
+const PANELES = {bIndice:'pIndice', bGlosario:'pGlosario', bDeudas:'pDeudas'};
+function cierraPaneles(){
+  Object.entries(PANELES).forEach(([b, p]) => { $(p).hidden = true; $(b).setAttribute('aria-pressed', 'false'); });
+}
+Object.entries(PANELES).forEach(([b, p]) => $(b).addEventListener('click', () => {
+  const abre = $(p).hidden; cierraPaneles();
+  if(abre){ $(p).hidden = false; $(b).setAttribute('aria-pressed', 'true'); if(p === 'pIndice') pintaIndice();
+            $(p).scrollIntoView({behavior:'smooth', block:'start'}); }
+}));
+$('ixCerrar').addEventListener('click', () => { cierraPaneles(); pintaEncargo(); scrollTo({top:0, behavior:'smooth'}); });
+$('ixTodo').addEventListener('click', () => { ENCARGOS.forEach((_, i) => hechos.add(i)); enc = ENCARGOS.length - 1; pintaEncargo(); guardaTurno(); });
+{
+  let armado = false, reloj = 0;
+  const desarma = () => { armado = false; clearTimeout(reloj); $('ixCero').classList.remove('armado'); $('ixCero').textContent = 'Empezar de cero'; };
+  $('ixCero').addEventListener('click', () => {
+    if(!armado){ armado = true; $('ixCero').classList.add('armado'); $('ixCero').textContent = 'Pulsa otra vez para borrarlo';
+      clearTimeout(reloj); reloj = setTimeout(desarma, 5000); return; }
+    desarma(); borraTurno(); hechos.clear(); enc = 0; taller.ac = 0; taller.racha = 0; taller.mejor = 0; ultimoRango = 'Jinete'; t0 = Date.now();
+    pintaEncargo();
+  });
+}
+const GLOSARIO = [
+  ['arban',   pot(1) + ' · diez', 'Diez jinetes y su jefe. El grupo más pequeño con nombre: si tienes diez de algo, ya tienes un arban.'],
+  ['zuun',    pot(2) + ' · cien', 'Diez arbanes. En la Historia secreta se escribe jaghun; los jinetes lo decían más corto.'],
+  ['myangan', pot(3) + ' · mil', 'Diez zuunes. El jefe de myangan ya era alguien: mandaba mil.'],
+  ['tumen',   pot(4) + ' · diez mil', 'Diez myanganes. El grupo más grande con nombre propio. Más allá se decía «dos tumenes», «diez tumenes».'],
+  ['jinete',  pot(0) + ' · uno', 'El nivel cero: un grupo de uno. Sin él la escalera no tendría suelo.'],
+  ['yam',     'el correo', 'Las postas del imperio, con relevos de caballos cada pocas decenas de kilómetros. Un mensaje corría más que un ejército, siempre que fuera corto.'],
+  ['paiza',   'el pase', 'La tablilla de metal que daba derecho a caballos y comida en las postas. De oro para los grandes, de hierro para los demás.'],
+  ['ger',     'la casa', 'La tienda de fieltro redonda; en Occidente la llaman yurta. Se levanta en una hora y cabe en un carro.'],
+  ['tug',     'el estandarte', 'Un asta con colas de caballo: nueve blancas para el kan en paz, negras en guerra. En la escena lo lleva el ejército que gana.'],
+  ['noyan',   'el jefe', 'El que manda. Jefe de arban, de zuun, de myangan o de tumen: los rangos de esta app son los de verdad.'],
+  ['kan',     'el que manda a los noyan', 'Jefén Giskan. No cuenta a ojo: para eso tiene a Listubotai. Pero lo intenta.']
+];
+$('glosas').innerHTML = GLOSARIO.map(([p, n, d]) => '<div class="glosa"><span><b>' + p + '</b><i>' + n + '</i></span><p>' + d + '</p></div>').join('');
+
+/* ═══ EL TALLER ═══════════════════════════════════════════════════════ */
+const al = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+const elige = arr => arr[al(0, arr.length - 1)];
+const numero = v => { const n = parseFloat(String(v).trim().replace(/\./g, '').replace(',', '.')); return isNaN(n) ? null : n; };
+const numeroLibre = v => { const s = String(v).trim(); const n = parseFloat(s.includes(',') ? s.replace(/\./g, '').replace(',', '.') : s); return isNaN(n) ? null : n; };
+const casi = (v, sol, tol = 1e-9) => { const n = numeroLibre(v); return n !== null && Math.abs(n - sol) <= tol; };
+/* la forma del yam escrita a mano: 5,2×10^4 · 5.2 x 10^4 · 5,2·10⁴ */
+function leeCientifica(v){
+  const s = String(v).trim().replace(/\s+/g, '').replace(/[×x·*]/g, 'x').replace(/\^/g, '').replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]/g, c => Object.keys(SUP).find(k => SUP[k] === c) || '');
+  const m = s.match(/^(-?\d+(?:[.,]\d+)?)x10(-?\d+)$/);
+  if(!m) return null;
+  return {mant:parseFloat(m[1].replace(',', '.')), exp:parseInt(m[2], 10)};
+}
+const nombreN = N => cifra(N, 0);
+const TIPOS = {
+  campamento:{n:'El campamento', sala:'campamento', gen(){
+    const d = {4:al(1,9), 3:al(1,9), 2:al(1,9), 1:al(1,9), 0:al(1,9)}, k = elige([4,3,2,1]), N = valorDe(d, KS), sol = d[k] * 10**k;
+    return {t:'En el campamento hay <b>' + nombreN(N) + '</b> jinetes. ¿Cuánto vale la cifra <b>' + d[k] + '</b>, en jinetes?',
+            sol, ok:v => casi(v, sol), exp:'El ' + d[k] + ' está en el sitio de los ' + nivel(k).pl + ': ' + d[k] + ' × ' + pot(k) + ' = <b>' + cifra(sol, 0) + '</b>.',
+            pon(){ Object.assign(camp, d); camp.aviso = ''; }};
+  }},
+  columna:{n:'La columna', sala:'columna', gen(){
+    const d = {2:al(1,9), 1:al(0,9), 0:al(1,9)}, k = elige([-2,-1,1,2,3]), n = valorDe(d, KC), sol = redondo(n * 10**k, 4);
+    return {t:'Una columna de <b>' + n + '</b>, ' + (k > 0 ? 'multiplicada por <b>' + pot(k) + '</b>' : 'repartida entre <b>' + pot(-k) + '</b>') + '. ¿Cuánto sale?',
+            sol, ok:v => casi(v, sol, 1e-6),
+            exp:'Cada cifra ' + (k > 0 ? 'sube ' + k : 'baja ' + (-k)) + (Math.abs(k) === 1 ? ' peldaño' : ' peldaños') + ' y la coma se queda quieta: <b>'
+              + (k >= 0 ? cifra(sol, 0) : decimalLargo(sol, 3)) + '</b>.',
+            pon(){ Object.assign(col, d); col.k = k; }};
+  }},
+  mensajero:{n:'El mensajero', sala:'mensajero', gen(){
+    if(Math.random() < .5){
+      const d = {4:al(1,9), 3:al(0,9), 2:elige([0,0,al(1,9)]), 1:0, 0:0}, N = valorDe(d, KS), mant = N / 10**4;
+      return {t:'Escribe <b>' + nombreN(N) + '</b> en la forma del yam (como 5,2×10^4).', sol:decimalLargo(mant, 4) + '×10^4',
+              ok:v => { const c = leeCientifica(v); return !!c && c.mant >= 1 && c.mant < 10 && Math.abs(c.mant * 10**c.exp - N) < 1e-6; },
+              exp:'El grupo más grande son los tumenes, ' + pot(4) + ': ' + nombreN(N) + ' = <b>' + decimalLargo(mant, 4) + ' × ' + pot(4) + '</b>.',
+              pon(){ Object.assign(msg, d); msg.nivel = 4; }};
+    }
+    const m = elige([1.5, 2, 2.5, 3.2, 4, 6.4, 7.5, 9]), k = elige([2,3,4]), N = Math.round(m * 10**k);
+    return {t:'Un mensaje del yam dice <b>' + decimalLargo(m, 2) + ' × ' + pot(k) + '</b>. ¿Cuántos jinetes son?', sol:N, ok:v => casi(v, N),
+            exp:decimalLargo(m, 2) + ' ' + nivel(k).pl + ': cada uno es ' + cifra(10**k, 0) + ', así que <b>' + nombreN(N) + '</b>.',
+            pon(){ const d = {4:0,3:0,2:0,1:0,0:0}; let r = N; KS.forEach(q => { d[q] = Math.floor(r / 10**q); r -= d[q] * 10**q; }); Object.assign(msg, d); msg.nivel = k; }};
+  }},
+  botin:{n:'El botín', sala:'botin', gen(){
+    const m = elige([1,2,3,5,7]), k = elige([1,2,3,4]), sol = m / 10**k;
+    return {t:'<b>' + m + (m === 1 ? ' moneda' : ' monedas') + '</b> entre <b>' + cifra(10**k, 0) + '</b> jinetes. ¿Cuánto le toca a cada uno?',
+            sol, ok:v => casi(v, sol, 1e-9),
+            exp:'Bajar ' + k + (k === 1 ? ' peldaño' : ' peldaños') + ': ' + m + ' × ' + pot(-k) + ' = <b>' + decimalLargo(sol, 4) + '</b>.',
+            pon(){ botin.monedas = m; botin.entre = 10**k; }};
+  }},
+  ejercitos:{n:'Los ejércitos', sala:'ejercitos', gen(){
+    const a = al(1,5), b = al(1,4), sol = a + b;
+    return {t:'<b>' + pot(a) + ' × ' + pot(b) + '</b> es diez elevado a… (escribe solo el exponente)', sol, ok:v => casi(v, sol),
+            exp:'Los niveles se apilan: subir ' + a + ' y luego ' + b + ' es subir ' + sol + '. <b>' + pot(sol) + '</b>.',
+            pon(){ Object.assign(ej, {a1:1, e1:a, a2:1, e2:sol, zuunes:false}); }};
+  }},
+  sino:{n:'Sí o no', bool:true, gen(){
+    const e = elige([
+      ['10⁰ vale 1.', 'sí', 'El jinete solo es el nivel cero, y 10 ÷ 10 = 1: es la única definición que no rompe la escalera.'],
+      ['10⁻² es un número negativo.', 'no', 'Es una centésima, positiva. El menos cuenta peldaños hacia abajo, no cambia el signo.'],
+      ['8 × 10³ es más que 3 × 10⁴.', 'no', 'Ocho mil contra treinta mil: manda el nivel antes que la cifra.'],
+      ['34 × 10³ y 3,4 × 10⁴ son el mismo número.', 'sí', 'Los dos son 34.000. Solo el segundo tiene la forma del yam, que es un convenio.'],
+      ['Multiplicar por diez cambia las cifras del número.', 'no', 'Cambia el sitio de las cifras, no las cifras: cada una sube un nivel.'],
+      ['10³ × 10² = 10⁶.', 'no', 'Los exponentes se suman, no se multiplican: 10⁵.'],
+      ['Dividir entre cien es bajar dos peldaños en la escalera.', 'sí', 'Y por debajo del jinete la escalera sigue: décimas, centésimas.'],
+      ['Diez arbanes se pueden tener sin convertirlos en nada.', 'no', 'Diez arbanes ya son un zuun: no se puede tener diez de nada en el recuento.'],
+      ['En la forma del yam la cifra de delante va entre 1 y 9.', 'sí', 'Es el convenio: decir el grupo más grande que hay, para que dos mensajes se comparen de un vistazo.'],
+      ['Mover la coma es una regla sin razón.', 'no', 'La razón es que la coma se queda en el jinete y las cifras cambian de nivel.']
+    ]);
+    return {t:e[0] + ' ¿Sí o no?', sol:e[1], ok:v => String(v).trim().toLowerCase() === e[1], exp:e[2]};
+  }}
+};
+const taller = {tipo:'campamento', ej:null, ac:0, racha:0, mejor:0, enTaller:false, corregido:false};
+function pintaTipos(){
+  const c = $('tipos'); c.innerHTML = '';
+  Object.keys(TIPOS).forEach(k => {
+    const b = document.createElement('button'); b.className = 'b'; b.textContent = TIPOS[k].n;
+    b.setAttribute('aria-pressed', String(taller.tipo === k));
+    b.addEventListener('click', () => { taller.tipo = k; pintaTipos(); nuevoEjercicio(); });
+    c.appendChild(b);
+  });
+  $('tAc').textContent = taller.ac; $('tRacha').textContent = taller.racha; $('tMejor').textContent = taller.mejor;
+}
+function nuevoEjercicio(){
+  const T = TIPOS[taller.tipo];
+  taller.ej = T.gen(); taller.corregido = false;
+  $('ejer').innerHTML = taller.ej.t;
+  $('verTaller').hidden = true; $('verlo').hidden = true;
+  $('filaSiNo').hidden = !T.bool; $('filaResp').hidden = !!T.bool;
+  if(!T.bool){ const r = $('resp'); r.value = ''; r.focus(); }
+}
+function corrige(dado){
+  const v = dado !== undefined ? dado : $('resp').value;
+  if(!String(v).trim() || taller.corregido) return;
+  const bien = taller.ej.ok(v);
+  const ver = $('verTaller'); ver.hidden = false;
+  ver.className = 'veredicto' + (bien ? ' bien' : '');
+  const solTxt = typeof taller.ej.sol === 'number' ? (Number.isInteger(taller.ej.sol) ? cifra(taller.ej.sol, 0) : decimalLargo(taller.ej.sol, 4)) : taller.ej.sol;
+  if(bien){ taller.ac++; taller.racha++; taller.mejor = Math.max(taller.mejor, taller.racha); ver.innerHTML = '<b>Bien.</b> ' + taller.ej.exp; Ruido.bien(); }
+  else { taller.racha = 0; ver.innerHTML = 'No. La respuesta era <b>' + solTxt + '</b>. ' + taller.ej.exp; Ruido.mal(); }
+  taller.corregido = true; $('verlo').hidden = !taller.ej.pon; pintaTipos(); guardaTurno();
+}
+function verEnSala(){ const e = taller.ej, T = TIPOS[taller.tipo]; if(!e || !e.pon) return; e.pon(); muestraSala(T.sala); $(SALAS[T.sala]).scrollIntoView({behavior:'smooth', block:'start'}); }
+function entraTaller(dentro){
+  taller.enTaller = dentro; $('bTaller').setAttribute('aria-pressed', String(dentro));
+  $('pTaller').hidden = !dentro; $('pEncargo').hidden = dentro; $('informe').hidden = dentro || !hechos.has(enc);
+  cierraPaneles();
+  if(dentro){ pintaTipos(); nuevoEjercicio(); for(const k in SALAS) $(SALAS[k]).hidden = true; } else pintaEncargo();
+}
+$('bTaller').addEventListener('click', () => entraTaller(!taller.enTaller));
+$('corrige').addEventListener('click', () => corrige());
+$('bSi').addEventListener('click', () => corrige('sí'));
+$('bNo').addEventListener('click', () => corrige('no'));
+$('resp').addEventListener('keydown', e => { if(e.key === 'Enter'){ taller.corregido ? nuevoEjercicio() : corrige(); } });
+$('otro').addEventListener('click', nuevoEjercicio);
+$('verlo').addEventListener('click', verEnSala);
+$('hojaDiez').addEventListener('click', () => {
+  const claves = Object.keys(TIPOS); const lista = [];
+  for(let i = 0; i < 10; i++) lista.push(TIPOS[claves[i % claves.length]].gen());
+  const limpia = h => h.replace(/<[^>]+>/g, '');
+  const solTxt = e => typeof e.sol === 'number' ? (Number.isInteger(e.sol) ? cifra(e.sol, 0) : decimalLargo(e.sol, 4)) : e.sol;
+  $('hoja').innerHTML = '<h2>El recuento de Jefén Giskan · hoja de práctica</h2>'
+    + '<div class="cab">Potencias de diez y notación científica · Nombre: ____________________ · Fecha: __________</div>'
+    + '<ol>' + lista.map(e => '<li>' + limpia(e.t) + '</li>').join('') + '</ol>'
+    + '<div class="clave"><h2>Clave del profesor</h2><ol>' + lista.map(e => '<li><b>' + solTxt(e) + '</b> — ' + limpia(e.exp) + '</li>').join('') + '</ol></div>';
+  document.body.classList.add('imprimiendo');
+  const fuera = () => { document.body.classList.remove('imprimiendo'); removeEventListener('afterprint', fuera); };
+  addEventListener('afterprint', fuera);
+  setTimeout(() => { print(); setTimeout(fuera, 800); }, 60);
+});
+
+/* ═══ LOS AJUSTES Y EL ALBARÁN ════════════════════════════════════════ */
+$('bAjustes').addEventListener('click', () => { pintaAjustes(); $('mAjustes').hidden = false; });
+$('ajCerrar').addEventListener('click', () => { $('mAjustes').hidden = true; });
+$('mAjustes').addEventListener('click', e => { if(e.target.id === 'mAjustes') $('mAjustes').hidden = true; });
+
+function textoAlbaran(){
+  const n = hechos.size, r = rangoDe(n), min = Math.max(1, Math.round((Date.now() - t0) / 60000));
+  const f = new Date(), fecha = f.toLocaleDateString('es-ES') + ' ' + f.toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit'});
+  const estado = {v:1, h:[...hechos], t:[taller.ac, taller.racha, taller.mejor], min};
+  const sello = 'RJG1.' + btoa(unescape(encodeURIComponent(JSON.stringify(estado)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  return 'EL RECUENTO DE JEFÉN GISKAN · albarán\n'
+    + 'Jinete: ' + ($('albNombre').value.trim() || '(sin nombre)') + '\n'
+    + 'Fecha: ' + fecha + '\n'
+    + 'Rango: ' + r.n + ' · nivel ' + (r.k <= 4 ? pot(r.k) : 'todos') + '\n'
+    + 'Encargos: ' + n + ' de ' + ENCARGOS.length + (n ? ' · ' + [...hechos].sort((a, b) => a - b).map(i => i + 1).join(' ') : '') + '\n'
+    + 'Taller: ' + taller.ac + ' aciertos · racha ' + taller.racha + ' · mejor ' + taller.mejor + '\n'
+    + 'Tiempo en la estepa: ' + min + ' min\n'
+    + 'Sello: ' + sello;
+}
+function pintaAlbaran(){ $('albTexto').innerHTML = textoAlbaran().replace(/</g, '&lt;').replace(/(Sello: .*)/, '<span class="sello">$1</span>'); }
+$('bAlbaran').addEventListener('click', () => { pintaAlbaran(); $('mAlbaran').hidden = false; $('albAviso').textContent = ''; });
+$('albCerrar').addEventListener('click', () => { $('mAlbaran').hidden = true; });
+$('mAlbaran').addEventListener('click', e => { if(e.target.id === 'mAlbaran') $('mAlbaran').hidden = true; });
+$('albNombre').addEventListener('input', () => { pintaAlbaran(); guardaTurno(); });
+$('albCopiar').addEventListener('click', async () => {
+  const t = textoAlbaran();
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){ await navigator.clipboard.writeText(t); $('albAviso').textContent = 'copiado'; return; }
+  }catch(e){}
+  const r = document.createRange(); r.selectNodeContents($('albTexto'));
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  $('albAviso').textContent = 'seleccionado: copie con el sistema';
+});
+
+/* ═══ LA GUÍA VISUAL: un hueco de luz sobre cada zona y un globo al lado. */
+const PASOS = [
+  {id:'franja',   t:'Tu rango', d:'Empiezas como jinete. Cada tres encargos asciendes un nivel: jefe de arban, de zuun, de myangan, de tumen. Subir de rango es subir una potencia de diez.'},
+  {id:'pEncargo', t:'El encargo', d:'Jefén Giskan pide. Se hace en la sala de abajo y se pulsa Comprobar. Con ◀ se vuelve al anterior, y el informe se queda como estaba.'},
+  {sel:'.diales, .fila', t:'Los mandos', d:'Lo que se puede tocar. En el campamento, un dial por nivel: nueve más uno no son diez, son uno del nivel siguiente. Pruébalo.'},
+  {sel:'.escena', t:'La escena', d:'El dibujo, en su marco. Cambia con los mandos: es donde se ve lo que la cuenta dice.'},
+  {sel:'.lectura', t:'La lectura', d:'Lo que dice la escena, en palabras y en cuenta. Listubotai la escribe; el kan la lee.'},
+  {id:'barra',    t:'La barra', d:'Taller para practicar libre, Salas para abrir cualquiera suelta, Glosario con las palabras de la estepa, Deudas con lo que se dice sin demostrar, Albarán para llevarse la sesión y Ajustes para el aula.'}
+];
+let paso = 0;
+function elDe(p){
+  if(p.id) return $(p.id);
+  const sala = document.querySelector('#pCampamento:not([hidden]), #pColumna:not([hidden]), #pMensajero:not([hidden]), #pBotin:not([hidden]), #pEjercitos:not([hidden])');
+  return sala ? sala.querySelector(p.sel) : null;
+}
+function pintaPaso(){
+  const p = PASOS[paso], el = elDe(p);
+  if(!el){ paso++; if(paso >= PASOS.length){ cierraGuia(); return; } pintaPaso(); return; }
+  el.scrollIntoView({behavior:'smooth', block:'center'});
+  setTimeout(() => {
+    const r = el.getBoundingClientRect(), f = $('tourFoco');
+    f.style.top = (r.top - 6) + 'px'; f.style.left = (r.left - 6) + 'px'; f.style.width = (r.width + 12) + 'px'; f.style.height = (r.height + 12) + 'px';
+    const g = $('tourGlobo'); $('tourTit').textContent = p.t; $('tourTxt').textContent = p.d;
+    $('tourNum').textContent = (paso + 1) + ' de ' + PASOS.length;
+    $('tourSig').textContent = paso === PASOS.length - 1 ? 'Terminar' : 'Siguiente';
+    const abajo = r.bottom + 12, alto = g.offsetHeight || 140;
+    g.style.top = (abajo + alto < innerHeight - 8 ? abajo : Math.max(8, r.top - alto - 12)) + 'px';
+    g.style.left = Math.min(Math.max(12, r.left), innerWidth - (g.offsetWidth || 320) - 12) + 'px';
+    g.focus();
+  }, 320);
+}
+function abreGuia(){ entraTaller(false); cierraPaneles(); paso = 0; $('tourCapa').hidden = false; pintaPaso(); }
+function cierraGuia(){ $('tourCapa').hidden = true; }
+$('bGuia').addEventListener('click', abreGuia);
+$('tourSig').addEventListener('click', e => { e.stopPropagation(); paso++; if(paso >= PASOS.length) cierraGuia(); else pintaPaso(); });
+$('tourSalir').addEventListener('click', e => { e.stopPropagation(); cierraGuia(); });
+$('tourCapa').addEventListener('click', e => { if(e.target.id === 'tourCapa') cierraGuia(); });
+addEventListener('keydown', e => { if(e.key === 'Escape'){ cierraGuia(); $('mAjustes').hidden = true; $('mAlbaran').hidden = true; } });
+
+/* ═══ EL RELOJ DEL YAM y EL ARRANQUE ═════════════════════════════════ */
+function reloj(){ const d = new Date(); $('reloj').textContent = String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); }
+reloj(); setInterval(reloj, 15000);
+{
+  const lineas = ['un jinete <b>' + pot(0) + '</b>', 'diez jinetes · un arban <b>' + pot(1) + '</b>', 'diez arbanes · un zuun <b>' + pot(2) + '</b>',
+                  'diez zuunes · un myangan <b>' + pot(3) + '</b>', 'diez myanganes · un tumen <b>' + pot(4) + '</b>'];
+  const rapido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $('bootLista').innerHTML = lineas.map((l, i) => '<span style="animation-delay:' + (rapido ? 0 : .25 + i * .32) + 's">' + l + '</span>').join('');
+  const fuera = () => { const b = $('boot'); if(!b || b.classList.contains('fuera')) return; b.classList.add('fuera'); setTimeout(() => b.remove(), 600); };
+  $('boot').addEventListener('click', fuera);
+  setTimeout(fuera, rapido ? 300 : 2700);
+}
+
+/* ═══ EL AUTODIAGNÓSTICO ═════════════════════════════════════════════ */
+$('ixDiag').addEventListener('click', () => {
+  const d = $('diag'); d.hidden = false; const li = [];
+  const di = (t, ok) => li.push('<div class="' + (ok ? 'ok' : 'ko') + '">' + (ok ? '✓ ' : '✗ ') + t + '</div>');
+  // 1 · el valor posicional
+  let ok1 = true; for(let i = 0; i < 200; i++){ const e = {4:al(0,9),3:al(0,9),2:al(0,9),1:al(0,9),0:al(0,9)}; if(valorDe(e, KS) !== parseInt(KS.map(k => e[k]).join(''), 10)) ok1 = false; }
+  di('el valor posicional coincide con la escritura (200 pruebas)', ok1);
+  // 2 · el acarreo: 99 + 1 = 100 y 100 − 1 = 99
+  const e2 = {4:0,3:0,2:0,1:9,0:9}; dialMas(e2, KS, 0);
+  const r2 = valorDe(e2, KS) === 100 && e2[2] === 1 && e2[1] === 0 && e2[0] === 0;
+  const e3 = {4:0,3:0,2:1,1:0,0:0}; dialMenos(e3, KS, 0);
+  di('el dial acarrea (99 + 1 → un zuun) y presta (100 − 1 → 99)', r2 && valorDe(e3, KS) === 99);
+  const e4 = {4:9,3:9,2:9,1:9,0:9}; const t4 = dialMas(e4, KS, 0);
+  di('a 99.999 el campamento dice «tope» y no revienta', t4.que === 'tope' && valorDe(e4, KS) === 99999);
+  // 3 · la escalera: 10^a × 10^b = 10^(a+b) y 10^0 = 1 y 10^-k = 1/10^k
+  let ok3 = true; for(let a = -4; a <= 7; a++) for(let b = -4; b <= 7; b++) if(Math.abs(10**a * 10**b - 10**(a+b)) > 1e-9 * 10**(a+b)) ok3 = false;
+  di('10ᵃ × 10ᵇ = 10ᵃ⁺ᵇ de −4 a 7', ok3 && 10**0 === 1 && Math.abs(10**-2 - 1/100) < 1e-12);
+  // 4 · la forma del yam: la cifra de delante entre 1 y 9 si se dice el grupo más grande
+  let ok4 = true; for(let i = 0; i < 200; i++){ const e = {4:al(0,9),3:al(0,9),2:al(0,9),1:al(0,9),0:al(0,9)}; const N = valorDe(e, KS); if(!N) continue;
+    const may = KS.find(k => e[k]); const m = N / 10**may; if(m < 1 || m >= 10) ok4 = false; }
+  di('con el grupo más grande, la cifra de delante queda entre 1 y 9 (200 pruebas)', ok4);
+  di('se lee la forma del yam a mano: 5,2×10^4 · 5.2 x 10^4 · 5,2·10⁴',
+     [['5,2×10^4', 5.2, 4], ['5.2 x 10^4', 5.2, 4], ['5,2·10⁴', 5.2, 4], ['3,4217×10^4', 3.4217, 4]].every(([s, m, e]) => { const c = leeCientifica(s); return c && Math.abs(c.mant - m) < 1e-9 && c.exp === e; })
+     && leeCientifica('basura') === null);
+  // 5 · comparar: manda el nivel
+  let ok5 = true; for(let i = 0; i < 200; i++){ const a1 = al(1,9), a2 = al(1,9), e1 = al(0,6), e2 = al(0,6); if(e1 > e2 && a1 * 10**e1 <= a2 * 10**e2) ok5 = false; }
+  di('si el exponente es mayor, el ejército es mayor, sea cual sea la cifra (200 pruebas)', ok5);
+  // 6 · los generadores
+  let ok6 = true, n6 = 0; for(const k in TIPOS) for(let i = 0; i < 80; i++){ const e = TIPOS[k].gen(); n6++;
+    const sol = typeof e.sol === 'number' ? (Number.isInteger(e.sol) ? String(e.sol) : String(e.sol).replace('.', ',')) : e.sol;
+    if(!e.ok(sol) || e.ok('999999999') || e.ok('') || !e.t || !e.exp) ok6 = false; }
+  di('los ' + Object.keys(TIPOS).length + ' generadores del taller aceptan su solución y rechazan basura (' + n6 + ' pruebas)', ok6);
+  let ok7 = true; for(let i = 0; i < 60; i++){ ['campamento','columna','mensajero','botin','ejercitos'].forEach(k => { const e = TIPOS[k].gen(); e.pon(); });
+    if(!KS.every(k => camp[k] >= 0 && camp[k] <= 9) || !KC.every(k => col[k] >= 0 && col[k] <= 9) || col.k < -3 || col.k > 3 || ![10,100,1000,10000].includes(botin.entre)
+       || ![1,2,3,5,7,9].includes(botin.monedas) || ej.e1 < 0 || ej.e1 > 5) ok7 = false; }
+  di('«verlo en la sala» deja los mandos en valores que existen (300 pruebas)', ok7);
+  // 7 · los encargos
+  di('los ' + ENCARGOS.length + ' encargos apuntan a una sala que existe', ENCARGOS.every(e => SALAS[e.sala]));
+  di('cada encargo de opciones tiene UNA correcta, y todas explican', ENCARGOS.filter(e => e.ops).every(e => e.ops.filter(o => o.ok).length === 1 && e.ops.every(o => o.r && o.r.length > 20)));
+  di('cada encargo de manipulativo trae pre, bien y mal', ENCARGOS.filter(e => !e.ops).every(e => e.pre && e.bien && e.mal));
+  let ok8 = true; const guardaEnc = enc, guardaH = new Set(hechos);
+  ENCARGOS.forEach((e, i) => { if(e.ops) return; e.pre(); if(e.ok()) ok8 = false; });
+  di('ningún encargo de manipulativo está resuelto nada más abrirlo', ok8);
+  ENCARGOS[guardaEnc].pre && ENCARGOS[guardaEnc].pre();
+  di('las ' + Object.keys(SALAS).length + ' salas tienen rótulo y pintor', Object.keys(SALAS).every(k => LEMAS[k] && PINTA[k]));
+  di('los rangos cubren los ' + ENCARGOS.length + ' encargos y acaban en noyan', rangoDe(0).n === 'Jinete' && rangoDe(ENCARGOS.length).n === 'Noyan del kan' && rangoDe(7).n === 'Jefe de zuun');
+  d.innerHTML = li.join('');
+  pintaEncargo();
+});
+
+/* ── EL VESTIDO DE LAS SALAS y LA APERTURA ────────────────────────────── */
+Object.keys(SALAS).forEach(k => {
+  const pan = $(SALAS[k]), [nom, lema] = LEMAS[k];
+  const rot = document.createElement('div'); rot.className = 'salaRot';
+  rot.innerHTML = '<b>' + nom + '</b><span>' + lema + '</span>'; pan.insertBefore(rot, pan.firstChild);
+});
+{
+  const d = leeTurno();
+  if(d){
+    enc = d.enc; d.hechos.forEach(i => { if(i >= 0 && i < ENCARGOS.length) hechos.add(i); });
+    const t = d.taller || {}; taller.ac = t.ac|0; taller.racha = t.racha|0; taller.mejor = t.mejor|0;
+    if(d.aj) Object.keys(AJ).forEach(k => { if(d.aj[k] !== undefined) AJ[k] = d.aj[k]; });
+    if(d.nombre) $('albNombre').value = d.nombre;
+    t0 = d.t0 || Date.now();
+    ultimoRango = rangoDe(hechos.size).n;
+  }
+  aplicaAjustes();
+  pintaEncargo();
+  document.addEventListener('pointerdown', () => Ruido.despierta(), {once:true});
+}
+
+</script>
+</body></html>
