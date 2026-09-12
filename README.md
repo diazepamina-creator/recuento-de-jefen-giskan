@@ -1,6 +1,6 @@
 # El recuento de Jefén Giskan
 
-**Manipulativo de potencias de diez y notación científica para 2.º de ESO.**
+**Manipulativo de potencias de diez y notación científica para 1.º y 2.º de ESO.**
 Un solo archivo HTML: se abre en cualquier navegador, funciona en móvil y en
 pizarra digital, y no necesita instalar nada ni crear cuentas.
 

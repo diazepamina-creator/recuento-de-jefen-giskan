@@ -1,7 +1,7 @@
 # Licencia
 
 **EL RECUENTO DE JEFÉN GISKAN**
-Manipulativo de potencias de diez y notación científica para 2.º de ESO
+Manipulativo de potencias de diez y notación científica para 1.º y 2.º de ESO
 
 © 2026 Andrés Asensio
 
@@ -36,7 +36,7 @@ permitido por la licencia.
 ## Cómo citar
 
 > Asensio, A. (2026). *El recuento de Jefén Giskan: manipulativo de potencias
-> de diez y notación científica para 2.º de ESO* [Aplicación web]. CC BY-NC-SA 4.0.
+> de diez y notación científica para 1.º y 2.º de ESO* [Aplicación web]. CC BY-NC-SA 4.0.
 
 ## Tipografías
 
