@@ -1,0 +1,1833 @@
+<!doctype html>
+<html lang="es" data-tema="claro">
+<head>
+<!--
+  El recuento de Jefén Giskan · versión 1.2
+  © Andrés Asensio · CC BY-NC-ND 4.0 · https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es
+  Versión de aula generada el 2026-11-11 a partir del original 9de050a.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="author" content="Andrés Asensio">
+<title>El recuento de Jefén Giskan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Atkinson+Hyperlegible:wght@400;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --fondo1:#E9E1D1; --fondo2:#D6CBB6; --luz:rgba(255,252,242,.78);
+  --noche:#F2EADA; --panel:#FFFCF4; --panel2:#F8F1E2; --linea:#D3C09E;
+  --tinta:#2C2219; --tenue:#73604B;
+  --oro:#935212; --morado:#8A6A9E; --rojo:#B0442C; --verde:#4F7A2E;
+  --sombra:rgba(60,35,10,.26); --brillo:rgba(214,150,50,.18);
+  --cuero:#C08A5E; --cueroO:#7A5433; --fuego:#A6461A; --cielo:#2F6A8C; --hierba:#5E6F3B;
+  --granate:#8E2F2A;
+  --ger:#F5EEDD; --gerTrazo:#5A4632; --suelo:#E3D7BF; --decFondo:rgba(47,106,140,.07);
+  --rotulo:'Philosopher',Georgia,serif; --letra:'Atkinson Hyperlegible',system-ui,sans-serif; --mono:'Space Mono',ui-monospace,monospace;
+  --grano:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .22  0 0 0 0 .14  0 0 0 .55 0'/></filter><rect width='260' height='260' filter='url(%23g)' opacity='.26'/></svg>");
+  --fibra:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='0.0119 0.0905' numOctaves='3' seed='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .36  0 0 0 0 .28  0 0 0 0 .2  0 0 0 6 -3'/></filter><rect width='420' height='420' filter='url(%23f)' opacity='.11'/></svg>");
+  --sello:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M2 20 L2 12 Q12 2 22 12 L22 20 Z'/><rect x='10' y='14' width='4' height='6' fill='white' opacity='.85'/><circle cx='12' cy='4.2' r='1.6'/></svg>");
+  color-scheme:light;
+}
+html[data-tema="oscuro"]{
+  --fondo1:#1F2833; --fondo2:#121922; --luz:rgba(120,160,200,.12);
+  --noche:#171E27; --panel:#232D39; --panel2:#2B3644; --linea:#46535F;
+  --tinta:#F1EBDD; --tenue:#B6BDC5;
+  --oro:#E0B24A; --morado:#B79CCB; --rojo:#E07A68; --verde:#9BC27A;
+  --sombra:rgba(0,0,0,.5); --brillo:rgba(224,178,74,.14);
+  --cuero:#C08A5E; --cueroO:#D7A878; --fuego:#F0A060; --cielo:#7FB3D1; --hierba:#9DB07A;
+  --granate:#F0A294;
+  --ger:#E8DFC9; --gerTrazo:#3A2E22; --suelo:#1C2530; --decFondo:rgba(127,179,209,.09);
+  --grano:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 .9  0 0 0 .5 0'/></filter><rect width='260' height='260' filter='url(%23g)' opacity='.08'/></svg>");
+  --fibra:none;
+  color-scheme:dark}
+html[data-tema="proyector"]{
+  --fondo1:#FFFFFF; --fondo2:#FFFFFF; --luz:transparent;
+  --noche:#F4F4F4; --panel:#FFFFFF; --panel2:#FFFFFF; --linea:#1A1A1A;
+  --tinta:#000; --tenue:#2B2B2B; --oro:#8A5A00; --morado:#5E4166; --rojo:#B3261E; --verde:#1D6B12;
+  --sombra:rgba(0,0,0,.12); --brillo:rgba(138,90,0,.10);
+  --cuero:#6B4A2C; --cueroO:#4A3220; --fuego:#A33E00; --cielo:#0B5F86; --hierba:#2F5A12;
+  --granate:#8A1C16;
+  --ger:#FFFFFF; --gerTrazo:#000; --suelo:#EDEDED; --decFondo:rgba(11,95,134,.08); --grano:none; --fibra:none}
+
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{background:var(--fondo2);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;color:var(--tinta);font:15px/1.5 var(--letra);min-height:100vh;overflow-x:clip;
+  background:radial-gradient(ellipse 90% 55% at 50% 0%, var(--luz), transparent 70%), var(--grano), var(--fibra), linear-gradient(180deg,var(--fondo1),var(--fondo2));
+  background-size:auto, 260px 260px, 420px 420px, auto;background-attachment:fixed}
+html[data-tema="proyector"] body{background:#fff}
+.lienzo{max-width:760px;margin:0 auto;padding:12px 12px 36px;display:flex;flex-direction:column}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--oro);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}}
+
+.panel,.cab{position:relative;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--linea);border-radius:13px;box-shadow:0 6px 18px var(--sombra)}
+.panel{padding:12px 13px;margin-top:9px}
+.panel::before,.cab::before{content:'';position:absolute;inset:4px;border:1px dashed var(--cuero);border-radius:9px;opacity:.55;pointer-events:none}
+html[data-tema="proyector"] .panel::before,html[data-tema="proyector"] .cab::before{display:none}
+.etq,.panel h2{font-family:var(--rotulo);font-weight:700;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--tenue);margin:0}
+.caja{border:1px solid var(--linea);border-radius:12px;background:var(--noche);padding:9px 10px}
+
+.cab{padding:9px 14px 0;overflow:hidden}
+.rotulo{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rotulo>div{flex:1 1 0;min-width:0}
+.sello{width:26px;height:26px;flex:0 0 26px;background:var(--oro);-webkit-mask:var(--sello) center/contain no-repeat;mask:var(--sello) center/contain no-repeat}
+.cab h1{font-family:var(--rotulo);font-weight:700;font-size:19px;letter-spacing:1.8px;text-transform:uppercase;margin:0;color:var(--oro);line-height:1.1}
+.cab .sub{font-family:var(--rotulo);font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--tenue);margin:2px 0 0}
+.acc{margin-left:auto;display:flex;gap:16px}
+.acc button{font-family:var(--rotulo);font-weight:700;font-size:12.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--tenue);background:none;border:0;border-bottom:2px solid transparent;padding:6px 0;cursor:pointer;min-height:30px}
+.acc button:hover,.acc button:focus-visible,.acc button[aria-pressed="true"]{color:var(--oro);border-bottom-color:var(--oro);outline:none}
+@media (max-width:620px){.acc{width:100%;margin:5px 0 0;padding-top:4px;border-top:1px solid var(--linea);justify-content:space-around;gap:6px}}
+.juegos{display:grid;grid-template-columns:repeat(3,1fr);margin:8px -14px 0;border-top:1px solid var(--linea)}
+.juegos button{font:inherit;cursor:pointer;text-align:center;color:var(--tinta);background:none;border:0;border-bottom:3px solid transparent;border-radius:0;padding:7px 4px 5px;line-height:1.2;min-height:44px}
+.juegos button:nth-child(3n+2),.juegos button:nth-child(3n){border-left:1px solid var(--linea)}
+.juegos button:nth-child(n+4){border-top:1px solid var(--linea)}
+.juegos button b{display:block;font-family:var(--rotulo);font-weight:700;font-size:14px;letter-spacing:1.3px;text-transform:uppercase;color:var(--oro)}
+.juegos button span{display:block;font-size:11.5px;color:var(--tenue)}
+.juegos button:hover{background:var(--brillo)}
+.juegos button[aria-pressed="true"]{border-bottom-color:var(--oro);background:var(--brillo)}
+@media (max-width:480px){.juegos button span{display:none}.juegos button b{font-size:12.5px;letter-spacing:.8px}}
+
+.botones{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px;align-items:center}
+button.b{font-family:var(--rotulo);font-weight:700;font-size:14px;letter-spacing:1.2px;text-transform:uppercase;padding:8px 14px;min-height:42px;border-radius:9px;border:1px solid var(--linea);cursor:pointer;background:linear-gradient(180deg,var(--panel2),var(--panel));color:var(--tinta);box-shadow:0 2px 0 rgba(0,0,0,.28)}
+button.b:hover{border-color:var(--morado)}
+button.b:active{transform:translateY(2px);box-shadow:none}
+button.b.ok{background:linear-gradient(180deg,#F4CB72,#DDA23A);color:#2A1D06;border-color:#A8661B;box-shadow:0 2px 0 #7E4C12}
+button.b:disabled{opacity:.4;cursor:default}
+button.enlace{background:none;border:0;color:var(--tenue);text-decoration:underline;font:inherit;font-size:13.5px;cursor:pointer;padding:6px 4px}
+.ops{display:inline-flex;border:1px solid var(--linea);border-radius:20px;overflow:hidden;flex-wrap:wrap}
+.ops button{font-family:var(--rotulo);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;background:none;border:0;color:var(--tenue);padding:6px 12px;min-height:42px}
+.ops button+button{border-left:1px solid var(--linea)}
+.ops button[aria-pressed="true"]{background:var(--oro);color:var(--panel)}
+.ajustes .aj{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:6px 0;border-bottom:1px dashed var(--linea)}
+.ajustes .aj>.etq{min-width:130px}
+
+.habla{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:start}
+.habla .cara{width:44px;height:44px}
+.habla .cara svg{display:block;width:100%;height:100%;overflow:visible}
+.habla .quien{font-family:var(--rotulo);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--oro)}
+.habla p{margin:2px 0 0;font-size:15.5px;line-height:1.45}
+.habla p b{color:var(--oro)}
+.informe{border-left:4px solid var(--verde)}
+.informe.mal{border-left-color:var(--rojo)}
+.informe .quien{color:var(--verde)}
+.informe.mal .quien{color:var(--rojo)}
+.informe .nombre{display:inline-block;font-family:var(--rotulo);font-weight:700;font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:var(--rojo);border:1px solid var(--rojo);border-radius:6px;padding:1px 7px;margin-right:6px}
+
+footer{margin-top:26px;padding-top:12px;border-top:1px solid var(--linea);text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--tenue)}
+footer a{color:var(--tenue)}
+
+.inicio{position:fixed;inset:0;z-index:50;display:grid;place-items:center;cursor:pointer;padding:16px 14px 56px;transition:opacity .5s ease;user-select:none;overflow:hidden}
+.inicio.fuera{opacity:0;pointer-events:none}
+html[data-inicio] main{visibility:hidden}
+
+.cab::after{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:var(--granate)}
+.cab{padding-top:13px}
+.sello{width:34px;height:34px;flex:0 0 34px;border:2px solid var(--granate);border-radius:50%;display:grid;place-items:center;background:none;-webkit-mask:none;mask:none}
+.sello::before{content:'';width:19px;height:19px;background:var(--oro);-webkit-mask:var(--sello) center/contain no-repeat;mask:var(--sello) center/contain no-repeat}
+.sala h2{color:var(--granate)}
+.sala h2 i{color:var(--tenue)}
+.acc button{min-height:42px}
+html[data-quieto] *,html[data-quieto] *::before,html[data-quieto] *::after{animation-duration:.001ms !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition:none !important}
+
+.ruta{display:flex;align-items:center;gap:6px;margin:-4px -4px 8px;padding-bottom:5px;border-bottom:1px dashed var(--linea)}
+.ruta p{flex:1 1 0;min-width:0;margin:0;padding-left:4px;font-family:var(--rotulo);font-weight:700;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--tenue);line-height:1.3}
+.ruta p b{color:var(--granate)}
+.ruta button{flex:0 0 42px;min-height:42px;border:0;background:none;font-size:28px;line-height:1;color:var(--oro);cursor:pointer;border-radius:9px;padding:0 0 4px}
+.ruta button:hover{background:var(--brillo)}
+.ruta button:disabled{opacity:.3;cursor:default;background:none}
+.puntos{display:flex;gap:4px;flex:0 0 auto}
+.puntos i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--tenue)}
+.puntos i.hecho{background:var(--verde);border-color:var(--verde)}
+.puntos i.aqui{outline:2px solid var(--oro);outline-offset:1px}
+@media (max-width:480px){.puntos i{width:7px;height:7px}.puntos{gap:3px}}
+
+.opciones{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:10px}
+.opciones .op{min-height:48px;font-family:var(--mono);font-weight:700;font-size:16px;border:1px solid var(--linea);border-radius:10px;background:linear-gradient(180deg,var(--panel2),var(--panel));color:var(--tinta);cursor:pointer;padding:6px 10px;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.opciones .op:hover{border-color:var(--morado)}
+.opciones .op[aria-pressed="true"]{border-color:var(--oro);background:var(--brillo);box-shadow:inset 0 0 0 2px var(--oro)}
+.opciones .op:disabled{cursor:default;opacity:.75}
+.escribe{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:10px;font-family:var(--mono);font-weight:700;font-size:19px}
+.escribe input{font:inherit;width:9.5ch;min-height:48px;padding:4px 8px;border:2px solid var(--linea);border-radius:9px;background:var(--panel);color:var(--tinta);text-align:center}
+.escribe input:focus{border-color:var(--oro);outline:none;box-shadow:0 0 0 3px var(--brillo)}
+.escribe input.exp{width:4.6ch;min-height:42px;font-size:16px;transform:translateY(-12px);margin-left:-4px}
+.marcador{font-family:var(--mono);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--tenue);margin-left:auto}
+details.nota{margin-top:10px;border-top:1px dashed var(--linea)}
+details.nota summary{font-family:var(--rotulo);font-weight:700;font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--granate);cursor:pointer;padding:12px 2px}
+details.nota p{margin:0 0 8px;font-size:14px}
+.informe.duda{border-left-color:var(--tenue)}
+.informe.duda .quien{color:var(--oro)}
+.informe .habla + .habla{margin-top:10px;padding-top:10px;border-top:1px dashed var(--linea)}
+.informe.mal .habla + .habla .quien{color:var(--oro)}
+.ajustes .aj.ultimo{border-bottom:0}
+.ajustes small{color:var(--tenue);font-size:12.5px}
+
+.modal{position:fixed;inset:0;z-index:40;background:rgba(12,8,20,.82);display:grid;place-items:center;padding:14px;overflow:auto}
+.caja2{width:min(600px,100%);border-radius:16px;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--linea);padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.caja2 h2,.globo h3{font-family:var(--rotulo);font-weight:700;font-size:16px;letter-spacing:1.5px;text-transform:uppercase;color:var(--oro);margin:0 0 8px}
+.caja2 .lista{display:flex;align-items:center;gap:8px;font-family:var(--rotulo);font-weight:700;font-size:12.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--tenue)}
+.caja2 .lista input{font:700 18px var(--mono);width:5ch;min-height:42px;text-align:center;border:2px solid var(--linea);border-radius:9px;background:var(--panel);color:var(--tinta)}
+.caja2 pre{font-family:var(--mono);font-size:12.5px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--noche);border:1px solid var(--linea);border-radius:12px;padding:10px;margin:10px 0 0;max-height:52vh;overflow:auto;color:var(--tinta)}
+.guia{position:fixed;inset:0;z-index:45}
+.foco{position:fixed;border-radius:12px;border:2px solid var(--oro);box-shadow:0 0 0 9999px rgba(12,8,20,.72);pointer-events:none;transition:all .25s ease}
+.globo{position:fixed;left:50%;transform:translateX(-50%);width:min(440px,calc(100% - 24px));background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--linea);border-radius:14px;padding:12px 14px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.globo p{margin:0;font-size:15px}
+
+html[data-aula="si"] .lienzo{max-width:900px}
+@media (min-width:900px){html[data-aula="si"] body{zoom:1.3}}
+@media (min-width:900px) and (max-height:820px){html[data-aula="si"] body{zoom:1.12}}
+button.enlace{min-height:42px}
+
+:root{--pie:#4A3B2B;--verde:#456C27}
+html[data-tema="oscuro"]{--pie:var(--tenue);--verde:#9BC27A}
+html[data-tema="proyector"]{--pie:var(--tenue);--verde:#1D6B12}
+footer,footer a,.inSalta,.inLema{color:var(--pie)}
+.acc button{min-width:42px}
+button.b.sigue{border-color:var(--oro);color:var(--oro);box-shadow:inset 0 0 0 1px var(--oro),0 2px 0 rgba(0,0,0,.28)}
+
+:root{--cieloA:#F7ECD6;--cieloB:#F3C98E;--sol:#F0A93C;--halo:rgba(246,196,110,.55);--loma1:#DCCBA2;--loma2:#C9B783;--prado:#B8A56B;--prado2:#A39058;--estrellas:0;--nube:#FFF8EA;--penumbra:#5A2E14;--penumbraF:.5}
+html[data-tema="oscuro"]{--cieloA:#101826;--cieloB:#2C3B58;--sol:#F4EBCB;--halo:rgba(200,215,240,.28);--loma1:#27344E;--loma2:#1E2A42;--prado:#172135;--prado2:#111A2B;--estrellas:1;--nube:#3A4A66;--penumbra:#04070E;--penumbraF:.55}
+html[data-tema="proyector"]{--cieloA:#FFFFFF;--cieloB:#FBE7C4;--loma1:#E6DCC2;--loma2:#D2C59E;--prado:#BFAE78;--prado2:#A9975F;--penumbraF:.4}
+.inicio .todo{display:flex;flex-direction:column;align-items:center;width:100%}
+.inicio .pie{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;width:min(560px,100%)}
+.inicio .pie .inLema{flex:1 1 0;margin:0}
+.inTitulo{font-family:var(--rotulo);font-weight:700;font-size:clamp(25px,6.4vw,40px);letter-spacing:3px;text-transform:uppercase;color:var(--oro);margin:12px 0 0;line-height:1.08;text-align:center}
+.inTitulo span{display:inline-block;opacity:0;animation:in-letra .5s cubic-bezier(.2,1.3,.4,1) forwards}
+.inTitulo span.esp{width:.32em}
+@keyframes in-letra{from{opacity:0;transform:translateY(.5em) rotate(-6deg)}to{opacity:1;transform:none}}
+.inLema{margin:6px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;text-align:center;opacity:0;animation:in-sale .7s ease 6.9s forwards}
+.inSalta{position:absolute;bottom:18px;left:0;right:0;margin:0;text-align:center;font-family:var(--rotulo);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:0;animation:in-sale .6s ease 1.2s forwards, in-late 1.6s ease-in-out 1.2s infinite}
+@keyframes in-sale{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes in-late{50%{opacity:.55}}
+.inicio .retrato{flex:0 0 58px;width:58px;height:58px;border-radius:50%;background:linear-gradient(180deg,var(--panel2),var(--panel));border:2px solid var(--granate);box-shadow:0 4px 10px var(--sombra);overflow:hidden;opacity:0;animation:in-asoma .6s cubic-bezier(.2,1.4,.4,1) 6.5s forwards}
+.inicio .retrato.gen{animation-delay:6.7s}
+.inicio .retrato svg{display:block;width:100%;height:100%;transform:translateY(5px) scale(.92)}
+@keyframes in-asoma{from{opacity:0;transform:translateY(26px) scale(.6)}to{opacity:1;transform:none}}
+@media (max-height:560px){.inicio .pie{display:none}.inicio .marco{width:min(560px,100%,78vh)}}
+.inicio .marco{position:relative;width:min(560px,100%)}
+.inicio .tapiz{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--linea);box-shadow:0 10px 28px var(--sombra);animation:in-sale .5s ease both}
+.inicio .tapiz::after{content:'';position:absolute;inset:5px;border:1.5px dashed var(--cuero);border-radius:13px;opacity:.7;pointer-events:none}
+.inicio .tapiz svg{display:block;width:100%;height:auto}
+.inicio svg.camara{transform-origin:0 0;animation:in-camara 1.5s cubic-bezier(.6,0,.25,1) 1.7s both}
+@keyframes in-camara{from{transform:translate(-130%,-93.4%) scale(2.3)}to{transform:none}}
+.inicio .penumbra{fill:var(--penumbra);opacity:0;animation:in-vela 1.9s ease-in 1.3s both}
+@keyframes in-vela{from{opacity:var(--penumbraF)}to{opacity:0}}
+.inicio .noche{fill:#0B0705;opacity:0;animation:in-clarea 1.9s ease-in 1.3s both}
+@keyframes in-clarea{from{opacity:1}to{opacity:0}}
+.inicio .negro *{fill:#0B0705 !important;stroke:#0B0705 !important}
+.inicio .negro{opacity:0;animation:in-clarea 1s ease-in 1.25s both}
+.inicio .sol{animation:in-sube 3.4s cubic-bezier(.2,.7,.3,1) both}
+@keyframes in-sube{from{transform:translateY(38px)}to{transform:none}}
+html[data-tema="oscuro"] .inicio .rayos{display:none}
+.inicio .nube{animation:in-pasa 26s linear -6s infinite}
+.inicio .nube.n2{animation-duration:38s;animation-delay:-14s}
+@keyframes in-pasa{from{transform:translateX(-90px)}to{transform:translateX(440px)}}
+.inicio .ave{animation:in-vuela 7s linear 2.6s both}
+.inicio .ave.v2{animation-delay:3.1s}.inicio .ave.v3{animation-delay:3.5s}
+@keyframes in-vuela{from{transform:translate(430px,10px)}to{transform:translate(-60px,-26px)}}
+.inicio .ave path{transform-box:fill-box;transform-origin:50% 100%;animation:in-aletea .32s ease-in-out infinite alternate}
+@keyframes in-aletea{to{transform:scaleY(.35)}}
+.inicio .estrella{opacity:calc(var(--estrellas) * .85)}
+.muslo,.cana{transform:rotate(var(--g))}
+.inicio .tranco .muslo,.inicio .tranco .cana{animation:in-tranco .19s ease-in-out 36 alternate}
+@keyframes in-tranco{from{transform:rotate(var(--g))}to{transform:rotate(var(--h))}}
+.inicio .tranco{animation:in-bota .19s ease-in-out 36 alternate}
+@keyframes in-bota{from{transform:translateY(-3px) rotate(-5deg)}to{transform:translateY(2px) rotate(-2deg)}}
+.inicio .colaC{transform-origin:156px 80px;animation:in-colea .5s ease-in-out infinite alternate}
+@keyframes in-colea{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+.inicio .flamea{transform-origin:140px -6px;animation:in-flamea .42s ease-in-out infinite alternate}
+@keyframes in-flamea{from{transform:skewY(-10deg)}to{transform:skewY(9deg) scaleX(1.1)}}
+.inicio .saludo{transform-origin:126px 46px;animation:in-saluda .5s ease-in-out infinite alternate}
+@keyframes in-saluda{from{transform:rotate(-10deg)}to{transform:rotate(12deg)}}
+.inicio .alza{transform-origin:146px 150px;animation:in-encabrita 2.3s ease-in-out both}
+@keyframes in-encabrita{0%{transform:rotate(20deg)}22%{transform:rotate(33deg)}45%{transform:rotate(25deg)}68%{transform:rotate(33deg)}86%{transform:rotate(29deg)}100%{transform:rotate(4deg)}}
+.inicio .kanAlza{animation:in-fuera .08s linear 2.26s forwards}
+@keyframes in-fuera{to{opacity:0}}
+.inicio .kanGalopa{opacity:0;animation:in-entra .08s linear 2.26s forwards, in-cabalga 2.8s linear 2.3s both}
+@keyframes in-entra{to{opacity:1}}
+@keyframes in-cabalga{from{transform:none}to{transform:translateX(-400px)}}
+.inicio .polvo{transform-box:fill-box;transform-origin:50% 50%;opacity:0;animation:in-polvo .5s ease-out 12}
+@keyframes in-polvo{0%{opacity:0;transform:scale(.3)}30%{opacity:.7}100%{opacity:0;transform:translate(34px,-8px) scale(1.7)}}
+.inicio .grupo{transform-box:fill-box;transform-origin:50% 100%;animation:in-planta .55s cubic-bezier(.2,1.5,.4,1) both}
+@keyframes in-planta{from{transform:scale(0)}to{transform:none}}
+.inicio .rot{opacity:0;animation:in-sale .45s ease forwards}
+.inicio .arco{stroke-dasharray:70;stroke-dashoffset:70;opacity:0;animation:in-traza .5s ease forwards}
+@keyframes in-traza{from{opacity:1}to{stroke-dashoffset:0;opacity:1}}
+.inicio .humo circle{transform-box:fill-box;transform-origin:50% 50%;opacity:0;animation:in-humea 3.2s ease-out infinite}
+@keyframes in-humea{0%{opacity:0;transform:none}15%{opacity:.55}100%{opacity:0;transform:translate(9px,-30px) scale(2.1)}}
+.inicio .kanRevista{animation:in-revista .9s cubic-bezier(.2,1.1,.4,1) 5.1s both}
+@keyframes in-revista{from{transform:translateX(-140px)}to{transform:none}}
+.inicio .clavo{transform-box:fill-box;transform-origin:50% 100%;animation:in-planta .5s cubic-bezier(.2,1.5,.4,1) both}
+
+.sala .botones{position:relative}
+.jacatai{position:absolute;right:8px;bottom:5px;width:62px;pointer-events:none;user-select:none}
+.jacatai svg{display:block;width:100%;height:auto;overflow:visible}
+.sala .botones .marcador{margin-right:68px}
+.jacatai.reacciona svg{transform-origin:50% 100%;animation:jac-respingo .42s cubic-bezier(.2,1.6,.4,1)}
+@keyframes jac-respingo{from{transform:scale(.82) translateY(4px)}to{transform:none}}
+@media (max-width:480px){.jacatai{bottom:calc(5px + env(safe-area-inset-bottom))}}
+</style>
+<style>
+.sala h2{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.sala h2 i{font-style:italic;text-transform:none;letter-spacing:0;font-family:var(--rotulo);font-weight:400;font-size:13px}
+.lee{margin:0 0 8px;font-size:15px}
+.lee b{font-family:var(--mono);font-size:19px;color:var(--oro);font-weight:700}
+.campo{display:flex;gap:3px;align-items:stretch;background:var(--noche);border:1px solid var(--linea);border-radius:12px;padding:8px 4px 6px;position:relative;overflow:hidden}
+.col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:1px solid transparent;border-radius:9px;padding:4px 1px 5px;cursor:pointer;color:var(--tinta);position:relative}
+.col.dec{background:var(--decFondo)}
+.col:hover{border-color:var(--morado)}
+.col[aria-pressed="true"]{border-color:var(--oro);background:var(--brillo);box-shadow:inset 0 0 0 1px var(--oro)}
+.col svg.pila{width:100%;height:auto;display:block}
+.col .cif{font-family:var(--mono);font-weight:700;font-size:26px;line-height:1;margin-top:3px;font-variant-numeric:tabular-nums}
+.col .cif.cero{color:var(--tenue);opacity:.55}
+.col .pot{font-family:var(--mono);font-size:10.5px;color:var(--tenue);letter-spacing:.3px}
+.col .nom{font-family:var(--rotulo);font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--cueroO);writing-mode:vertical-rl;height:60px;line-height:1;margin-top:2px}
+.col.dec .nom{color:var(--cielo)}
+.estaca{flex:0 0 14px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative}
+.estaca::before{content:'';position:absolute;top:6px;bottom:38px;width:4px;border-radius:2px;background:linear-gradient(180deg,var(--cuero),var(--cueroO))}
+.estaca b{font-family:var(--mono);font-weight:700;font-size:34px;line-height:.6;color:var(--fuego);margin-bottom:74px}
+@media (min-width:700px){.col .nom{writing-mode:horizontal-tb;height:auto;font-size:11.5px}.col .cif{font-size:32px}.campo{gap:6px;padding:10px 8px 8px}.estaca b{margin-bottom:66px}}
+.mando{display:grid;grid-template-columns:56px 1fr 56px;gap:8px;align-items:center;margin-top:9px}
+.mando button{min-height:56px;font-family:var(--mono);font-weight:700;font-size:26px;border-radius:12px;border:1px solid var(--linea);background:linear-gradient(180deg,var(--panel2),var(--panel));color:var(--tinta);cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.25)}
+.mando button:hover{border-color:var(--morado)}
+.mando button:active{transform:translateY(2px);box-shadow:none}
+.mando .que{text-align:center;line-height:1.25}
+.mando .que b{display:block;font-family:var(--rotulo);font-weight:700;font-size:16px;letter-spacing:1.5px;text-transform:uppercase;color:var(--oro)}
+.mando .que span{font-family:var(--mono);font-size:12.5px;color:var(--tenue)}
+.aviso{min-height:22px;margin:6px 0 0;text-align:center;font-size:14px;color:var(--fuego);font-style:italic;font-family:var(--rotulo)}
+.cuenta{font-family:var(--mono);font-size:13px;color:var(--tenue);margin:4px 0 0;overflow-x:auto;white-space:nowrap}
+.cuenta b{color:var(--tinta)}
+
+#mesa[hidden]{display:none}
+.col{font:inherit}
+div.col{cursor:default}
+div.col:hover{border-color:transparent}
+.col .cif.cero{opacity:.9}
+.col .cif.vacio{color:var(--tenue);opacity:.28}
+.col .tug{position:absolute;top:2px;left:50%;width:24px;height:auto;transform:translateX(-50%);z-index:1}
+.estaca b{color:var(--granate)}
+.estaca::before{background:linear-gradient(180deg,var(--granate),var(--cueroO))}
+.campo.cuerda{padding-top:32px;overflow:visible}
+.campo.cuerda .estaca::before{top:-6px;width:4px;background:repeating-linear-gradient(180deg,var(--granate) 0 6px,var(--cuero) 6px 9px)}
+.campo.cuerda .estaca::after{content:'';position:absolute;top:-10px;width:11px;height:11px;border-radius:50%;background:var(--granate);border:1.5px solid var(--panel)}
+.nudo{position:absolute;top:-28px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--rotulo);font-weight:700;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;line-height:1.5;color:var(--granate);background:var(--panel);border:1px solid var(--granate);border-radius:10px;padding:0 8px;z-index:2}
+.campo.sube .cif{animation:sube .38s ease}
+.campo.baja .cif{animation:baja .38s ease}
+@keyframes sube{from{transform:translateX(95%);opacity:.15}}
+@keyframes baja{from{transform:translateX(-95%);opacity:.15}}
+.mando.marcha{grid-template-columns:minmax(92px,1fr) 1.3fr minmax(92px,1fr)}
+.mando.marcha button{font-size:19px}
+.mando.marcha button i{font-style:normal;color:var(--granate)}
+
+.rollo{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;background:var(--ger);color:#2C2219;border:1.5px solid var(--cueroO);border-top:7px solid var(--cuero);border-radius:6px;padding:6px 16px;min-height:54px}
+.rollo b{font-family:var(--mono);font-weight:700;font-size:21px;white-space:nowrap}
+.rollo span{font-size:12.5px;color:#5A4632}
+.rollo.vivo{display:flex;width:fit-content;min-width:220px;margin:0 auto 8px}
+.rollos{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:8px 0;background:var(--noche);border:1px solid var(--linea);border-radius:12px}
+.rollos .op{font-family:var(--mono);font-weight:700;font-size:26px;color:var(--granate)}
+.apilado{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:8px}
+.apilado svg{width:min(230px,58%);height:auto;flex:0 0 auto}
+.apilado p{margin:0;font-size:13px;color:var(--tenue);max-width:190px;line-height:1.35}
+
+.filas{display:grid;gap:5px;background:var(--noche);border:1px solid var(--linea);border-radius:12px;padding:34px 6px 10px}
+.fila{display:flex;justify-content:center;align-items:center;gap:4px;position:relative;padding:3px 44px 3px 8px;border:1px solid transparent;border-radius:10px;background:none;font:inherit;color:inherit;width:100%}
+.fila .cel{width:44px;height:46px;flex:0 0 44px;display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:25px;border:1px solid var(--cueroO);border-radius:7px;background:var(--ger);color:#2C2219}
+.fila .cel.hueco{background:none;border:1px dashed var(--linea)}
+.fila .coma{flex:0 0 14px;align-self:stretch;position:relative;display:grid;place-items:end center;font-family:var(--mono);font-weight:700;font-size:30px;line-height:1;color:var(--granate)}
+.fila .coma::before{content:'';position:absolute;top:-6px;bottom:-6px;left:50%;width:3px;margin-left:-1.5px;border-radius:2px;background:var(--cuero);opacity:.45}
+.fila.cabeza .cel{height:auto;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:0}
+.fila.cabeza i{font-style:normal;font-family:var(--mono);font-size:11px;font-weight:400;color:var(--tenue)}
+.fila.cabeza em{font-style:normal;font-family:var(--rotulo);font-weight:700;font-size:8.5px;letter-spacing:.2px;text-transform:uppercase;color:var(--cueroO)}
+.fila.cabeza .dec em{color:var(--cielo)}
+button.tablilla{cursor:pointer;min-height:54px}
+button.tablilla:hover{border-color:var(--morado)}
+button.tablilla[aria-pressed="true"]{border-color:var(--oro);background:var(--brillo)}
+.rango{position:absolute;right:8px;font-family:var(--rotulo);font-weight:700;font-size:15px;color:var(--granate)}
+
+.lectura{display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap;font-family:var(--mono);font-weight:700;font-size:18px;margin:0 0 8px;padding-top:30px}
+.lectura>b{color:var(--oro);margin-right:2px}
+.lectura .cel{width:34px;height:40px;display:grid;place-items:center;font-size:21px;border:1px solid var(--cueroO);border-radius:7px;background:var(--ger);color:#2C2219}
+.lectura .coma{position:relative;width:12px;text-align:center;font-size:28px;line-height:1;align-self:flex-end;color:var(--granate)}
+.escalera{list-style:none;margin:0;padding:6px;background:var(--noche);border:1px solid var(--linea);border-radius:12px;display:grid;gap:3px}
+.escalera li{display:grid;grid-template-columns:28px 58px 1fr auto;align-items:center;gap:8px;min-height:38px;padding:2px 10px 2px 6px;border-radius:8px;border:1px solid transparent}
+.escalera li.dec{background:var(--decFondo)}
+.escalera li.suelo{border-bottom:3px solid var(--gerTrazo);border-radius:8px 8px 0 0}
+.escalera li.aqui{border-color:var(--oro);background:var(--brillo);box-shadow:inset 0 0 0 1px var(--oro)}
+.escalera li b{font-family:var(--mono);font-size:17px}
+.escalera li em{font-style:normal;font-family:var(--rotulo);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--cueroO)}
+.escalera li.dec em{color:var(--cielo)}
+.escalera .vale{font-family:var(--mono);font-weight:700;font-size:15px}
+.escalera .sitio svg{display:block;width:24px;height:24px}
+
+.estaca{flex-basis:16px}
+.estaca b{font-size:44px;line-height:.5;margin-bottom:92px}
+.estaca::before{bottom:112px}
+@media (min-width:700px){.estaca b{margin-bottom:46px}.estaca::before{bottom:70px}}
+.col .cif{font-size:27px}
+.escalera li{margin-left:calc(var(--i) * 7px)}
+.fila .cel{width:52px;flex-basis:52px}
+.fila.cabeza em{font-size:10.5px;letter-spacing:0;text-transform:none}
+.apilado svg{width:min(190px,48%)}
+@media (min-width:700px){.col svg.pila{max-width:58px}}
+
+.col .pot{font-size:11.5px;letter-spacing:0}
+.nudo{font-size:11px}
+.col .nom{height:auto;min-height:60px}
+@media (min-width:700px){.col .nom{min-height:0}}
+.fila.cabeza em{font-size:11px;letter-spacing:-.2px;white-space:nowrap}
+.fila.cabeza i{font-size:11.5px}
+.fila .cel{width:min(52px,calc((100vw - 150px) / var(--n)));flex-basis:auto}
+.lectura{padding-top:4px}
+.lectura.conComa{padding-top:30px}
+.escalera li{min-height:35px}
+
+@media (max-width:480px){
+  .sala{padding-left:6px;padding-right:6px}
+  .campo{gap:1px;padding-left:2px;padding-right:2px}
+  .estaca{flex-basis:12px}
+  .estaca b{font-size:28px}
+  .col{padding-left:0;padding-right:0}
+}
+@media (max-width:699px){
+  .sala .botones{position:sticky;bottom:0;z-index:3;background:var(--panel);margin:0 -6px;padding:8px 6px calc(8px + env(safe-area-inset-bottom));border-top:1px solid var(--linea);border-radius:0 0 12px 12px}
+}
+#encargo{scroll-margin-top:8px}
+</style>
+<script>
+  try{ const a = JSON.parse(localStorage.getItem('recuento.ajustes.v1') || '{}'), t = new URLSearchParams(location.search).get('tema') || a.tema;
+    if(t === 'oscuro' || t === 'proyector') document.documentElement.dataset.tema = t;
+    if(a.aula) document.documentElement.dataset.aula = 'si';
+  }catch(e){}
+</script>
+</head>
+<body>
+
+<div class="inicio" id="inicio" hidden>
+  <div class="todo" id="inEscena" aria-hidden="true"></div>
+  <p class="inSalta">toca para empezar</p>
+</div>
+
+<main class="lienzo" id="lienzo">
+  <header class="cab">
+    <div class="rotulo">
+      <span class="sello" aria-hidden="true"></span>
+      <div><h1>El recuento de Jefén Giskan</h1><p class="sub">potencias de diez · cada cifra en su sitio</p></div>
+      <nav class="acc" aria-label="Acciones">
+        <button type="button" id="bGuia">Guía</button>
+        <button type="button" id="bPracticar" aria-pressed="false">Practicar</button>
+        <button type="button" id="bAjustes" aria-expanded="false" aria-controls="ajustes">Ajustes</button>
+        <button type="button" id="bAula" aria-pressed="false">Aula</button>
+        <button type="button" id="bActa">Acta</button>
+      </nav>
+    </div>
+    <div class="juegos" id="juegos" role="group" aria-label="Las seis salas"></div>
+  </header>
+
+  <section class="panel ajustes" id="ajustes" hidden aria-label="Ajustes">
+    <div class="aj"><span class="etq" id="ajTema">El fondo</span>
+      <span class="ops" role="group" aria-labelledby="ajTema" data-aj="tema"><button type="button" data-v="claro">La estepa de día</button><button type="button" data-v="oscuro">De noche</button><button type="button" data-v="proyector">Proyector</button></span></div>
+    <div class="aj"><span class="etq" id="ajInicio">Escena de inicio</span>
+      <span class="ops" role="group" aria-labelledby="ajInicio" data-aj="inicio"><button type="button" data-v="si">Sí</button><button type="button" data-v="no">No</button></span>
+      <button type="button" class="enlace" id="bVerInicio">verla ahora</button></div>
+    <div class="aj"><span class="etq" id="ajSonido">Sonido</span>
+      <span class="ops" role="group" aria-labelledby="ajSonido" data-aj="sonido"><button type="button" data-v="si">Sí</button><button type="button" data-v="no">No</button></span></div>
+    <div class="aj ultimo"><span class="etq">Para el siguiente</span><button type="button" class="b" id="bBorrar">Borrar todo</button><small>deja el aparato como nuevo: lo hecho, el acta y los ajustes</small></div>
+  </section>
+
+  <section class="panel" id="encargo" aria-label="El encargo">
+    <div class="ruta">
+      <button type="button" id="bAntes" aria-label="Encargo anterior">‹</button>
+      <p id="rutaTxt"></p>
+      <span class="puntos" id="puntos" aria-hidden="true"></span>
+      <button type="button" id="bDespues" aria-label="Encargo siguiente">›</button>
+    </div>
+    <div class="habla">
+      <span class="cara" id="caraKan" aria-hidden="true"></span>
+      <div><span class="quien">Jefén Giskan, el kan</span><p id="pide"></p></div>
+    </div>
+  </section>
+
+  <section class="panel sala" id="sala">
+    <h2 id="salaRot"></h2>
+    <div id="mesa"></div>
+    <div id="resp"></div>
+    <div class="botones">
+      <button type="button" class="b ok" id="bComprobar">Comprobar</button>
+      <button type="button" class="enlace" id="bOtro" hidden>otro ejercicio</button>
+      <span class="marcador" id="marcador"></span>
+      <span class="jacatai" id="jacatai" aria-hidden="true"></span>
+    </div>
+    <details class="nota" id="nota" hidden><summary></summary><div></div></details>
+  </section>
+
+  <section class="panel informe" id="voz" hidden aria-live="polite" aria-label="La respuesta de Listubotai"></section>
+
+  <footer>
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" rel="license">© 2026 Andrés Asensio · CC BY-NC-ND 4.0</a>
+    · <a href="https://diazepamina-creator.github.io/">Materiales</a>
+    · versión 1.2
+  </footer>
+</main>
+
+<div class="modal" id="mActa" hidden>
+  <div class="caja2" role="dialog" aria-modal="true" aria-labelledby="actaTit">
+    <h2 id="actaTit">El acta del recuento</h2>
+    <label class="lista">N.º de lista <input id="actaLista" inputmode="numeric" autocomplete="off" maxlength="3" size="3"></label>
+    <pre id="actaTxt" tabindex="0"></pre>
+    <div class="botones">
+      <button type="button" class="b ok" id="actaCopiar">Copiar el acta</button>
+      <button type="button" class="b" id="actaCerrar">Cerrar</button>
+      <span class="marcador" id="actaAviso" role="status"></span>
+    </div>
+  </div>
+</div>
+
+<div class="guia" id="guia" hidden>
+  <div class="foco" id="foco"></div>
+  <div class="globo" id="globo" role="dialog" aria-modal="true" aria-labelledby="guiaTit">
+    <h3 id="guiaTit"></h3>
+    <p id="guiaTxt"></p>
+    <div class="botones">
+      <button type="button" class="enlace" id="guiaSalir">salir</button>
+      <span class="marcador" id="guiaPaso"></span>
+      <button type="button" class="b" id="guiaAntes">Antes</button>
+      <button type="button" class="b sigue" id="guiaSigue">Sigue</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function (raiz) {
+'use strict';
+const KMAX = 7, KMIN = -6;
+const NOM = {
+  7: ['diez millones', 'decenas de millón'], 6: ['millón', 'millones'], 5: ['cien mil', 'centenas de millar'],
+  4: ['tumen', 'tumenes'], 3: ['myangan', 'myanganes'], 2: ['zuun', 'zuunes'], 1: ['arban', 'arbanes'], 0: ['jinete', 'jinetes'],
+  '-1': ['décima', 'décimas'], '-2': ['centésima', 'centésimas'], '-3': ['milésima', 'milésimas'],
+  '-4': ['diezmilésima', 'diezmilésimas'], '-5': ['cienmilésima', 'cienmilésimas'], '-6': ['millonésima', 'millonésimas']
+};
+const FEM = k => k < 0;
+const un = k => (FEM(k) ? 'una ' : 'un ') + NOM[k][0];
+const SUP = {'0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '-': '⁻'};
+const sup = n => String(n).split('').map(c => SUP[c] || c).join('');
+const pot = k => '10' + sup(k);
+
+const peso = k => Math.pow(10, k + 6);
+const cifra = (n, k) => Math.floor(n / peso(k)) % 10;
+const mayor = n => n > 0 ? String(n).length - 7 : null;
+const menor = n => { if(n <= 0) return null; let k = KMIN; while(n % peso(k + 1) === 0) k++; return k; };
+
+const miles = s => s.replace(/\B(?=(\d{3})+$)/g, '.');
+function escribe(n, dec){
+  const neg = n < 0; n = Math.abs(n);
+  const s = String(n).padStart(7, '0');
+  let d = s.slice(-6).replace(/0+$/, '');
+  if(dec && d.length < dec) d = d.padEnd(dec, '0');
+  return (neg ? '−' : '') + miles(s.slice(0, -6)) + (d ? ',' + d : '');
+}
+function lee(txt){
+  let s = String(txt === null || txt === undefined ? '' : txt).replace(/[\s   ]/g, '').replace(/^[−–]/, '-').replace(/^\+/, '').replace(/,$/, '');
+  if(!s) return null;
+  if(s.includes(',')) s = s.replace(/\./g, '').replace(',', '.');
+  else if(/^-?[1-9]\d{0,2}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, '');
+  if(!/^-?\d+(\.\d+)?$/.test(s)) return null;
+  const neg = s[0] === '-', [e, d = ''] = s.replace('-', '').split('.');
+  if(d.length > 6 && /[1-9]/.test(d.slice(6))) return null;
+  if(e.length > 9) return null;
+  const n = Number(e) * 1e6 + Number((d + '000000').slice(0, 6));
+  return neg ? -n : n;
+}
+const decimales = txt => { const m = String(txt).match(/,(\d+)$/); return m ? m[1].length : 0; };
+const valorPot = k => escribe(peso(k));
+
+function mas(n, k, ks){
+  const tope = peso(Math.max.apply(null, ks) + 1);
+  if(n + peso(k) >= tope) return {n, aviso: 'no cabe: no hay sitio más arriba'};
+  let aviso = '';
+  if(cifra(n, k) === 9){ let j = k; while(cifra(n, j) === 9) j++; aviso = 'diez ' + NOM[k][1] + ' → ' + un(k + 1) + (j > k + 1 ? ', y sigue subiendo' : ''); }
+  return {n: n + peso(k), aviso};
+}
+function menos(n, k){
+  if(n - peso(k) < 0) return {n, aviso: 'no queda nadie que quitar'};
+  const aviso = cifra(n, k) === 0 ? un(k + 1) + ' → diez ' + NOM[k][1] : '';
+  return {n: n - peso(k), aviso};
+}
+function enPalabras(n){
+  const p = [];
+  for(let k = KMAX; k >= KMIN; k--){ const c = cifra(n, k); if(c) p.push(c + ' ' + NOM[k][c === 1 ? 0 : 1]); }
+  if(!p.length) return 'nada';
+  return p.length === 1 ? p[0] : p.slice(0, -1).join(', ') + ' y ' + p[p.length - 1];
+}
+function desarrollo(n){
+  const p = [];
+  for(let k = KMAX; k >= KMIN; k--){ const c = cifra(n, k); if(c) p.push(c + '·' + pot(k)); }
+  return p.join(' + ');
+}
+
+function cientifica(n){
+  const e = mayor(n), d = String(n).replace(/0+$/, '');
+  return {m: d[0] + (d.length > 1 ? ',' + d.slice(1) : ''), e};
+}
+function conGrupo(n, k){
+  const m = k >= 0 ? n / Math.pow(10, k) : n * Math.pow(10, -k);
+  return Number.isInteger(m) ? {m: escribe(m), e: k} : null;
+}
+function deCientifica(mTxt, eTxt){
+  const m = lee(mTxt), es = String(eTxt === null || eTxt === undefined ? '' : eTxt).replace(/\s/g, '').replace(/^[−–]/, '-').replace(/^\+/, '');
+  if(m === null || !/^-?\d{1,2}$/.test(es)) return null;
+  const e = Number(es), v = e >= 0 ? m * Math.pow(10, e) : m / Math.pow(10, -e);
+  return {m, e, valor: Number.isInteger(v) && Math.abs(v) < 1e15 ? v : null, forma: m >= 1e6 && m < 1e7};
+}
+const escribeCientifica = c => c.m + ' × ' + pot(c.e);
+
+function azar(semilla){
+  let a = semilla >>> 0;
+  const r = () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  r.entre = (a, b) => a + Math.floor(r() * (b - a + 1));
+  r.elige = l => l[Math.floor(r() * l.length)];
+  r.baraja = l => { const c = l.slice(); for(let i = c.length - 1; i > 0; i--){ const j = Math.floor(r() * (i + 1)); [c[i], c[j]] = [c[j], c[i]]; } return c; };
+  return r;
+}
+
+const N = {KMAX, KMIN, NOM, un, sup, pot, peso, cifra, mayor, menor, escribe, lee, decimales, valorPot, mas, menos, enPalabras, desarrollo,
+  cientifica, conGrupo, deCientifica, escribeCientifica, azar};
+if(typeof module !== 'undefined' && module.exports) module.exports = N; else raiz.Numeros = N;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+(function (raiz) {
+'use strict';
+const LISTA = [
+  {id: 'cuenta-larga', nombre: 'La cuenta larga', quien: 'kan', ej: '0,25 > 0,3 «porque 25 > 3»',
+    frase: '¡Más cifras, más ejército! La fila más larga es la que gana.',
+    replica: 'Eso es <b>contar la fila, no los sitios</b>, mi kan. Se compara sitio a sitio desde la coma: primero las décimas. Mire dónde está cada cifra antes de mirar cuántas hay.'},
+  {id: 'cero-pegado', nombre: 'El cero pegado', quien: 'general', ej: '3,4 × 10 = 3,40',
+    frase: 'Por diez, un cero más al final. Así lo llevo apuntado en los palos.',
+    replica: '¡Ese cero no cambia nada, Listubotai! Sigue habiendo lo mismo. <b>Pegar un cero no es multiplicar</b>: por diez, cada cifra sube un sitio. ¿Dónde queda ahora la primera?'},
+  {id: 'peldano-de-menos', nombre: 'Un peldaño de menos', quien: 'general', ej: '3,42 × 100 = 34,2',
+    frase: 'Las cifras ya se han movido. Para mí, han llegado.',
+    replica: 'Se han movido, pero <b>no los peldaños que eran</b>: te has quedado corto. Cuenta los peldaños, no los ceros: por 10, uno; por 100, dos; por 1.000, tres. ¿Dónde estaba la primera cifra y dónde tiene que acabar?'},
+  {id: 'escalera-al-reves', nombre: 'La escalera al revés', quien: 'kan', ej: '3,42 : 10 = 34,2',
+    frase: '¡Adelante siempre! Las cifras, hacia arriba, que es hacia donde se avanza.',
+    replica: 'Ha ido <b>hacia el otro lado</b>, mi kan. Multiplicar por diez sube un peldaño; dividir entre diez (o multiplicar por una décima) lo baja. Antes de escribir: ¿tiene que salir más o menos de lo que había?'},
+  {id: 'diez-por-tres', nombre: 'Diez por tres', quien: 'kan', ej: '10³ = 30',
+    frase: 'Diez elevado a tantos: tantas veces diez. ¡Siguiente!',
+    replica: 'El exponente no dice cuántas veces se SUMA el diez, mi kan: dice cuántos peldaños hay, y cada peldaño es <b>por diez</b>. Suba la escalera desde el jinete, multiplicando por diez en cada peldaño.'},
+  {id: 'exponente-pegado', nombre: 'El exponente que se pega', quien: 'kan', ej: '3 · 10⁴ = 3⁴ = 81',
+    frase: 'El numerito de arriba es del que tiene al lado. Mío, como todo.',
+    replica: 'El exponente es <b>del 10</b>, no de la cifra de delante: dice en qué sitio está esa cifra. Primero, la potencia de diez; después, cuántas de esas hay.'},
+  {id: 'elevado-a-nada', nombre: 'Elevado a nada, nada', quien: 'kan', ej: '10⁰ = 0',
+    frase: 'Cero peldaños, cero jinetes. Ahí no hay nadie.',
+    replica: 'Cero peldaños es <b>estar en el suelo</b>, no faltar a la lista: en el suelo hay un jinete. 10⁰ se <b>define</b> así para que bajar un peldaño siga siendo dividir entre diez: ¿cuánto es 10¹ : 10?'},
+  {id: 'el-menos-que-debe', nombre: 'El menos que debe', quien: 'kan', ej: '10⁻² = −100',
+    frase: 'Un menos: alguien me debe dinero. ¡Que lo traigan!',
+    replica: 'Nadie le debe nada, mi kan. El menos no está en el número: está <b>en el exponente</b>, y dice que los peldaños se cuentan hacia abajo desde el jinete. Lo que hay ahí abajo son partes pequeñas, y son positivas.'},
+  {id: 'cero-de-en-medio', nombre: 'El cero que no pesa', quien: 'kan', ej: '1,05 = 1,5',
+    frase: 'Un cero es nada. Se quita y se cuenta lo que queda.',
+    replica: 'Ese cero <b>guarda un sitio</b>, mi kan: sin él, la cifra de detrás se cae al sitio de al lado y vale diez veces más. Ponga cada cifra en su sitio y mire cuál queda vacío.'},
+  {id: 'cola-de-ceros', nombre: 'La cola de ceros', quien: 'general', ej: '1,500 > 1,5',
+    frase: 'Más cifras detrás de la coma: lo apunto como más largo.',
+    replica: 'Más largo no es más, Listubotai. Los ceros <b>del final</b>, detrás de la coma, no cambian ningún sitio: mira qué hay en las décimas, en las centésimas y en las milésimas de cada uno.'},
+  {id: 'casi-cientifico', nombre: 'Casi científico', quien: 'general', ej: '52.000 = 52 × 10³',
+    frase: 'Vale lo mismo, lo he contado dos veces. Lo mando así.',
+    replica: 'Vale lo mismo, sí. Pero mis mensajeros dicen <b>el grupo más grande que hay</b>: una sola cifra, que no sea cero, delante de la coma (1 ≤ a &lt; 10). Es un <b>convenio</b>: así dos mensajes se comparan de un vistazo.'},
+  {id: 'contar-palos', nombre: 'Contar palos, no sitios', quien: 'general', ej: '34.000 = 3,4 × 10³ (tres ceros)',
+    frase: 'Tantos ceros, tantos palos, tantos peldaños. Así cuento yo.',
+    replica: '¡Los ceros no son los peldaños! El exponente dice <b>en qué sitio está la primera cifra</b>, contando desde el jinete. Busca esa cifra en el campamento y mira el nombre de su sitio.'},
+  {id: 'peldanos-que-se-multiplican', nombre: 'Los peldaños se multiplican', quien: 'general', ej: '10³ · 10² = 10⁶',
+    frase: 'Los exponentes, como todo lo demás: multiplicados.',
+    replica: 'Los exponentes cuentan peldaños, Listubotai, y los peldaños se andan uno detrás de otro: al multiplicar <b>se suman</b>, y al dividir se restan. Apila, no multipliques.'},
+  {id: 'pozo-hondo', nombre: 'El pozo hondo', quien: 'kan', ej: '10⁻⁵ > 10⁻³',
+    frase: 'El pozo más hondo guarda más: gana el del exponente más grande.',
+    replica: 'Cuanto más abajo del suelo, <b>más pequeña la parte</b>, mi kan. Con el menos delante, el exponente más grande es el peldaño más hondo. Póngalos en la escalera y mire cuál queda más cerca del jinete.'},
+  {id: 'manda-la-cifra', nombre: 'Manda la cifra', quien: 'kan', ej: '8 × 10³ > 3 × 10⁴',
+    frase: '¡Gana la cifra más gorda, que para eso es más gorda!',
+    replica: 'Mire primero <b>de qué son</b> esas cifras, mi kan. En la forma del yam manda el sitio (el exponente), y solo si empatan, la cifra.'},
+  {id: 'decena-no-decima', nombre: 'La décima no es una decena', quien: 'general', ej: 'el 5 de 7,5 puesto en los arbanes',
+    frase: 'Décima, decena; centésima, centena… Suenan igual. Lo pongo con los grupos grandes.',
+    replica: '¡Suenan parecido y no valen lo mismo! Decenas y centenas están <b>a la izquierda</b> de la coma: son grupos de jinetes. Décimas y centésimas están <b>a la derecha</b>: son trozos de un jinete. Mira a qué lado de la estaca va.'}
+];
+const POR_ID = {};
+LISTA.forEach(e => { POR_ID[e.id] = e; });
+const VOZ = {kan: 'Jefén Giskan', general: 'Listubotai'};
+const otro = q => q === 'kan' ? 'general' : 'kan';
+const E = {LISTA, VOZ, otro, de: id => POR_ID[id] || null, ids: () => LISTA.map(e => e.id)};
+if(typeof module !== 'undefined' && module.exports) module.exports = E; else raiz.Errores = E;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+(function (raiz) {
+'use strict';
+const N = raiz.Numeros || require('./numeros.js');
+const KS = [4, 3, 2, 1, 0, -1, -2, -3];
+const KS_BAJO = [2, 1, 0, -1, -2, -3, -4, -5];
+const ESC = [3, 2, 1, 0, -1, -2, -3];
+
+const SALAS = [
+{id: 'campamento', nombre: 'El campamento', corto: 'El campamento', lema: 'cada cifra en su sitio', encargos: [
+  {id: 'sitios', titulo: 'Cada cifra en su sitio', tipo: 'pon', maq: {vista: 'campo', ks: KS, n: '30.207'}, obj: '34.217',
+    pide: 'Han llegado <b>34.217 jinetes</b>. Listubotai ha empezado a colocarlos y lo ha dejado a medias. Termínalo tú: cada cifra en su sitio, que quiero verlo.',
+    bien: 'Cuadra, mi kan: 3 tumenes, 4 myanganes, 2 zuunes, 1 arban y 7 jinetes. Cada cifra en su sitio.'},
+  {id: 'valor', titulo: 'Lo que manda una cifra', tipo: 'opcion', maq: {vista: 'campo', ks: KS, n: '34.217', quieta: true},
+    pide: 'Mira el campamento. ¿Cuántos jinetes manda el <b>4</b> de 34.217?',
+    ops: [{t: '4.000', ok: true},
+      {t: '4', dice: 'Ese 4 no está en el sitio de los jinetes sueltos, mi kan. Mire el nombre de su columna.'},
+      {t: '400', dice: 'Cuatrocientos sería un 4 en los zuunes. ¿En qué columna está este?'},
+      {t: '40.000', dice: 'Cuarenta mil sería un 4 en los tumenes. ¿En qué columna está este?'}],
+    bien: 'El 4 está en los myanganes: cuatro grupos de mil. Lo que vale una cifra lo dice su sitio.'},
+  {id: 'acarreo', titulo: 'En ningún sitio caben diez', tipo: 'pon', maq: {vista: 'campo', ks: KS, n: '2.995', elegido: 0}, obj: '3.000',
+    pide: 'Hay 2.995 jinetes y llegan <b>cinco más</b>. Súmalos de uno en uno en la columna de los jinetes, y mira lo que pasa al llegar a diez.',
+    bien: 'Diez jinetes son un arban; diez arbanes, un zuun; diez zuunes, un myangan. En ningún sitio caben diez: por eso 2.995 + 5 = 3.000.'},
+  {id: 'decimas', titulo: 'A la derecha de la estaca', tipo: 'pon', maq: {vista: 'campo', ks: KS, n: '7'}, obj: '7,5',
+    pide: 'De botín, <b>siete sacos de harina y cinco décimas</b> de otro. Los sacos enteros ya están puestos: pon tú las décimas.',
+    bien: 'Siete y cinco décimas: 7,5. A la derecha de la estaca la escalera sigue, y cada sitio es diez veces más pequeño que el anterior.'},
+  {id: 'cero', titulo: 'El cero guarda el sitio', tipo: 'pon', maq: {vista: 'campo', ks: KS, n: '0'}, obj: '3,05',
+    pide: 'De sal, <b>tres sacos y cinco centésimas</b> de otro. Ni una décima.',
+    bien: 'Tres, cero décimas y cinco centésimas: 3,05. El cero no vale nada, pero guarda el sitio de las décimas.'},
+  {id: 'lee', titulo: 'Leer un precio', tipo: 'opcion', maq: {vista: 'campo', ks: KS, n: '1,459', quieta: true},
+    pide: 'Un odre de aceite cuesta <b>1,459</b> monedas. ¿Qué vale ese <b>5</b>?',
+    ops: [{t: 'cinco centésimas (0,05)', ok: true},
+      {t: 'cinco décimas (0,5)', dice: 'Las décimas son el primer sitio a la derecha de la estaca. ¿Qué cifra hay ahí?'},
+      {t: 'cinco centenas (500)', e: 'decena-no-decima'},
+      {t: 'cinco (5)', dice: 'Una cifra sola no dice nada, mi kan: vale lo que diga su sitio. Mire el nombre de la columna.'}],
+    bien: 'Un jinete, 4 décimas, 5 centésimas y 9 milésimas. Ese 5 vale cinco centésimas.'}
+]},
+{id: 'precios', nombre: 'Los precios del camino', corto: 'Los precios', lema: 'comparar y ordenar', encargos: [
+  {id: 'largo', titulo: 'El más largo no gana', tipo: 'opcion', maq: {vista: 'filas', nums: ['0,25', '0,3']},
+    pide: 'Dos mercaderes venden sal. Uno pide <b>0,25</b> monedas el puñado; el otro, <b>0,3</b>. ¿Quién pide <b>más</b>?',
+    ops: [{t: '0,3', ok: true}, {t: '0,25', e: 'cuenta-larga'}, {t: 'piden lo mismo', dice: 'Compare las décimas de uno y de otro, mi kan: ¿son las mismas?'}],
+    bien: 'Tres décimas contra dos: gana 0,3, aunque 0,25 tenga más cifras. Se compara sitio a sitio, empezando por el más grande.'},
+  {id: 'cola', titulo: 'La cola de ceros', tipo: 'opcion', maq: {vista: 'filas', nums: ['1,5', '1,500']},
+    pide: 'Por el mismo saco, un mercader pide <b>1,5</b> y el otro <b>1,500</b>. ¿Quién pide más?',
+    ops: [{t: 'piden lo mismo', ok: true}, {t: '1,500', e: 'cola-de-ceros'}, {t: '1,5', dice: 'Mire sitio a sitio: décimas, centésimas, milésimas. ¿En cuál se diferencian?'}],
+    bien: 'Un jinete y cinco décimas los dos; lo demás son sitios vacíos. Los ceros del final no cambian nada: 1,5 = 1,500.'},
+  {id: 'medio', titulo: 'El cero de en medio', tipo: 'opcion', maq: {vista: 'filas', nums: ['1,05', '1,5']},
+    pide: 'Ahora <b>1,05</b> contra <b>1,5</b>. ¿Quién pide más?',
+    ops: [{t: '1,5', ok: true}, {t: 'piden lo mismo', e: 'cero-de-en-medio'}, {t: '1,05', e: 'cuenta-larga'}],
+    bien: '1,05 tiene cero décimas y 1,5 tiene cinco: gana 1,5. El cero de en medio sí cuenta, porque guarda un sitio.'},
+  {id: 'orden', titulo: 'Del más barato al más caro', tipo: 'ordena', maq: {vista: 'filas', nums: ['1,459', '1,5', '1,45']},
+    pide: 'Tres precios del mismo odre de aceite. Tócalos <b>del más barato al más caro</b>.',
+    bien: '1,45 &lt; 1,459 &lt; 1,5. En las décimas hay 4, 4 y 5: el 1,5 es el mayor. Entre los otros dos empatan las centésimas y deciden las milésimas.'},
+  {id: 'cuatro', titulo: 'Cuatro puestos', tipo: 'ordena', maq: {vista: 'filas', nums: ['0,7', '0,65', '0,605', '0,09']},
+    pide: 'Cuatro puestos, cuatro precios del puñado de té. Del <b>más barato al más caro</b>.',
+    bien: '0,09 &lt; 0,605 &lt; 0,65 &lt; 0,7. Primero las décimas (0, 6, 6 y 7); donde empatan, las centésimas.'},
+  {id: 'entre', titulo: 'Entre dos precios', tipo: 'opcion', maq: {vista: 'filas', nums: ['0,3', '0,4']},
+    pide: 'Un mercader pide 0,3 y otro 0,4. Quiero un precio <b>entre los dos</b>. ¿Cuál vale?',
+    ops: [{t: '0,35', ok: true},
+      {t: 'ninguno: van seguidos', dice: 'Entre tres décimas y cuatro décimas hay sitio, mi kan: mire las centésimas.'},
+      {t: '0,45', dice: 'Cuatro décimas y cinco centésimas ya pasan de 0,4.'},
+      {t: '0,035', dice: 'Ese tiene cero décimas: es menos que 0,3.'}],
+    bien: '0,35 tiene tres décimas y cinco centésimas: más que 0,3 y menos que 0,4. Entre dos precios siempre cabe otro.'}
+]},
+{id: 'columna', nombre: 'La columna en marcha', corto: 'La columna', lema: '×10 y :10, la coma quieta', encargos: [
+  {id: 'sube', titulo: 'Diez columnas', tipo: 'marcha', maq: {vista: 'campo', ks: KS, n: '342', cuerda: true}, pasos: 1,
+    pide: 'Una columna de <b>342</b> jinetes. Quiero <b>diez columnas</b> como esa: 342 × 10. Haz marchar las cifras.',
+    bien: '342 × 10 = 3.420. Cada cifra ha subido un sitio, y el de los jinetes, que queda vacío, lo guarda un 0. La coma no se ha movido: sigue atada a la cuerda.'},
+  {id: 'decimal', titulo: 'Por diez, con decimales', tipo: 'escribe', maq: {vista: 'campo', ks: KS, n: '3,4', cuerda: true, quieta: true}, texto: '3,4 × 10 =', pot: {x: '3,4', k: 1}, sol: '34',
+    pide: 'Cada jinete lleva <b>3,4</b> sacos. ¿Cuántos llevan <b>diez</b> jinetes?',
+    bien: '3,4 × 10 = 34. El 3 sube de los jinetes a los arbanes, y el 4, de las décimas a los jinetes.'},
+  {id: 'cien', titulo: 'Dos peldaños', tipo: 'escribe', maq: {vista: 'campo', ks: KS, n: '3,42', cuerda: true, quieta: true}, texto: '3,42 × 100 =', pot: {x: '3,42', k: 2}, sol: '342',
+    pide: 'Ahora un zuun entero, cien jinetes, con <b>3,42</b> sacos cada uno. ¿Cuántos sacos?',
+    bien: '3,42 × 100 = 342. Por cien son dos peldaños: el 3 pasa de los jinetes a los zuunes.'},
+  {id: 'baja', titulo: 'Repartir entre mil', tipo: 'marcha', maq: {vista: 'campo', ks: KS, n: '7', cuerda: true}, pasos: -3,
+    pide: '<b>Siete</b> sacos de sal para un myangan entero: 7 : 1.000. Haz bajar la cifra.',
+    bien: '7 : 1.000 = 0,007. Tres peldaños abajo: el 7 acaba en las milésimas, y los sitios vacíos hasta la coma se escriben con ceros.'},
+  {id: 'divide', titulo: 'Entre diez', tipo: 'escribe', maq: {vista: 'campo', ks: KS, n: '34,2', cuerda: true, quieta: true}, texto: '34,2 : 10 =', pot: {x: '34,2', k: -1}, sol: '3,42',
+    pide: 'Hay <b>34,2</b> sacos para un arban, diez jinetes. ¿Cuánto le toca a cada uno?',
+    bien: '34,2 : 10 = 3,42. Dividir entre diez baja cada cifra un peldaño.'},
+  {id: 'decima', titulo: 'Por una décima', tipo: 'escribe', maq: {vista: 'campo', ks: KS, n: '8', cuerda: true, quieta: true}, texto: '8 × 0,1 =', pot: {x: '8', k: -1}, sol: '0,8',
+    pide: 'Multiplicar por <b>0,1</b> es quedarse con la décima parte. ¿Cuánto es <b>8 × 0,1</b>?',
+    bien: '8 × 0,1 = 0,8. Multiplicar por una décima BAJA un peldaño: es lo mismo que dividir entre diez.'},
+  {id: 'entre-decima', titulo: 'Entre una décima', tipo: 'opcion', maq: {vista: 'campo', ks: KS, n: '5', cuerda: true, quieta: true},
+    pide: 'Y al revés: <b>5 : 0,1</b>. ¿Cuántas décimas de saco caben en cinco sacos?',
+    ops: [{t: '50', ok: true}, {t: '0,5', e: 'escalera-al-reves'},
+      {t: '0,05', dice: 'Dividir no siempre achica, mi kan. Pregúntese cuántas décimas caben en un saco, y luego en cinco.'},
+      {t: '5,1', dice: 'Eso es sumar una décima. Aquí se reparte en trozos de una décima: ¿cuántos trozos salen?'}],
+    bien: 'En cada saco caben diez décimas; en cinco, cincuenta. Dividir entre 0,1 SUBE un peldaño: es lo mismo que multiplicar por diez.'}
+]},
+{id: 'botin', nombre: 'El reparto del botín', corto: 'El botín', lema: '10⁰ y 10⁻ⁿ', encargos: [
+  {id: 'baja', titulo: 'Bajar es dividir entre diez', tipo: 'marcha', maq: {vista: 'escalera', ks: ESC, n: '100'}, pasos: -2,
+    pide: 'Un <b>zuun</b> de monedas: 10². Repártelo entre diez, y lo que salga, otra vez entre diez. ¿Dónde acabas?',
+    bien: '10² : 10 = 10¹, y 10¹ : 10 tiene que ser 10⁰. En el suelo queda <b>una</b> moneda: 10⁰ = 1. Bajar un peldaño es dividir entre diez.'},
+  {id: 'cero', titulo: 'Diez elevado a cero', tipo: 'opcion', maq: {vista: 'escalera', ks: ESC, n: '1', quieta: true, tapa: true},
+    pide: 'Entonces, ¿cuánto vale <b>10⁰</b>?',
+    ops: [{t: '1', ok: true}, {t: '0', e: 'elevado-a-nada'},
+      {t: '10', dice: 'Diez es 10¹, un peldaño más arriba. ¿Cuánto es 10¹ : 10?'},
+      {t: 'no existe', dice: 'Existe porque lo definimos, mi kan: tiene que ser lo que sale de 10¹ : 10.'}],
+    bien: '10⁰ = 1. No se calcula: se <b>define</b> así, para que la escalera no se rompa al llegar al suelo.'},
+  {id: 'sigue', titulo: 'Por debajo del jinete', tipo: 'marcha', maq: {vista: 'escalera', ks: ESC, n: '1'}, pasos: -2,
+    pide: 'La escalera no se acaba en el suelo. Reparte <b>una</b> moneda entre diez, y otra vez entre diez.',
+    bien: '1 : 10 = 0,1, una décima; 0,1 : 10 = 0,01, una centésima. Para que el exponente siga contando peldaños se escriben 10⁻¹ y 10⁻²: el menos dice «por debajo del jinete».'},
+  {id: 'menos2', titulo: 'Diez elevado a menos dos', tipo: 'opcion', maq: {vista: 'escalera', ks: ESC, n: '0,01', quieta: true, tapa: true},
+    pide: '¿Cuánto vale <b>10⁻²</b>?',
+    ops: [{t: '0,01', ok: true}, {t: '−100', e: 'el-menos-que-debe'}, {t: '−20', e: 'el-menos-que-debe'},
+      {t: '0,2', dice: 'Dos peldaños abajo no es «dos entre diez». Baje desde 1 dos veces, dividiendo entre diez cada vez.'}],
+    bien: '10⁻² = 0,01, una centésima. Y la cuenta cuadra: 10² · 10⁻² = 1, porque cien centésimas son uno.'},
+  {id: 'potencia', titulo: 'Tres peldaños arriba', tipo: 'escribe', maq: {vista: 'escalera', ks: ESC, n: '1.000', quieta: true, tapa: true}, texto: '10³ =', sol: '1.000', neg: true,
+    trampas: {'30': 'diez-por-tres', '13': {dice: 'El 3 no se suma al 10: dice cuántas veces se multiplica por diez desde el jinete.'}},
+    pide: 'Hacia arriba es igual. ¿Cuántos jinetes son <b>10³</b>? Escríbelo con todas sus cifras.',
+    bien: '10³ = 10 · 10 · 10 = 1.000: tres peldaños por encima del jinete. Un myangan.'},
+  {id: 'tumenes', titulo: 'Tres tumenes', tipo: 'escribe', maq: {vista: 'escalera', ks: [4, 3, 2, 1, 0], n: '10.000', quieta: true, tapa: true}, texto: '3 · 10⁴ =', sol: '30.000',
+    trampas: {'81': 'exponente-pegado', '12': 'exponente-pegado', '810.000': 'exponente-pegado', '3.000': 'peldano-de-menos', '300.000': {dice: 'Se ha pasado un peldaño, mi kan: 10⁴ son cuatro, no cinco.'},
+      '120': {dice: '10⁴ no es 40, mi kan: son cuatro peldaños, 10 · 10 · 10 · 10.'}},
+    pide: '¿Y <b>3 · 10⁴</b>? Con todas sus cifras.',
+    bien: '3 · 10⁴ = 30.000: tres tumenes. El exponente es del 10, y dice en qué sitio está el 3.'},
+  {id: 'milesima', titulo: 'Una milésima', tipo: 'opcion', maq: {vista: 'escalera', ks: ESC, n: '0,001', quieta: true, tapa: true, sinMoneda: true},
+    pide: '<b>0,001</b> también es una potencia de diez. ¿Cuál?',
+    ops: [{t: '10⁻³', ok: true}, {t: '10⁻²', e: 'contar-palos'}, {t: '−10³', e: 'el-menos-que-debe'},
+      {t: '10³', dice: 'Eso es mil: tres peldaños ARRIBA. Una milésima está por debajo del jinete.'}],
+    bien: '0,001 es una milésima: tres peldaños por debajo del jinete, 10⁻³. Se cuentan los sitios, no los ceros.'},
+  {id: 'pozo', titulo: 'Cuanto más abajo, más pequeño', tipo: 'opcion', maq: {vista: 'escalera', ks: [0, -1, -2, -3, -4, -5], n: '1', quieta: true, tapa: true, sinMoneda: true},
+    pide: '¿Cuál es <b>mayor</b>: 10⁻⁵ o 10⁻³?',
+    ops: [{t: '10⁻³', ok: true}, {t: '10⁻⁵', e: 'pozo-hondo'}, {t: 'son iguales', dice: 'Son dos peldaños distintos de la escalera. ¿Cuál queda más cerca del jinete?'}],
+    bien: '10⁻³ es una milésima y 10⁻⁵ una cienmilésima, cien veces menor. Por debajo del jinete, cuanto más abajo, más pequeño.'}
+]},
+{id: 'mensajero', nombre: 'El mensajero del yam', corto: 'El mensajero', lema: 'notación científica', curso: 2, encargos: [
+  {id: 'grupo', titulo: 'El grupo más grande', tipo: 'banderin', maq: {vista: 'campo', ks: KS, n: '34.000', rollo: true}, num: '34.000',
+    pide: 'El mensajero del yam no dice todas las cifras: dice <b>cuántos hay del grupo más grande</b>. Hay 34.000 jinetes. Clava el banderín en ese grupo.',
+    bien: '3,4 tumenes: <b>3,4 × 10⁴</b>. Una sola cifra delante de la coma, y el sitio de esa cifra. Es la forma del yam: la notación científica.'},
+  {id: 'forma', titulo: 'La forma del yam', tipo: 'opcion', maq: {vista: 'campo', ks: KS, n: '52.000', quieta: true},
+    pide: 'Cuatro mensajes dicen 52.000. Solo uno va en la <b>forma del yam</b>. ¿Cuál?',
+    ops: [{t: '5,2 × 10⁴', ok: true}, {t: '52 × 10³', e: 'casi-cientifico'}, {t: '0,52 × 10⁵', e: 'casi-cientifico'}, {t: '520 × 10²', e: 'casi-cientifico'}],
+    bien: 'Los cuatro valen 52.000. El convenio es decir el grupo más grande: una sola cifra, que no sea cero, delante de la coma (1 ≤ a &lt; 10).'},
+  {id: 'escribe', titulo: 'Escribir el mensaje', tipo: 'cientifica', maq: {vista: 'campo', ks: KS, n: '5.200', quieta: true}, num: '5.200', sol: {m: '5,2', e: 3},
+    pide: 'Hay <b>5.200</b> ovejas. Escribe el mensaje en la forma del yam.',
+    bien: '5.200 = 5,2 × 10³. El 5 está en los myanganes: ese es el exponente, 3.'},
+  {id: 'pequeno', titulo: 'También lo pequeño', tipo: 'banderin', maq: {vista: 'campo', ks: KS_BAJO, n: '0,0045', rollo: true}, num: '0,0045',
+    pide: 'También lo pequeño se manda así. Una pepita de oro pesa <b>0,0045</b> de saco. Clava el banderín en su grupo más grande.',
+    bien: '4,5 milésimas: <b>4,5 × 10⁻³</b>. El exponente negativo dice que el sitio está por debajo del jinete.'},
+  {id: 'pequeno2', titulo: 'Un mensaje diminuto', tipo: 'cientifica', maq: {vista: 'campo', ks: KS_BAJO, n: '0,00072', quieta: true}, num: '0,00072', sol: {m: '7,2', e: -4},
+    trampas: [{m: '7,2', e: 4, dice: 'El sitio del 7 está por DEBAJO del jinete, mi kan: al exponente le falta el menos.'}],
+    pide: 'Un grano de sal pesa <b>0,00072</b> de saco. Escribe el mensaje.',
+    bien: '0,00072 = 7,2 × 10⁻⁴. El 7 está en las diezmilésimas, cuatro peldaños por debajo del jinete.'},
+  {id: 'desenrolla', titulo: 'Desenrollar el mensaje', tipo: 'escribe', maq: {vista: 'rollos', a: {m: '2,5', e: 3}}, texto: '2,5 × 10³ =', pot: {x: '2,5', k: 3}, sol: '2.500',
+    pide: 'Llega un mensaje: <b>2,5 × 10³</b> caballos. Dímelo con todas sus cifras.',
+    bien: '2,5 × 10³ = 2.500. Por 10³, cada cifra sube tres peldaños: el 2 llega a los myanganes.'},
+  {id: 'compara', titulo: 'Dos ejércitos', tipo: 'opcion', maq: {vista: 'rollos', a: {m: '8', e: 3}, b: {m: '3', e: 4}, op: '¿?'},
+    pide: 'Dos ejércitos: <b>8 × 10³</b> y <b>3 × 10⁴</b>. ¿Cuál es mayor?',
+    ops: [{t: '3 × 10⁴', ok: true}, {t: '8 × 10³', e: 'manda-la-cifra'}, {t: 'son iguales', dice: 'Escríbalos con todas sus cifras y compare, mi kan.'}],
+    bien: 'Tres tumenes contra ocho myanganes: 30.000 contra 8.000. En la forma del yam, primero manda el exponente.'},
+  {id: 'compara-neg', titulo: 'Dos pepitas', tipo: 'opcion', maq: {vista: 'rollos', a: {m: '4', e: -2}, b: {m: '2', e: -5}, op: '¿?'},
+    pide: 'Dos pepitas de oro: <b>4 × 10⁻²</b> y <b>2 × 10⁻⁵</b> de saco. ¿Cuál pesa más?',
+    ops: [{t: '4 × 10⁻²', ok: true}, {t: '2 × 10⁻⁵', e: 'pozo-hondo'}, {t: 'pesan lo mismo', dice: 'Una está en las centésimas y la otra en las cienmilésimas. ¿Cuál queda más cerca del jinete?'}],
+    bien: 'Cuatro centésimas contra dos cienmilésimas: gana 4 × 10⁻². También con exponentes negativos manda el sitio, y −2 queda más arriba que −5.'}
+]},
+{id: 'cuentas', nombre: 'Cuentas de los mensajeros', corto: 'Las cuentas', lema: 'producto y cociente', curso: 2, encargos: [
+  {id: 'apila', titulo: 'Los peldaños se apilan', tipo: 'opcion', maq: {vista: 'rollos', a: {m: '', e: 3}, b: {m: '', e: 2}, op: '·', pila: true},
+    pide: 'Un myangan de zuunes: <b>10³ · 10²</b>. ¿Qué potencia de diez es?',
+    ops: [{t: '10⁵', ok: true}, {t: '10⁶', e: 'peldanos-que-se-multiplican'}, {t: '100⁵', dice: 'La base no cambia, mi kan: seguimos en la escalera del diez, solo que más arriba.'},
+      {t: '10¹', dice: 'Eso sería bajar. Aquí se suben tres peldaños y luego otros dos.'}],
+    bien: 'Mil veces cien son 100.000: 10⁵. Subes tres peldaños y luego dos: al multiplicar, los exponentes se suman.'},
+  {id: 'producto', titulo: 'Multiplicar dos mensajes', tipo: 'cientifica', maq: {vista: 'rollos', a: {m: '3', e: 4}, b: {m: '2', e: 3}, op: '·', pila: true}, sol: {m: '6', e: 7}, prod: [4, 3],
+    pide: 'Hay <b>3 × 10⁴</b> jinetes y cada uno lleva <b>2 × 10³</b> flechas. ¿Cuántas flechas? En la forma del yam.',
+    bien: '3 · 2 = 6, y los peldaños se suman, 4 + 3 = 7: 6 × 10⁷ flechas.'},
+  {id: 'renormaliza', titulo: 'Cuando la cifra se pasa', tipo: 'cientifica', maq: {vista: 'rollos', a: {m: '4', e: 3}, b: {m: '5', e: 2}, op: '·', pila: true}, sol: {m: '2', e: 6}, prod: [3, 2],
+    trampas: [{m: '2', e: 5, dice: 'Al pasar de 20 a 2 la cifra ha bajado un sitio: el exponente tiene que subir uno para que valga lo mismo.'}],
+    pide: '<b>(4 × 10³) · (5 × 10²)</b>, y lo quiero en la forma del yam.',
+    bien: '4 · 5 = 20 y 3 + 2 = 5: 20 × 10⁵. Pero 20 no cabe delante de la coma: es 2 × 10⁶.'},
+  {id: 'cociente', titulo: 'Dividir es bajar', tipo: 'opcion', maq: {vista: 'rollos', a: {m: '', e: 5}, b: {m: '', e: 2}, op: ':', pila: true},
+    pide: 'Ahora al revés: <b>10⁵ : 10²</b>.',
+    ops: [{t: '10³', ok: true}, {t: '10⁷', dice: 'Eso es subir, mi kan. Dividir es bajar peldaños: desde el 5, baje dos.'},
+      {t: '10¹⁰', e: 'peldanos-que-se-multiplican'}, {t: '10⁻³', dice: 'Se baja desde el peldaño 5, dos peldaños. ¿A cuál se llega?'}],
+    bien: 'Cien mil entre cien son mil: 10³. Dividir es bajar: los exponentes se restan, 5 − 2 = 3.'},
+  {id: 'cociente2', titulo: 'Repartir un mensaje', tipo: 'cientifica', maq: {vista: 'rollos', a: {m: '8', e: 5}, b: {m: '2', e: 2}, op: ':', pila: true}, sol: {m: '4', e: 3},
+    trampas: [{m: '4', e: 7, dice: 'Ha subido peldaños, mi kan, y al dividir se baja: los exponentes se restan.'}, {m: '4', e: 10, error: 'peldanos-que-se-multiplican'}],
+    pide: '<b>8 × 10⁵</b> flechas para <b>2 × 10²</b> arqueros. ¿Cuántas le tocan a cada uno?',
+    bien: '8 : 2 = 4 y 5 − 2 = 3: 4 × 10³ flechas para cada arquero.'},
+  {id: 'negativo', titulo: 'Con un exponente negativo', tipo: 'cientifica', maq: {vista: 'rollos', a: {m: '3', e: 4}, b: {m: '2', e: -2}, op: '·', pila: true}, sol: {m: '6', e: 2}, prod: [4, -2],
+    trampas: [{m: '6', e: 6, dice: 'El segundo exponente es −2: son dos peldaños hacia ABAJO.'}],
+    pide: '<b>3 × 10⁴</b> jinetes, y a cada uno le tocan <b>2 × 10⁻²</b> sacos de sal. ¿Cuántos sacos hacen falta?',
+    bien: '3 · 2 = 6, y 4 + (−2) = 2: 6 × 10² = 600 sacos. Sumar un exponente negativo es bajar peldaños.'}
+]}
+];
+SALAS.forEach(s => s.encargos.forEach((e, i) => { e.n = i + 1; e.sala = s.id; e.clave = s.id + '.' + e.id; }));
+const sala = id => SALAS.find(s => s.id === id) || null;
+const encargo = (id, n) => { const s = sala(id); return s ? s.encargos.find(e => e.n === Number(n)) || null : null; };
+const total = () => SALAS.reduce((t, s) => t + s.encargos.length, 0);
+
+const mal = (t, r) => typeof t === 'string' ? {ok: false, error: t} : t && t.error ? {ok: false, error: t.error} : {ok: false, dice: (t && t.dice) || r};
+const NADA = {nulo: true, dice: 'Eso no lo sé leer como un número, mi kan.'};
+
+function dePotencia(p, v, txt){
+  const x = N.lee(p.x), k = p.k, sol = k >= 0 ? x * Math.pow(10, k) : x / Math.pow(10, -k), inv = k >= 0 ? x / Math.pow(10, k) : x * Math.pow(10, -k);
+  if(v === x) return k > 0 && txt !== undefined && N.decimales(String(txt).trim()) > N.decimales(p.x) ? 'cero-pegado' : {dice: 'Ha quedado lo mismo que había. Aquí cada cifra tiene que cambiar de sitio.'};
+  if(v === inv) return 'escalera-al-reves';
+  if(k > 0 ? v * 10 === sol : v === sol * 10) return 'peldano-de-menos';
+  if(k > 0 ? v === sol * 10 : v * 10 === sol) return {dice: 'Se ha pasado un peldaño. Cuente los que pide el kan: por 10 o entre 10, uno; por 100 o entre 100, dos; por 1.000 o entre 1.000, tres.'};
+  return null;
+}
+const TIPOS = {
+  pon(enc, r){
+    const obj = N.lee(enc.obj);
+    if(r === obj) return {ok: true};
+    for(const t in (enc.trampas || {})) if(N.lee(t) === r) return mal(enc.trampas[t]);
+    for(let k = 1; k <= 3; k++){ const c = N.cifra(obj, -k); if(c && N.cifra(r, -k) !== c && N.cifra(r, k) === c && N.cifra(obj, k) !== c) return mal('decena-no-decima'); }
+    const [e, d = ''] = N.escribe(obj).split(',');
+    if(/0/.test(d.replace(/0+$/, '')) && N.lee(e + ',' + d.replace(/0/g, '')) === r) return mal('cero-de-en-medio');
+    return {ok: false, dice: 'Aún no cuadra: en el campamento hay <b>' + N.escribe(r) + '</b>. Compare columna a columna con lo que pidió el kan.'};
+  },
+  marcha(enc, r){
+    const p = enc.pasos;
+    if(r === p) return {ok: true};
+    if(r === 0) return {ok: false, dice: 'Las cifras no se han movido de su sitio.'};
+    if(r === -p) return mal('escalera-al-reves');
+    if(Math.sign(r) === Math.sign(p) && Math.abs(r) === Math.abs(p) - 1) return mal('peldano-de-menos');
+    if(Math.sign(r) === Math.sign(p) && Math.abs(r) > Math.abs(p)) return {ok: false, dice: 'Se ha pasado de peldaños. Cuente los que pide el kan y vuelva atrás los que sobran.'};
+    return {ok: false, dice: 'No son esos peldaños. Por 10, uno arriba; entre 10, uno abajo: cuente cuántos pide el kan.'};
+  },
+  banderin(enc, r){
+    const e = N.mayor(N.lee(enc.num));
+    return r === e ? {ok: true} : mal('casi-cientifico');
+  },
+  opcion(enc, r){
+    const o = enc.ops[r];
+    if(!o) return {nulo: true, dice: 'Elija una, mi kan.'};
+    return o.ok ? {ok: true} : mal(o.e || {dice: o.dice}, 'No es esa.');
+  },
+  escribe(enc, r){
+    const v = N.lee(r), sol = N.lee(enc.sol);
+    if(v === null) return NADA;
+    if(v === sol) return {ok: true};
+    for(const t in (enc.trampas || {})) if(N.lee(t) === v) return mal(enc.trampas[t]);
+    if(v < 0 && sol > 0) return enc.neg ? mal('el-menos-que-debe') : {ok: false, dice: 'Aquí no hay nada negativo, mi kan: son cosas que se cuentan.'};
+    const g = enc.pot ? dePotencia(enc.pot, v, r) : null;
+    return g ? mal(g) : {ok: false, dice: 'No es ' + N.escribe(v) + '. Piense en qué sitio tiene que acabar cada cifra.'};
+  },
+  cientifica(enc, r){
+    const c = N.deCientifica(r && r.m, r && r.e), s = N.deCientifica(enc.sol.m, enc.sol.e);
+    if(!c) return {nulo: true, dice: 'Faltan la cifra de delante o el exponente, mi kan.'};
+    if(c.valor === s.valor && c.forma) return {ok: true};
+    for(const t of (enc.trampas || [])) if(N.lee(t.m) === c.m && t.e === c.e) return mal(t);
+    if(c.valor === s.valor) return mal('casi-cientifico');
+    if(enc.prod && c.e === enc.prod[0] * enc.prod[1] && c.e !== s.e) return mal('peldanos-que-se-multiplican');
+    if(enc.num && c.m === s.m && c.e !== s.e && Math.abs(c.e) !== 0 && Math.sign(c.e) === Math.sign(s.e) && Math.abs(c.e - s.e) <= 2) return mal('contar-palos');
+    return {ok: false, dice: c.m === s.m ? 'La cifra de delante está bien. Mire otra vez el exponente: ¿en qué sitio está esa cifra?' : 'No es ese número. Primero la cifra de delante (una sola, y que no sea cero); después, su sitio.'};
+  },
+  ordena(enc, r){
+    const nums = enc.maq.nums, v = nums.map(N.lee), bien = orden(v, (a, b) => a - b);
+    if(!r || r.length !== nums.length) return {nulo: true, dice: 'Faltan precios por tocar, mi kan.'};
+    if(igual(r, bien)) return {ok: true};
+    const largo = orden(nums.map(t => { const [e, d = '0'] = t.split(','); return Number(e) * 1e7 + Number(d); }), (a, b) => a - b);
+    if(igual(r, largo)) return mal('cuenta-larga');
+    if(igual(r, bien.slice().reverse())) return {ok: false, dice: 'Los ha puesto del más caro al más barato. El kan los quiere al revés.'};
+    return {ok: false, dice: 'No van así. Compárelos sitio a sitio: primero los jinetes, luego las décimas, luego las centésimas.'};
+  }
+};
+const orden = (v, f) => v.map((x, i) => i).sort((a, b) => f(v[a], v[b]) || a - b);
+const igual = (a, b) => a.length === b.length && a.every((x, i) => x === b[i]);
+const comprueba = (enc, resp) => TIPOS[enc.tipo](enc, resp);
+
+function solucion(enc){
+  switch(enc.tipo){
+    case 'pon': return N.lee(enc.obj);
+    case 'marcha': return enc.pasos;
+    case 'banderin': return N.mayor(N.lee(enc.num));
+    case 'opcion': return enc.ops.findIndex(o => o.ok);
+    case 'escribe': return enc.sol;
+    case 'cientifica': return {m: enc.sol.m, e: String(enc.sol.e)};
+    case 'ordena': return orden(enc.maq.nums.map(N.lee), (a, b) => a - b);
+  }
+}
+function trampas(enc){
+  const t = [];
+  if(enc.tipo === 'opcion') enc.ops.forEach((o, i) => { if(o.e) t.push([i, o.e]); });
+  if(enc.tipo === 'escribe' || enc.tipo === 'pon') for(const k in (enc.trampas || {})){ const e = enc.trampas[k]; if(typeof e === 'string') t.push([enc.tipo === 'pon' ? N.lee(k) : k, e]); }
+  if(enc.tipo === 'cientifica') (enc.trampas || []).forEach(x => { if(x.error) t.push([{m: x.m, e: String(x.e)}, x.error]); });
+  return t;
+}
+
+const S = {SALAS, KS, KS_BAJO, ESC, sala, encargo, total, comprueba, solucion, trampas, dePotencia};
+if(typeof module !== 'undefined' && module.exports) module.exports = S; else raiz.Salas = S;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+(function (raiz) {
+'use strict';
+const N = raiz.Numeros || require('./numeros.js');
+const S = raiz.Salas || require('./salas.js');
+const p10 = (x, k) => k >= 0 ? x * Math.pow(10, k) : x / Math.pow(10, -k);
+const ESCRITO = {1: '× 10', 2: '× 100', 3: '× 1.000', '-1': ': 10', '-2': ': 100', '-3': ': 1.000'};
+const cient = (m, e) => (m ? m + ' × ' : '') + N.pot(e);
+
+const GEN = {
+campamento: [
+  function valor(r){
+    const ks = [3, 2, 1, 0, -1, -2].slice(r.entre(0, 1), r.entre(4, 6)), ds = r.baraja([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    let n = 0; ks.forEach((k, i) => { n += (i > 0 && i < ks.length - 1 && r() < .2 ? 0 : ds[i]) * N.peso(k); });
+    const cand = ks.filter(k => N.cifra(n, k)), k = r.elige(cand), c = N.cifra(n, k), v = j => N.escribe(c * N.peso(j));
+    const ops = [{t: v(k), ok: true}, {t: v(k + 1), dice: 'Eso sería un sitio más arriba. Mire el nombre de la columna.'}, {t: v(k - 1), dice: 'Eso sería un sitio más abajo. Mire el nombre de la columna.'}];
+    if(k < 0) ops.push({t: v(-k), e: 'decena-no-decima'});
+    else ops.push({t: v(k >= 2 ? 0 : k + 2), dice: k >= 2 ? 'Una cifra sola no dice nada: vale lo que diga su sitio.' : 'Mire a qué lado de la estaca está, y en qué columna.'});
+    return {tipo: 'opcion', maq: {vista: 'campo', ks: S.KS, n: N.escribe(n), quieta: true}, ops,
+      pide: 'En <b>' + N.escribe(n) + '</b>, ¿qué vale el <b>' + c + '</b>?', bien: 'El ' + c + ' está en el sitio de ' + N.NOM[k][1] + ': vale ' + v(k) + '.'};
+  },
+  function pon(r){
+    const ks = r.baraja([3, 2, 1, 0, -1, -2, -3]).slice(0, 3).sort((a, b) => b - a);
+    let n = 0; ks.forEach(k => { n += r.entre(1, 9) * N.peso(k); });
+    return {tipo: 'pon', maq: {vista: 'campo', ks: S.KS, n: '0'}, obj: N.escribe(n),
+      pide: 'Ponme en el campamento <b>' + N.enPalabras(n) + '</b>.', bien: 'Cuadra: ' + N.enPalabras(n) + ' son <b>' + N.escribe(n) + '</b>.'};
+  }],
+precios: [
+  function dos(r){
+    const e = r.entre(0, 3), a = r.entre(1, 8), b = r.entre(1, 9), f = r.entre(0, 3);
+    let nums, ops;
+    if(f === 0){ const g = e + ',' + a + b, c = e + ',' + (a + 1); nums = [g, c]; ops = [{t: c, ok: true}, {t: g, e: 'cuenta-larga'}, {t: 'son iguales', dice: 'Compare las décimas de uno y de otro.'}]; }
+    else if(f === 1){ const c = e + ',' + a, g = c + (r() < .5 ? '0' : '00'); nums = [c, g]; ops = [{t: 'son iguales', ok: true}, {t: g, e: 'cola-de-ceros'}, {t: c, dice: 'Mire sitio a sitio: ¿en cuál se diferencian?'}]; }
+    else if(f === 3){ const c = e + ',' + a, g = c + b; nums = [c, g]; ops = [{t: g, ok: true}, {t: c, dice: 'Más corto tampoco es más. Empatan en las décimas: mire qué hay en las centésimas de cada uno.'}, {t: 'son iguales', dice: 'Empatan en las décimas, pero uno tiene centésimas y el otro no.'}]; }
+    else { const g = e + ',0' + a, c = e + ',' + a; nums = [g, c]; ops = [{t: c, ok: true}, {t: 'son iguales', e: 'cero-de-en-medio'}, {t: g, e: 'cuenta-larga'}]; }
+    if(r() < .5) nums.reverse();
+    return {tipo: 'opcion', maq: {vista: 'filas', nums}, ops, pide: 'Dos precios: <b>' + nums[0] + '</b> y <b>' + nums[1] + '</b>. ¿Cuál es <b>mayor</b>?',
+      bien: 'Sitio a sitio desde el más grande: ' + (f === 1 ? 'no se diferencian en ninguno. Los ceros del final no cambian nada.' : f === 3 ? 'empatan en las décimas y deciden las centésimas.' : 'deciden las décimas.')};
+  },
+  function tres(r){
+    const e = r.entre(0, 9), a = r.entre(1, 8), b = r.entre(1, 8), c = r.entre(1, 9);
+    const bien = r() < .5 ? [e + ',' + a + b, e + ',' + a + b + c, e + ',' + (a + 1)] : r() < .5 ? [e + ',' + a, e + ',' + a + b, e + ',' + (a + 1)] : [e + ',' + (a - 1) + '0' + c, e + ',' + a, e + ',' + a + b];
+    const nums = r.baraja(bien);
+    return {tipo: 'ordena', maq: {vista: 'filas', nums}, pide: 'Tres precios. Tócalos <b>del más barato al más caro</b>.',
+      bien: bien.join(' &lt; ') + '. Primero deciden las décimas; donde empatan, el sitio siguiente.'};
+  }],
+columna: [
+  function potencia(r){
+    const k = r.elige([1, 2, 3, -1, -2, -3]), como = r() < .3 ? 'decima' : 'entero';
+    const x = r.entre(1, 9) * N.peso(r.entre(-1, 1)) + r.entre(1, 9) * N.peso(r.entre(-2, -1)) * (r() < .7 ? 1 : 0), sol = p10(x, k);
+    if(!Number.isInteger(sol) || sol >= N.peso(5) || sol % 10) return potencia(r);
+    const dec = N.escribe(N.peso(-Math.abs(k))), op = como === 'decima' ? (k < 0 ? '× ' + dec : ': ' + dec) : ESCRITO[k];
+    return {tipo: 'escribe', maq: {vista: 'campo', ks: S.KS, n: N.escribe(x), cuerda: true, quieta: true}, texto: N.escribe(x) + ' ' + op + ' =', pot: {x: N.escribe(x), k}, sol: N.escribe(sol),
+      pide: '¿Cuánto es <b>' + N.escribe(x) + ' ' + op + '</b>?', bien: N.escribe(x) + ' ' + op + ' = ' + N.escribe(sol) + '. Cada cifra ' + (k > 0 ? 'sube ' : 'baja ') + Math.abs(k) + (Math.abs(k) === 1 ? ' peldaño' : ' peldaños') + ', y la coma no se mueve.'};
+  }],
+botin: [
+  function vale(r){
+    const k = r.elige([-4, -3, -2, -1, 0, 2, 3, 4, 5, 6]), t = {};
+    if(k >= 2) t[String(10 * k)] = 'diez-por-tres';
+    if(k === 0){ t['0'] = 'elevado-a-nada'; t['10'] = {dice: 'Diez es 10¹, un peldaño más arriba.'}; }
+    return {tipo: 'escribe', maq: null, texto: N.pot(k) + ' =', sol: N.valorPot(k), trampas: t, neg: true,
+      pide: 'Escribe <b>' + N.pot(k) + '</b> con todas sus cifras.', bien: N.pot(k) + ' = ' + N.valorPot(k) + ': ' + (k ? Math.abs(k) + (Math.abs(k) === 1 ? ' peldaño ' : ' peldaños ') + (k > 0 ? 'por encima' : 'por debajo') + ' del jinete.' : 'el jinete, en el suelo.')};
+  },
+  function cifra(r){
+    const a = r.entre(2, 9), k = r.entre(2, 5), sol = a * N.peso(k), t = {};
+    [Math.pow(a, k), a * k, Math.pow(10 * a, k)].forEach(v => { if(v * 1e6 !== sol && v < 1e9) t[String(v)] = 'exponente-pegado'; });
+    return {tipo: 'escribe', maq: null, texto: a + ' · ' + N.pot(k) + ' =', sol: N.escribe(sol), pot: {x: String(a), k}, trampas: t,
+      pide: 'Escribe <b>' + a + ' · ' + N.pot(k) + '</b> con todas sus cifras.', bien: a + ' · ' + N.pot(k) + ' = ' + N.escribe(sol) + '. El exponente es del 10 y dice el sitio del ' + a + '.'};
+  },
+  function pozo(r){
+    const a = r.entre(1, 5), b = a + r.entre(1, 3), ops = [{t: N.pot(-a), ok: true}, {t: N.pot(-b), e: 'pozo-hondo'}, {t: 'son iguales', dice: 'Son dos peldaños distintos. ¿Cuál queda más cerca del jinete?'}];
+    return {tipo: 'opcion', maq: null, ops, pide: '¿Cuál es <b>mayor</b>: ' + (r() < .5 ? N.pot(-a) + ' o ' + N.pot(-b) : N.pot(-b) + ' o ' + N.pot(-a)) + '?',
+      bien: N.pot(-a) + ' = ' + N.valorPot(-a) + ' y ' + N.pot(-b) + ' = ' + N.valorPot(-b) + '. Por debajo del jinete, cuanto más abajo, más pequeño.'};
+  }],
+mensajero: [
+  function escribir(r){
+    const e = r.elige([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7]), d1 = r.entre(1, 9), d2 = r.entre(0, 9), m = d1 + (d2 ? ',' + d2 : '');
+    const n = p10(N.lee(m), e);
+    if(!Number.isInteger(n)) return escribir(r);
+    const t = e < 0 ? [{m, e: -e, dice: 'El sitio de la primera cifra está por DEBAJO del jinete: al exponente le falta el menos.'}] : [];
+    return {tipo: 'cientifica', maq: e <= 4 && e >= -3 && n % N.peso(-3) === 0 ? {vista: 'campo', ks: S.KS, n: N.escribe(n), quieta: true} : null, num: N.escribe(n), sol: {m, e}, trampas: t,
+      pide: 'Escribe <b>' + N.escribe(n) + '</b> en la forma del yam.', bien: N.escribe(n) + ' = ' + cient(m, e) + '. La primera cifra está en el sitio ' + N.pot(e) + '.'};
+  },
+  function desenrollar(r){
+    const e = r.elige([-4, -3, -2, -1, 1, 2, 3, 4, 5, 6]), m = r.entre(1, 9) + ',' + r.entre(1, 9), sol = p10(N.lee(m), e);
+    if(!Number.isInteger(sol)) return desenrollar(r);
+    return {tipo: 'escribe', maq: {vista: 'rollos', a: {m, e}}, texto: cient(m, e) + ' =', pot: {x: m, k: e}, sol: N.escribe(sol),
+      pide: 'Llega un mensaje: <b>' + cient(m, e) + '</b>. Dímelo con todas sus cifras.', bien: cient(m, e) + ' = ' + N.escribe(sol) + '.'};
+  },
+  function comparar(r){
+    const neg = r() < .4, e1 = r.entre(1, 5), e2 = e1 + r.entre(1, 2), b = r.entre(1, 5), a = b + r.entre(1, 4);
+    const peq = {m: String(a), e: neg ? -e2 : e1}, gra = {m: String(b), e: neg ? -e1 : e2}, par = r() < .5 ? [peq, gra] : [gra, peq];
+    return {tipo: 'opcion', maq: {vista: 'rollos', a: par[0], b: par[1], op: '¿?'}, pide: '¿Cuál es <b>mayor</b>: ' + cient(par[0].m, par[0].e) + ' o ' + cient(par[1].m, par[1].e) + '?',
+      ops: [{t: cient(gra.m, gra.e), ok: true}, {t: cient(peq.m, peq.e), e: neg ? 'pozo-hondo' : 'manda-la-cifra'}, {t: 'son iguales', dice: 'Escríbalos con todas sus cifras y compare.'}],
+      bien: 'En la forma del yam, primero manda el exponente: ' + N.pot(gra.e) + ' queda más arriba que ' + N.pot(peq.e) + '.'};
+  }],
+cuentas: [
+  function producto(r){
+    const a = r.entre(2, 9), b = r.entre(2, 9), e1 = r.entre(2, 6), e2 = r.elige([-3, -2, 2, 3, 4]), p = a * b, sube = p >= 10;
+    const m = sube ? N.escribe(p * 1e5) : String(p), e = e1 + e2 + (sube ? 1 : 0);
+    if(e1 * e2 === e || e === 0) return producto(r);
+    return {tipo: 'cientifica', maq: {vista: 'rollos', a: {m: String(a), e: e1}, b: {m: String(b), e: e2}, op: '·', pila: true}, sol: {m, e}, prod: [e1, e2],
+      trampas: sube ? [{m, e: e - 1, dice: 'Al pasar de ' + p + ' a ' + m + ' la cifra ha bajado un sitio: el exponente tiene que subir uno.'}] : [],
+      pide: '<b>(' + cient(a, e1) + ') · (' + cient(b, e2) + ')</b>, en la forma del yam.',
+      bien: a + ' · ' + b + ' = ' + p + ', y los peldaños se suman: ' + N.pot(e1 + e2) + '.' + (sube ? ' Como ' + p + ' no cabe delante de la coma, es ' + cient(m, e) + '.' : '')};
+  },
+  function cociente(r){
+    const [a, b] = r.elige([[8, 2], [6, 2], [6, 3], [9, 3], [8, 4], [4, 2]]), e2 = r.entre(1, 4), e1 = e2 + r.entre(1, 4), q = a / b;
+    return {tipo: 'cientifica', maq: {vista: 'rollos', a: {m: String(a), e: e1}, b: {m: String(b), e: e2}, op: ':', pila: true}, sol: {m: String(q), e: e1 - e2},
+      trampas: [{m: String(q), e: e1 + e2, dice: 'Ha subido peldaños, y al dividir se baja: los exponentes se restan.'}].concat(e1 * e2 !== e1 + e2 ? [{m: String(q), e: e1 * e2, error: 'peldanos-que-se-multiplican'}] : []),
+      pide: '<b>(' + cient(a, e1) + ') : (' + cient(b, e2) + ')</b>, en la forma del yam.', bien: a + ' : ' + b + ' = ' + q + ', y los peldaños se restan: ' + cient(q, e1 - e2) + '.'};
+  }]
+};
+function nuevo(salaId, r){
+  const g = r.elige(GEN[salaId]), e = g(r);
+  e.id = 'practica'; e.sala = salaId; e.clave = salaId + '.practica'; e.practica = true; e.titulo = 'Practicar'; e.de = g.name;
+  return e;
+}
+const P = {GEN, nuevo};
+if(typeof module !== 'undefined' && module.exports) module.exports = P; else raiz.Practicar = P;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+(function (raiz) {
+'use strict';
+const S = raiz.Salas || require('./salas.js');
+const Er = raiz.Errores || require('./errores.js');
+function huella(t){
+  let h = 0x811c9dc5;
+  for(let i = 0; i < t.length; i++){ h ^= t.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+  return h.toString(16).padStart(8, '0').toUpperCase();
+}
+const nuevoTurno = () => ({lista: '', hechos: {}, fallos: {}, errores: {}, practica: {}});
+function resumen(T){
+  const salas = S.SALAS.map(s => {
+    const h = s.encargos.filter(e => e.clave in T.hechos);
+    return {id: s.id, nombre: s.nombre, hechos: h.length, total: s.encargos.length, primera: h.filter(e => !T.hechos[e.clave]).length};
+  });
+  const errores = Er.LISTA.filter(e => T.errores[e.id]).map(e => ({id: e.id, nombre: e.nombre, n: T.errores[e.id]})).sort((a, b) => b.n - a.n);
+  return {salas, errores, hechos: salas.reduce((t, s) => t + s.hechos, 0), total: S.total()};
+}
+function texto(T, o){
+  o = o || {};
+  const r = resumen(T), l = [];
+  l.push('EL RECUENTO DE JEFÉN GISKAN · acta');
+  l.push('N.º de lista: ' + (String(T.lista || '').trim() || '(sin número)'));
+  l.push('Fecha: ' + (o.fecha || ''));
+  l.push('Encargos: ' + r.hechos + ' de ' + r.total);
+  r.salas.forEach(s => l.push('  ' + s.nombre + ': ' + s.hechos + '/' + s.total + (s.hechos ? ' · a la primera, ' + s.primera : '')));
+  l.push('Dónde tropieza:' + (r.errores.length ? '' : ' sin errores con nombre'));
+  r.errores.forEach(e => l.push('  ' + e.n + ' × ' + e.nombre));
+  const p = S.SALAS.filter(s => T.practica[s.id]).map(s => s.corto + ' ' + T.practica[s.id][0] + ' bien, ' + T.practica[s.id][1] + ' mal');
+  l.push('Practicar (no cuenta para la ruta): ' + (p.length ? p.join(' · ') : 'nada'));
+  l.push('Versión ' + (o.version || ''));
+  const t = l.join('\n');
+  return t + '\nCódigo: RJG-' + huella(t);
+}
+function cuadra(acta){
+  const m = String(acta).match(/^([\s\S]*)\nCódigo: RJG-([0-9A-F]{8})\s*$/);
+  return !!m && huella(m[1]) === m[2];
+}
+const A = {huella, nuevoTurno, resumen, texto, cuadra};
+if(typeof module !== 'undefined' && module.exports) module.exports = A; else raiz.Acta = A;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+(function (raiz) {
+'use strict';
+const T = '#241C36';
+const KAN = `<svg viewBox="0 0 64 64" aria-hidden="true">
+  <path d="M7 64 Q8 46 24 41 L40 41 Q56 46 57 64 Z" fill="#4E6B8C" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M7 64 Q8 46 24 41 L27 41 Q17 48 16 64 Z" fill="#3E5570" opacity=".75"/>
+  <path d="M24 41 Q32 50 40 41 L43.5 42.6 Q32 55 20.5 42.6 Z" fill="#3E5570" stroke="${T}" stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M15 53 H49 L48.2 59 H15.8 Z" fill="#8E2F2A" stroke="${T}" stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M16.5 56 H47.5" stroke="#E0B24A" stroke-width="1.3" opacity=".85"/>
+  <path d="M50 33 Q59 42 53 54" fill="none" stroke="#C08A5E" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M50 33 Q55.5 43 53 54" fill="none" stroke="${T}" stroke-width="1.1" stroke-dasharray="2.4 2.4"/>
+  <circle cx="33" cy="25" r="13" fill="#7FA35C" stroke="${T}" stroke-width="1.6"/>
+  <path d="M33 12 a13 13 0 0 1 0 26 a9 13 0 0 0 0 -26 z" fill="#5F8542" opacity=".35"/>
+  <path d="M26 25.5 L11.5 25.5 Q6.5 25.5 6.5 30.5 Q6.5 35.5 11.5 35.5 L26 35.5 Z" fill="#7FA35C" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>
+  <rect x="21" y="26" width="6" height="9" fill="#7FA35C"/>
+  <path d="M9.5 33.5 H22" stroke="${T}" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M13 33.5 L14.2 30.8 L15.4 33.5 M18 33.5 L19.2 30.8 L20.4 33.5" fill="#F6F3EA" stroke="${T}" stroke-width=".9" stroke-linejoin="round"/>
+  <circle cx="10.5" cy="29" r="1.1" fill="${T}"/>
+  <path d="M38.5 18.5 L43.5 12.5 L41.5 20.5" fill="#5B6B3D" stroke="#5B6B3D" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="28" cy="23" r="5" fill="#F6F3EA" stroke="${T}" stroke-width="1.6"/>
+  <circle cx="39" cy="22.4" r="5" fill="#F6F3EA" stroke="${T}" stroke-width="1.6"/>
+  <circle cx="28.6" cy="23.4" r="2" fill="#140F1F"/><circle cx="39.6" cy="22.8" r="2" fill="#140F1F"/>
+  <circle cx="29.4" cy="22.4" r=".7" fill="#fff"/><circle cx="40.4" cy="21.8" r=".7" fill="#fff"/>
+  <path d="M20.5 15 Q33 2.5 45.5 15 Z" fill="#6E5A46" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M18 14 Q33 8 48 14 L47.2 19 Q33 13 18.8 19 Z" fill="#B9A88C" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>
+  <g stroke="${T}" stroke-width=".9" opacity=".45" stroke-linecap="round"><path d="M23 13.6 V17.6"/><path d="M28 12.4 V16.6"/><path d="M33 12 V16"/><path d="M38 12.4 V16.6"/><path d="M43 13.6 V17.6"/></g>
+  <path d="M33 8 V5.2" stroke="${T}" stroke-width="1.4" stroke-linecap="round"/>
+  <circle cx="33" cy="4" r="2.4" fill="#E0B24A" stroke="${T}" stroke-width="1.3"/>
+</svg>`;
+const GENERAL = `<svg viewBox="0 0 64 64" aria-hidden="true">
+  <path d="M10 64 Q11 48 25 43 L39 43 Q53 48 54 64 Z" fill="#4E6B8C" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M10 64 Q11 48 25 43 L28 43 Q19 50 19 64 Z" fill="#3E5570" opacity=".75"/>
+  <path d="M25 43 Q32 52 39 43 L42 44.4 Q32 56 22 44.4 Z" fill="#3E5570" stroke="${T}" stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M21 20 Q15.5 27 17 40 L23.5 38 Q21 29 23 21.5 Z" fill="#B9A88C" stroke="${T}" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M43 20 Q48.5 27 47 40 L40.5 38 Q43 29 41 21.5 Z" fill="#B9A88C" stroke="${T}" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle cx="32" cy="30" r="12.5" fill="#5FA0BE" stroke="${T}" stroke-width="1.6"/>
+  <path d="M32 17.5 a12.5 12.5 0 0 0 0 25 a8.5 12.5 0 0 1 0 -25 z" fill="#7FC9E2" opacity=".5"/>
+  <path d="M18.5 22.5 Q32 9 45.5 22.5 Q32 17.5 18.5 22.5 Z" fill="#6E5A46" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M17.8 21.4 Q32 14 46.2 21.4 L45.6 25 Q32 18 18.4 25 Z" fill="#B0392C" stroke="${T}" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M32 11 V5.5" stroke="${T}" stroke-width="1.9" stroke-linecap="round"/>
+  <circle cx="32" cy="4.2" r="2.2" fill="#E0B24A" stroke="${T}" stroke-width="1.3"/>
+  <path d="M40 29.5 L49.5 32.3 L40 35 Z" fill="#E0B24A" stroke="${T}" stroke-width="1.4" stroke-linejoin="round"/>
+  <circle cx="35.2" cy="29" r="2.9" fill="#F6F3EA"/><circle cx="28.4" cy="29" r="2.6" fill="#F6F3EA"/>
+  <circle cx="35.6" cy="29.3" r="1.3" fill="#140F1F"/><circle cx="28.8" cy="29.3" r="1.2" fill="#140F1F"/>
+  <path d="M32.8 25.2 Q35.3 24.2 37.8 25.2 M31.2 25.2 Q28.7 24.2 26.2 25.2" stroke="${T}" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <g stroke="#C08A5E" stroke-width="2.1" stroke-linecap="round">
+    <path d="M13 62 L1 48"/><path d="M13 62 L3 45"/><path d="M13 62 L6 42.5"/><path d="M13 62 L9 41"/><path d="M13 62 L13 40.5"/><path d="M13 62 L17 41"/><path d="M13 62 L20.5 42.5"/><path d="M13 62 L23.5 45.5"/></g>
+  <g stroke="${T}" stroke-width=".9" opacity=".7"><path d="M4.4 48.6 l2 -1.4 M5.6 46.2 l1.8 -1 M8.2 45 l1.6 -.6 M11.6 44.6 l1.6 0 M14.6 44.6 l1.6 .4 M18 45.6 l1.4 .8"/></g>
+  <ellipse cx="13" cy="60.5" rx="4.2" ry="3" fill="#B0392C" stroke="${T}" stroke-width="1.4"/>
+</svg>`;
+function ger(x, y, w, h, tug){
+  const l = x - w/2, r = x + w/2;
+  let s = `<path d="M${l} ${y} L${l} ${y-h*.45} Q${x} ${y-h*1.2} ${r} ${y-h*.45} L${r} ${y} Z" fill="var(--ger)" stroke="var(--gerTrazo)" stroke-width="1.1" stroke-linejoin="round"/>`;
+  s += `<rect x="${x-w*.1}" y="${y-h*.42}" width="${w*.2}" height="${h*.42}" fill="#8E2F2A" stroke="var(--gerTrazo)" stroke-width=".7"/>`;
+  s += `<path d="M${l+1.5} ${y-h*.45} H${r-1.5}" stroke="var(--gerTrazo)" stroke-width=".7" opacity=".6"/>`;
+  if(tug) s += `<path d="M${x} ${y-h*1.05} V${y-h*1.62}" stroke="var(--granate)" stroke-width="1.3"/><path d="M${x} ${y-h*1.62} q6 .6 5 5.4 q-3 -1.6 -5 -2.2 z" fill="var(--granate)"/>`;
+  return s;
+}
+function icono(k, x, y){
+  if(k === 4) return ger(x, y, 34, 15, true);
+  if(k === 3) return ger(x, y, 27, 13.5, false);
+  if(k === 2) return `<path d="M${x-10} ${y} L${x} ${y-11.5} L${x+10} ${y} Z" fill="var(--ger)" stroke="var(--gerTrazo)" stroke-width="1.1" stroke-linejoin="round"/><path d="M${x-2.4} ${y} L${x} ${y-5} L${x+2.4} ${y} Z" fill="var(--granate)"/>`;
+  let s = `<path d="M${x-17} ${y-4} H${x+17}" stroke="var(--cueroO)" stroke-width="1"/>`;
+  for(let i = 0; i < 10; i++) s += `<circle cx="${x-15.3+i*3.4}" cy="${y-4}" r="1.55" fill="var(--cueroO)"/>`;
+  return s;
+}
+
+const PASO = 12.4, ALTO = 128;
+function nudos(k, n){
+  const color = k < 0 ? 'var(--cielo)' : 'var(--cuero)';
+  let s = `<path d="M20 8 V${ALTO - 6}" stroke="${k < 0 ? 'var(--cielo)' : 'var(--cueroO)'}" stroke-width="1.3" opacity=".55"/>`;
+  for(let j = 0; j < 9; j++){
+    const y = ALTO - 11 - j * PASO;
+    s += j < n ? `<circle cx="20" cy="${y}" r="5" fill="${color}" stroke="var(--gerTrazo)" stroke-width="1.1"/><path d="M17 ${y} H23" stroke="var(--gerTrazo)" stroke-width=".9" opacity=".5"/>`
+               : `<circle cx="20" cy="${y}" r="3" fill="none" stroke="var(--tenue)" stroke-width="1" opacity=".5"/>`;
+  }
+  return s;
+}
+function pila(k, n){
+  let s = '';
+  if(k <= 0) s = nudos(k, n);
+  else { for(let j = 0; j < n; j++) s += icono(Math.min(k, 4), 20, ALTO - 4 - j * PASO); if(!n) s += `<circle cx="20" cy="${ALTO - 10}" r="1.6" fill="var(--linea)"/>`; }
+  s += `<path d="M0 ${ALTO - 2.5} H40" stroke="var(--linea)" stroke-width="1"/>`;
+  return `<svg class="pila" viewBox="0 0 40 ${ALTO}" aria-hidden="true">${s}</svg>`;
+}
+const tug = () => `<svg class="tug" viewBox="0 0 24 40" aria-hidden="true"><path d="M12 6 V40" stroke="var(--granate)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="4.5" r="3" fill="#E0B24A" stroke="var(--gerTrazo)" stroke-width="1"/><path d="M12 8 q-9 3 -8 15 M12 8 q-4 5 -3.5 16 M12 8 q4 5 3.5 16 M12 8 q9 3 8 15" fill="none" stroke="var(--granate)" stroke-width="2.2" stroke-linecap="round"/></svg>`;
+const moneda = () => `<svg class="moneda" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#E0B24A" stroke="var(--cueroO)" stroke-width="1.6"/><rect x="9" y="9" width="6" height="6" fill="none" stroke="var(--cueroO)" stroke-width="1.4"/></svg>`;
+
+function apila(e1, e2, op){
+  const d2 = op === ':' ? -e2 : e2, fin = e1 + d2, lo = Math.min(0, e1, fin) - 1, hi = Math.max(0, e1, fin) + 1, h = 15;
+  const y = k => (hi - k) * h + 6, alto = (hi - lo) * h + 12;
+  let s = '';
+  for(let k = lo + 1; k < hi; k++) s += `<path d="M${k === 0 ? 4 : 10} ${y(k)} H${k === 0 ? 116 : 24}" stroke="${k === 0 ? 'var(--gerTrazo)' : 'var(--tenue)'}" stroke-width="${k === 0 ? 2.2 : 1}"/>`;
+  const tramo = (a, b, x, color) => `<rect x="${x}" y="${Math.min(y(a), y(b))}" width="30" height="${Math.abs(y(a) - y(b))}" rx="3" fill="${color}" opacity=".9"/><path d="M${x + 15} ${y(a) + (b > a ? -4 : 4)} V${y(b) + (b > a ? 7 : -7)} m-4.5 ${b > a ? 5 : -5} l4.5 ${b > a ? -6 : 6} l4.5 ${b > a ? 6 : -6}" fill="none" stroke="var(--panel)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
+  s += tramo(0, e1, 34, 'var(--cuero)') + tramo(e1, fin, 74, 'var(--granate)');
+  return `<svg class="apila" viewBox="0 0 120 ${alto}" aria-hidden="true">${s}</svg>`;
+}
+
+const PELO = '#B9794A', PELO2 = '#9A6038', LEJOS = '#855030', CRIN = '#33251A', MORRO = '#E4C9A4';
+function pata(x, y, a, b, lejos, trasera, t){
+  const c = lejos ? LEJOS : PELO, w = trasera ? 8.5 : 6.5, g = (v, h) => `--g:${v}deg;--h:${h}deg;animation-delay:${t}s`;
+  const arriba = trasera
+    ? `<path d="M${-w} -4 C${-w - 3} 9 -5.5 18 -4.2 26 L4.6 26 C6 17 ${w + 2} 9 ${w} -4 Z" fill="${c}" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>`
+    : `<path d="M${-w} -3 C${-w} 9 -4.6 18 -4 26 L4 26 C4.6 18 ${w} 9 ${w} -3 Z" fill="${c}" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>`;
+  const abajo = `<g transform="translate(0 24)"><g class="cana" style="${g(b[0], b[1])}"><path d="M-3.9 -2 C-3 6 -3 12 -3.2 17 L-4.8 21 L4.8 21 L3.2 17 C3 12 3 6 3.9 -2 Z" fill="${c}" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/><path d="M-5 18 L5 18 L6 24.5 L-6 24.5 Z" fill="${T}"/></g></g>`;
+  return `<g transform="translate(${x} ${y})"><g class="muslo" style="${g(a[0], a[1])}">${abajo}${arriba}</g></g>`;
+}
+const fija = (a, b) => [[a, a], [b, b], 0];
+const POSES = {
+  quieto: {del: [fija(3, 0), fija(30, -80)], tras: [fija(-9, 14), fija(-3, 8)], cola: 0, cabeza: 0, cara: 'tranquilo'},
+  galope: {del: [[[62, -22], [-14, -74], 0], [[44, -30], [-70, -20], -.12]], tras: [[[-56, 34], [24, 62], -.06], [[-34, 44], [-30, 50], -.2]], cola: -40, cabeza: -10, cara: 'contento'},
+  alzado: {del: [fija(70, -116), fija(40, -100)], tras: [fija(-40, 10), fija(-28, 4)], cola: 22, cabeza: 4, cara: 'relincho'},
+  guardia:    {del: [fija(3, 0), fija(-4, 0)], tras: [fija(-9, 14), fija(-3, 8)], cola: 0, cabeza: 0, cara: 'tranquilo'},
+  relincha:   {del: [fija(4, 0), fija(34, -84)], tras: [fija(-9, 14), fija(-3, 8)], cola: -46, cabeza: 54, giro: 4, eje: '146 150', cara: 'relincho'},
+  planta:     {del: [fija(27, 0), fija(33, 0)], tras: [fija(23, 0), fija(29, 0)], cola: 30, cabeza: 12, sube: -6, cara: 'terco'},
+  bote:       {del: [fija(46, -104), fija(62, -112)], tras: [fija(-74, 40), fija(-58, 30)], cola: -70, cabeza: -6, giro: -9, sube: 30, cara: 'contento'},
+  reverencia: {del: [fija(78, -6), fija(-6, -104)], tras: [fija(-2, 6), fija(6, 0)], cola: -16, cabeza: -30, giro: -19, eje: '146 150', cara: 'contento'}
+};
+const CARAS = {
+  tranquilo: {orejas: [34, -30, 1], ojo: 3.5, pupila: 2.1, boca: 0, ollar: 1.5},
+  contento:  {orejas: [-34, -46, 1.05], ojo: 3.6, pupila: 2.2, parpado: 'gusto', boca: 11, ollar: 1.5},
+  terco:     {orejas: [82, 74, 1], ojo: 3.4, pupila: 1.9, parpado: 'ceno', boca: 0, ollar: 3, bufido: 1},
+  asombrado: {orejas: [4, -8, 1.32], ojo: 5.6, pupila: 1.6, boca: 26, ollar: 2.2},
+  relincho:  {orejas: [-20, -34, 1.1], ojo: 3.6, pupila: 2.2, parpado: 'gusto', boca: 34, ollar: 2.2}
+};
+function oreja(x, y, giro, largo, color){
+  return `<g transform="translate(${x} ${y}) rotate(${giro}) scale(1 ${largo})"><path d="M-5.5 2 C-7 -8 -3 -17 1 -20 C5 -15 7 -7 5.5 2 Z" fill="${color}" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/><path d="M-1.5 0 C-2.5 -6 -1 -12 .8 -15 C2.4 -11 2.8 -5 1.8 0 Z" fill="#6E3B22" opacity=".55"/></g>`;
+}
+function cabezaJ(c){
+  const [oc, ol, largo] = c.orejas;
+  const boca = c.boca ? `<g transform="rotate(${-c.boca} 33 61)"><path d="M33 59 L15 71 C12 73.5 13 78 17 78 C23 78 30 72 35 66 Z" fill="${PELO2}" stroke="${T}" stroke-width="1.5" stroke-linejoin="round"/></g>
+      <path d="M31 62 L15 70 L${17 - c.boca * .12} ${73 + c.boca * .2} L${30 - c.boca * .1} ${66 + c.boca * .18} Z" fill="#5A1F1C"/><path d="M17 70.6 L24.5 66.8" stroke="#F6F3EA" stroke-width="2.6" stroke-linecap="round"/>` : `<path d="M16 71.5 Q22 71.5 27 67.5" fill="none" stroke="${T}" stroke-width="1.3" stroke-linecap="round"/>`;
+  const ex = 34.5, ey = 44.5, R = c.ojo + 1;
+  const parpado = c.parpado === 'gusto' ? `<path d="M${ex - R} ${ey} A${R} ${R} 0 0 1 ${ex + R} ${ey} Q${ex} ${ey - 2.6} ${ex - R} ${ey} Z" fill="${PELO}" stroke="${T}" stroke-width="1.3" stroke-linejoin="round"/>`
+    : c.parpado === 'ceno' ? `<path d="M${ex - 6.5} ${ey - 6.4} L${ex + 6.6} ${ey - 1.2} L${ex + 5.6} ${ey + 1.4} L${ex - 7} ${ey - 2.6} Z" fill="${CRIN}" stroke="${T}" stroke-width="1.1" stroke-linejoin="round"/>` : '';
+  return `<path d="M74 70 C66 56 58 44 52 34 L33 44 C40 58 48 76 58 98 C68 96 76 84 74 70 Z" fill="${PELO}" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M53 30 C61 38 69 52 76 70 L69 73 C63 57 56 45 48 36 Z" fill="${CRIN}" stroke="${T}" stroke-width="1.4" stroke-linejoin="round"/>
+    ${oreja(51.5, 31.5, ol, largo, LEJOS)}${boca}
+    <path d="M53 32 C47 26 37 28 32 36 L13 59 C8 66 12 74 20 73 C27 72 31 67 35 61 L49 50 C56 46 58 37 53 32 Z" fill="${PELO}" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M40.5 30.5 C36 34 28 44 21 54 L25 57 C31.5 46.5 38.5 37.5 44 32.5 Z" fill="#F4E8D2"/>
+    <path d="M13 59 C8 66 12 74 20 73 C25 72 28 69 31 65 C25 66 19 63 16 56 Z" fill="${MORRO}" stroke="${T}" stroke-width="1.2" stroke-linejoin="round"/>
+    ${oreja(46.5, 33, oc, largo, PELO)}
+    <path d="M42 28.6 C47 26.6 51.5 28.6 51 33.2 C48 31.6 45 31.4 42.6 32.8 Z" fill="${CRIN}" stroke="${T}" stroke-width="1.1" stroke-linejoin="round"/>
+    <circle cx="34.5" cy="44.5" r="${c.ojo}" fill="#FBF8F0" stroke="${T}" stroke-width="1.3"/><circle cx="${c.ojo > 5 ? 34.5 : 34}" cy="44.8" r="${c.pupila}" fill="#140F1F"/><circle cx="33.4" cy="43.9" r=".7" fill="#fff"/>${parpado}
+    <ellipse cx="16.6" cy="65.6" rx="${c.ollar}" ry="${c.ollar * .72}" fill="${T}"/>
+    ${c.bufido ? `<path d="M10.5 63 L3 60.5 M10 66.5 L2 67.5 M11 70 L5 73.5" fill="none" stroke="${T}" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>` : ''}
+    <path d="M37.5 31.5 L50.5 39" stroke="#8E2F2A" stroke-width="3.6" stroke-linecap="round"/><path d="M37.5 31.5 L50.5 39" stroke="#E0B24A" stroke-width=".9" stroke-linecap="round" stroke-dasharray="1.6 2.2"/>
+    <path d="M50.6 40 q2.4 5.5 .2 10.5" fill="none" stroke="#E0B24A" stroke-width="2" stroke-linecap="round"/><circle cx="50.6" cy="39.6" r="2.4" fill="#E0B24A" stroke="${T}" stroke-width=".8"/>`;
+}
+function caballo(pose, manta){
+  const p = POSES[pose], P = (x, y, q, lejos, tras) => pata(x, y, q[0], q[1], lejos, tras, q[2]);
+  return `<g class="caballo">
+    <g transform="rotate(${p.cola} 156 80)"><g class="colaC"><path d="M154 76 C170 72 182 90 178 116 C176 130 168 136 165 126 C168 110 166 96 153 90 Z" fill="${CRIN}" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/><path d="M168 92 C172 104 171 116 168 126" fill="none" stroke="#5A4530" stroke-width="1.2" stroke-linecap="round"/></g></g>
+    ${P(84, 100, p.del[1], true, false)}${P(146, 96, p.tras[1], true, true)}
+    <path d="M62 80 C66 68 86 65 104 69 C120 72 138 64 151 71 C162 77 163 94 156 103 C149 111 135 109 123 107 C108 105 92 111 78 107 C65 103 58 92 62 80 Z" fill="${PELO}" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M70 100 C86 108 108 102 124 104 C136 106 148 106 155 100 C150 110 136 109 123 107 C108 105 92 111 78 107 Z" fill="${PELO2}" opacity=".8"/>
+    ${P(74, 99, p.del[0], false, false)}${P(138, 97, p.tras[0], false, true)}${manta || ''}
+    <g transform="rotate(${p.cabeza} 68 78)">${cabezaJ(CARAS[p.cara])}
+    </g>
+  </g>`;
+}
+function jacatai(nombre){
+  const p = POSES[nombre] || POSES.guardia, sube = p.sube || 0;
+  const extra = nombre === 'planta' ? `<path d="M22 150 H52 M30 146 H48" stroke="var(--tenue)" stroke-width="1.8" stroke-linecap="round" opacity=".75"/><circle cx="26" cy="141" r="5" fill="var(--tenue)" opacity=".28"/><circle cx="16" cy="145" r="3.5" fill="var(--tenue)" opacity=".22"/>`
+    : nombre === 'relincha' ? `<path d="M44 -10 q-8 -6 -6 -16 M32 -2 q-12 -4 -14 -16 M26 10 q-12 0 -18 -10" fill="none" stroke="var(--granate)" stroke-width="2.4" stroke-linecap="round" opacity=".8"/>`
+    : sube > 0 ? `<ellipse cx="108" cy="151" rx="46" ry="4.5" fill="#000" opacity=".16"/><path d="M52 146 q-6 -6 -12 -3 M168 146 q6 -6 12 -3" fill="none" stroke="var(--tenue)" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>` : '';
+  return `<svg viewBox="-22 -40 226 196" aria-hidden="true">${extra}<g transform="translate(0 ${-sube}) rotate(${p.giro || 0} ${p.eje || '110 100'})">${caballo(nombre in POSES ? nombre : 'guardia', MANTA_J)}</g></svg>`;
+}
+const caraJacatai = n => `<svg viewBox="-3 -4 86 86" aria-hidden="true"><g transform="rotate(-8 40 50)">${cabezaJ(CARAS[n || 'tranquilo'])}</g></svg>`;
+const MANTA = `<path d="M92 68 C104 64 122 64 134 68 L136 88 C122 92 104 92 90 88 Z" fill="#8E2F2A" stroke="${T}" stroke-width="1.5" stroke-linejoin="round"/><path d="M92 84 C106 88 122 88 135 84" fill="none" stroke="#E0B24A" stroke-width="1.6"/><path d="M113 88 V106" stroke="#6E3B22" stroke-width="2.4" stroke-linecap="round"/>`;
+const MANTA_J = MANTA.replace(/<path d="M113 88 V106"[^>]*>/, '');
+const brazo = d => `<path d="${d}" fill="none" stroke="${T}" stroke-width="9" stroke-linecap="round"/><path d="${d}" fill="none" stroke="#4E6B8C" stroke-width="6" stroke-linecap="round"/>`;
+const mano = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r || 4}" fill="#7FA35C" stroke="${T}" stroke-width="1.4"/>`;
+const BUSTO = quien => quien.replace(/<svg[^>]*>/, '<svg x="78" y="6" width="66" height="66" viewBox="0 0 64 64" overflow="visible">');
+function kanMontado(que, busto){
+  busto = busto || BUSTO(KAN);
+  const tug = `<path d="M131 62 L140 -22" stroke="#7A5433" stroke-width="2.4" stroke-linecap="round"/><circle cx="140.4" cy="-25" r="3.6" fill="#E0B24A" stroke="${T}" stroke-width="1.2"/>
+    <g class="flamea"><path d="M140 -21 C152 -19 162 -10 165 6 C160 0 154 -4 148 -6 C152 0 153 8 151 16 C148 8 145 0 141 -6 Z" fill="${CRIN}" stroke="${T}" stroke-width="1.2" stroke-linejoin="round"/><path d="M144 -14 C150 -10 154 -4 156 2" fill="none" stroke="#6B5540" stroke-width="1" stroke-linecap="round"/>
+    <path d="M138.6 -8 L166 0 L137.6 6 Z" fill="#8E2F2A" stroke="${T}" stroke-width="1.2" stroke-linejoin="round"/></g>`;
+  const pierna = `<path d="M113 86 L109 104" stroke="#6E3B22" stroke-width="1.6"/>
+    <path d="M100 60 C95 72 95 82 99 92 L113 92 C117 82 123 72 125 62 Z" fill="#4E6B8C" stroke="${T}" stroke-width="1.6" stroke-linejoin="round"/><path d="M100 60 C96 72 96 82 99 92 L104 92 C101 82 102 71 105 62 Z" fill="#3E5570" opacity=".8"/>
+    <path d="M99 91 L113 91 L112 103 C111 108 106 110 100 110 L90 110 C87 110 87 106 90 105 L98 103 Z" fill="#5A3A26" stroke="${T}" stroke-width="1.5" stroke-linejoin="round"/><path d="M96 111 H112" stroke="#E0B24A" stroke-width="2" stroke-linecap="round"/>`;
+  const otro = que === 'nada' ? '' : que === 'saluda' ? `<g class="saludo">${brazo('M126 46 C136 36 140 22 138 10')}${mano(138, 7, 5)}</g>` : `${tug}${brazo('M126 48 C130 52 132 56 131 60')}${mano(131, 61)}`;
+  return `<g class="kanMontado">${busto}${pierna}${otro}<path d="M86 60 C70 60 48 62 31 60" fill="none" stroke="#6E3B22" stroke-width="1.5" stroke-linecap="round"/>${brazo('M100 48 C94 54 90 58 86 60')}${mano(85, 60.5)}</g>`;
+}
+const kanACaballo = (pose, que) => caballo(pose, MANTA) + kanMontado(que);
+const guardia = () => caballo('quieto', MANTA) + kanMontado('nada', '<g transform="translate(222 0) scale(-1 1)">' + BUSTO(GENERAL) + '</g>').replace('fill="#7FA35C"', 'fill="#5FA0BE"');
+
+function amanecer(){
+  const X = [102, 176, 234, 290], V = ['10.000', '1.000', '100', '10', '1'], N = ['tumen', 'myangan', 'zuun', 'arban', 'jinete'], E = [2.3, 2.25, 2.4, 1.85], XS = X.concat(340);
+  const LLEGA = [3.95, 3.4, 3.0, 2.6, 2.45];
+  const grupos = X.map((x, i) => `<g transform="translate(${x} ${i === 3 ? 198 : 200}) scale(${E[i]})"><g class="grupo" style="animation-delay:${LLEGA[i]}s">${icono(4 - i, 0, 0)}</g></g>`).join('');
+  const humo = (x, y, t) => `<g class="humo">${[0, 1.1, 2.2].map(d => `<circle cx="${x}" cy="${y}" r="3" style="fill:var(--nube);animation-delay:${t + d}s"/>`).join('')}</g>`;
+  const rot = XS.map((x, i) => `<g class="rot" style="animation-delay:${LLEGA[i] + .3}s"><text x="${x}" y="222" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="13" fill="var(--tinta)">${V[i]}</text><text x="${x}" y="233" text-anchor="middle" font-family="Philosopher, serif" font-weight="700" font-size="7.5" letter-spacing="1" fill="var(--cueroO)">${N[i].toUpperCase()}</text></g>`).join('');
+  const arcos = [3, 2, 1, 0].map((i, j) => `<g><path class="arco" d="M${XS[i + 1]} 240 Q${(XS[i] + XS[i + 1]) / 2} 258 ${XS[i]} 240" fill="none" stroke="var(--granate)" stroke-width="1.6" stroke-linecap="round" style="animation-delay:${4.4 + j * .14}s"/><text class="rot" x="${(XS[i] + XS[i + 1]) / 2}" y="256" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="8" fill="var(--granate)" style="animation-delay:${4.55 + j * .14}s">×10</text></g>`).join('');
+  const estrellas = Array.from({length: 26}, (_, i) => `<circle class="estrella" cx="${(i * 67) % 400}" cy="${-58 + (i * 37) % 150}" r="${.6 + (i % 3) * .35}" fill="#fff" style="animation-delay:${(i % 7) * .35}s"/>`).join('');
+  const hierba = Array.from({length: 34}, (_, i) => `<path d="M${5 + i * 12} ${204 + (i % 3) * 16} q-1 -6 ${i % 2 ? 2 : -2} -${7 + (i * 5) % 6}" fill="none" style="stroke:var(--prado2);animation-delay:-${(i % 5) * .5}s" stroke-width="1.1" stroke-linecap="round"/>`).join('');
+  const ave = (y, c) => `<g class="ave ${c}"><path d="M0 ${y} q4 -5 8 0 q4 -5 8 0" fill="none" stroke="var(--gerTrazo)" stroke-width="1.2" stroke-linecap="round" opacity=".7"/></g>`;
+  const polvo = [[0, 0, 7, 0], [12, -3, 9, .12], [24, 1, 6, .24], [8, 5, 5, .36]].map(([dx, dy, r, t]) => `<circle class="polvo" cx="${118 + dx}" cy="${91 + dy}" r="${r}" style="fill:var(--loma1);animation-delay:${t}s"/>`).join('');
+  return `<svg class="camara" viewBox="0 -64 400 330" aria-hidden="true">
+    <defs><linearGradient id="inCielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--cieloA)"/><stop offset="1" style="stop-color:var(--cieloB)"/></linearGradient>
+    <radialGradient id="inHalo"><stop offset="0" style="stop-color:var(--halo)"/><stop offset="1" stop-color="rgba(255,255,255,0)"/></radialGradient></defs>
+    <g>
+    <rect x="-40" y="-104" width="480" height="300" fill="url(#inCielo)"/>${estrellas}
+    <rect class="penumbra" x="-40" y="-104" width="480" height="320"/>
+    <g class="sol"><circle cx="324" cy="118" r="80" fill="url(#inHalo)"/><g class="rayos">${Array.from({length: 12}, (_, i) => `<path d="M324 118 L${i % 2 ? 317 : 314} ${i % 2 ? 40 : 18} L${i % 2 ? 331 : 334} ${i % 2 ? 40 : 18} Z" style="fill:var(--sol)" opacity="${i % 2 ? .13 : .2}" transform="rotate(${i * 30} 324 118)"/>`).join('')}</g><circle cx="324" cy="118" r="27" style="fill:var(--sol)"/></g>
+    <g class="nube"><ellipse cx="0" cy="-10" rx="30" ry="7" style="fill:var(--nube)" opacity=".8"/><ellipse cx="18" cy="-15" rx="20" ry="7" style="fill:var(--nube)" opacity=".8"/></g>
+    <g class="nube n2"><ellipse cx="0" cy="30" rx="22" ry="5" style="fill:var(--nube)" opacity=".6"/><ellipse cx="-14" cy="26" rx="15" ry="5" style="fill:var(--nube)" opacity=".6"/></g>
+    ${ave(40, '')}${ave(56, 'v2')}${ave(30, 'v3')}
+    <g>
+      <path class="loma1" d="M-40 150 Q60 108 150 138 T290 164 T450 176 V200 H-40 Z" style="fill:var(--loma1)"/>
+      <path class="loma2" d="M-40 172 Q90 140 190 166 T330 186 T450 190 V210 H-40 Z" style="fill:var(--loma2)"/>
+    </g>
+    <g>
+      <path d="M-40 196 Q200 186 440 196 V290 H-40 Z" style="fill:var(--prado)"/>
+      <g class="hierba">${hierba}</g>
+      <g class="clavo" style="animation-delay:2.5s"><line x1="372" y1="150" x2="372" y2="203" stroke="var(--granate)" stroke-width="3" stroke-linecap="round"/><circle cx="372" cy="149" r="3.4" fill="#E0B24A" stroke="${T}" stroke-width=".8"/></g>
+      <g class="kanGalopa polvareda"><g transform="translate(257 107) scale(.62)">${polvo.replace(/cx="(\d+)"/g, (m, x) => 'cx="' + (Number(x) + 70) + '"').replace(/cy="(\d+)"/g, (m, y) => 'cy="' + (Number(y) + 55) + '"')}</g></g>
+      ${humo(102, 152, 4.4)}${humo(176, 166, 3.9)}
+      ${grupos}
+      <g transform="translate(308 149) scale(.34)"><g class="grupo jinete" style="animation-delay:${LLEGA[4]}s">${guardia()}</g></g>
+      <g class="noche"><path d="M-40 150 Q60 108 150 138 T290 164 T450 176 V200 H-40 Z" opacity=".62"/><path d="M-40 172 Q90 140 190 166 T330 186 T450 190 V210 H-40 Z" opacity=".5"/><path d="M-40 196 Q200 186 440 196 V290 H-40 Z" opacity=".96"/></g>
+      <g class="kanAlza"><g transform="translate(257 107) scale(.62)"><g class="alza">${kanACaballo('alzado', 'tug')}<g class="negro">${kanACaballo('alzado', 'tug')}</g></g></g></g>
+      <g class="kanGalopa"><g transform="translate(257 107) scale(.62)"><g class="tranco">${kanACaballo('galope', 'tug')}</g></g></g>
+    </g>
+    <text class="rot" x="377" y="228" font-family="Space Mono, monospace" font-weight="700" font-size="26" fill="var(--granate)" style="animation-delay:2.6s">,</text>
+    ${rot}${arcos}
+    <g class="kanRevista"><g transform="translate(101 138) scale(-.49 .49)">${kanACaballo('quieto', 'saluda')}</g></g>
+    </g>
+  </svg>`;
+}
+const D = {KAN, GENERAL, CARA: {kan: KAN, general: GENERAL}, icono, pila, tug, moneda, apila, amanecer, kanACaballo, jacatai, caraJacatai, POSTURAS: ['guardia', 'relincha', 'planta', 'bote', 'reverencia']};
+if(typeof module !== 'undefined' && module.exports) module.exports = D; else raiz.Dibujos = D;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+(function (raiz) {
+'use strict';
+let ctx = null, activo = true;
+const ac = () => { try{ if(!ctx) ctx = new (raiz.AudioContext || raiz.webkitAudioContext)(); if(ctx.state === 'suspended') ctx.resume(); return ctx; }catch(e){ return null; } };
+function tono(f, dur, vol, tipo, t0){
+  if(!activo) return;
+  const c = ac(); if(!c) return;
+  const o = c.createOscillator(), g = c.createGain(), t = c.currentTime + (t0 || 0);
+  o.type = tipo || 'sine'; o.frequency.value = f;
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .01); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+  o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + dur + .02);
+}
+raiz.Sonido = {
+  pon(si){ activo = !!si; },
+  tambor(){ tono(90, .18, .14); tono(60, .26, .1, 'triangle', .02); },
+  toque(){ tono(220, .05, .04, 'triangle'); },
+  bien(){ tono(523, .14, .07, 'triangle'); tono(784, .22, .06, 'triangle', .1); },
+  mal(){ tono(150, .22, .08, 'square'); }
+};
+})(window);
+</script>
+<script>
+(function (raiz) {
+'use strict';
+const N = raiz.Numeros, D = raiz.Dibujos, So = raiz.Sonido;
+const p10 = (x, k) => k >= 0 ? x * Math.pow(10, k) : x / Math.pow(10, -k);
+const el = (h) => { const t = document.createElement('template'); t.innerHTML = h.trim(); return t.content.firstChild; };
+const plural = (n, k) => N.NOM[k][n === 1 ? 0 : 1];
+const ANTES = {campamento: 1, precios: 1, columna: 1};
+const rot = (enc, k) => ANTES[enc.sala] && k <= 0 ? N.valorPot(k) : N.pot(k);
+const escrito = (n, k) => n > 0 && k <= Math.max(N.mayor(n), 0) && k >= Math.min(N.menor(n), 0);
+
+function campo(mesa, enc, cambia){
+  const m = enc.maq, ks = m.ks, n0 = N.lee(m.n);
+  const modo = m.quieta ? 'quieta' : ({pon: 'pon', marcha: 'marcha', banderin: 'banderin'})[enc.tipo] || 'quieta';
+  let n = n0, s = 0, elegido = modo === 'pon' ? (m.elegido !== undefined ? m.elegido : ks.find(k => N.cifra(N.lee(enc.obj), k) !== N.cifra(n0, k))) : null, aviso = '', gesto = '';
+  if(modo === 'pon' && elegido === undefined) elegido = ks[0];
+  mesa.innerHTML = (m.rollo ? '<div class="rollo vivo" id="mqRollo" aria-live="polite"></div>' : '') +
+    (modo === 'banderin' || enc.tipo === 'cientifica' || m.tapa ? '' : '<p class="lee" id="mqLee"></p>') +
+    '<div class="campo' + (m.cuerda ? ' cuerda' : '') + '" id="mqCampo" role="group" aria-label="Los sitios del recuento"></div>' +
+    (modo === 'pon' ? '<div class="mando"><button type="button" id="mqMenos">−</button><div class="que" id="mqQue"></div><button type="button" id="mqMas">+</button></div>' : '') +
+    (modo === 'marcha' ? '<div class="mando marcha"><button type="button" id="mqBaja" aria-label="Dividir entre diez: las cifras bajan un sitio">: 10 <i>↓</i></button><div class="que" id="mqQue"></div><button type="button" id="mqSube" aria-label="Multiplicar por diez: las cifras suben un sitio">× 10 <i>↑</i></button></div>' : '') +
+    (modo === 'quieta' ? '' : '<p class="aviso" id="mqAviso" aria-live="polite"></p>') +
+    (modo === 'pon' ? '<p class="cuenta" id="mqCuenta"></p>' : '');
+  const $ = id => mesa.querySelector('#' + id), C = $('mqCampo');
+  function pinta(){
+    const foco = C.contains(document.activeElement);
+    C.innerHTML = '';
+    C.classList.remove('sube', 'baja'); if(gesto){ void C.offsetWidth; C.classList.add(gesto); }
+    ks.forEach(k => {
+      const c = N.cifra(n, k), toca = modo === 'pon' || modo === 'banderin';
+      const b = document.createElement(toca ? 'button' : 'div');
+      if(toca){ b.type = 'button'; b.setAttribute('aria-pressed', String(k === elegido)); if(modo === 'pon') b.tabIndex = k === elegido ? 0 : -1; }
+      b.className = 'col' + (k < 0 ? ' dec' : ''); b.dataset.k = k;
+      b.setAttribute(toca ? 'aria-label' : 'title', N.NOM[k][0] + ': ' + c);
+      b.innerHTML = (modo === 'banderin' && k === elegido ? D.tug() : '') + D.pila(k, c) +
+        '<span class="cif' + (c ? '' : escrito(n, k) ? ' cero' : ' vacio') + '">' + c + '</span><span class="pot">' + rot(enc, k) + '</span><span class="nom">' + N.NOM[k][0] + '</span>';
+      if(toca) b.addEventListener('click', () => { elegido = k; aviso = ''; gesto = ''; if(So) So.toque(); pinta(); cambia(); });
+      C.appendChild(b);
+      if(k === 0 && ks.includes(-1)) C.appendChild(el('<div class="estaca" aria-hidden="true">' + (m.cuerda ? '<span class="nudo">la coma queda aquí</span>' : '') + '<b>,</b></div>'));
+    });
+    if(foco && elegido !== null){ const b = C.querySelector('[data-k="' + elegido + '"]'); if(b) b.focus(); }
+    if($('mqLee')) $('mqLee').innerHTML = n ? 'En el campamento hay <b>' + N.escribe(n) + '</b>.' : 'El campamento está vacío.';
+    if($('mqCuenta')) $('mqCuenta').innerHTML = n ? ks.filter(k => N.cifra(n, k)).map(k => N.cifra(n, k) + '·' + rot(enc, k)).join(' + ') + ' = <b>' + N.escribe(n) + '</b>' : '';
+    if(modo === 'pon'){
+      $('mqQue').innerHTML = '<b>' + N.NOM[elegido][0] + '</b><span>' + (rot(enc, elegido) === N.valorPot(elegido) ? '' : N.pot(elegido) + ' = ') + N.valorPot(elegido) + '</span>';
+      $('mqMas').setAttribute('aria-label', N.un(elegido) + ' más'); $('mqMenos').setAttribute('aria-label', N.un(elegido) + ' menos');
+    }
+    if(modo === 'marcha') $('mqQue').innerHTML = s ? '<b>' + Math.abs(s) + (Math.abs(s) === 1 ? ' peldaño ' : ' peldaños ') + (s > 0 ? 'arriba' : 'abajo') + '</b><span>la coma no se ha movido</span>' : '<b>quieta</b><span>haz marchar las cifras</span>';
+    if($('mqRollo')){
+      const g = elegido === null ? null : N.conGrupo(n, elegido);
+      $('mqRollo').innerHTML = g ? '<b>' + g.m + ' × ' + N.pot(g.e) + '</b><span>' + g.m + ' ' + plural(N.lee(g.m) === 1e6 ? 1 : 2, g.e) + '</span>' : '<span>clava el banderín en un grupo</span>';
+    }
+    if($('mqAviso')) $('mqAviso').textContent = aviso;
+  }
+  function dial(f, k){
+    const r = f(n, k, ks);
+    n = r.n; aviso = r.aviso; gesto = '';
+    if(So){ if(/→/.test(aviso)) So.tambor(); else So.toque(); }
+    pinta(); cambia();
+  }
+  function anda(d){
+    const v = p10(n0, s + d);
+    if(!Number.isInteger(v) || v >= N.peso(ks[0] + 1) || N.menor(v) < ks[ks.length - 1]){ aviso = 'no hay más sitios por ese lado'; gesto = ''; pinta(); return; }
+    s += d; n = v; gesto = d > 0 ? 'sube' : 'baja'; aviso = d > 0 ? 'por diez: cada cifra sube un sitio' : 'entre diez: cada cifra baja un sitio';
+    if(So) So.tambor();
+    pinta(); cambia();
+  }
+  if(modo === 'pon'){
+    $('mqMas').addEventListener('click', () => dial(N.mas, elegido));
+    $('mqMenos').addEventListener('click', () => dial(N.menos, elegido));
+    C.addEventListener('keydown', ev => {
+      const i = ks.indexOf(elegido);
+      if(ev.key === 'ArrowUp'){ ev.preventDefault(); dial(N.mas, elegido); }
+      else if(ev.key === 'ArrowDown'){ ev.preventDefault(); dial(N.menos, elegido); }
+      else if(ev.key === 'ArrowLeft' && i > 0){ ev.preventDefault(); elegido = ks[i - 1]; pinta(); }
+      else if(ev.key === 'ArrowRight' && i < ks.length - 1){ ev.preventDefault(); elegido = ks[i + 1]; pinta(); }
+    });
+  }
+  if(modo === 'marcha'){ $('mqSube').addEventListener('click', () => anda(1)); $('mqBaja').addEventListener('click', () => anda(-1)); }
+  pinta();
+  return {
+    resp: () => modo === 'pon' ? n : modo === 'marcha' ? s : modo === 'banderin' ? elegido : undefined,
+    pon(v){ if(modo === 'pon') n = v; else if(modo === 'marcha'){ s = v; n = p10(n0, s); } else elegido = v; gesto = ''; aviso = ''; pinta(); }
+  };
+}
+
+function filas(mesa, enc, cambia){
+  const nums = enc.maq.nums, ordena = enc.tipo === 'ordena';
+  const kmax = Math.max.apply(null, nums.map(t => Math.max(N.mayor(N.lee(t)) || 0, 0))), kmin = -Math.max.apply(null, nums.map(N.decimales));
+  const ks = []; for(let k = kmax; k >= kmin; k--) ks.push(k);
+  let orden = [];
+  const celdas = t => {
+    const [e, d = ''] = t.split(','), ent = e.replace(/\./g, '');
+    return ks.map(k => {
+      const c = k >= 0 ? (ent[ent.length - 1 - k] || '') : (d[-k - 1] || '');
+      return (k === -1 ? '<span class="coma">,</span>' : '') + '<span class="cel' + (c === '' ? ' hueco' : '') + (k < 0 ? ' dec' : '') + '">' + c + '</span>';
+    }).join('');
+  };
+  function pinta(){
+    const foco = document.activeElement && document.activeElement.dataset ? document.activeElement.dataset.i : undefined;
+    mesa.innerHTML = '<div class="filas" style="--n:' + ks.length + '"><div class="fila cabeza" aria-hidden="true">' +
+      ks.map(k => (k === -1 ? '<span class="coma"><span class="nudo">las comas, en la estaca</span></span>' : '') + '<span class="cel' + (k < 0 ? ' dec' : '') + '"><i>' + rot(enc, k) + '</i><em>' + N.NOM[k][0] + '</em></span>').join('') + '</div>' +
+      nums.map((t, i) => {
+        const r = orden.indexOf(i);
+        return ordena ? '<button type="button" class="fila tablilla" data-i="' + i + '" aria-pressed="' + (r >= 0) + '" aria-label="' + t + (r >= 0 ? ', tocado el ' + (r + 1) + '.º' : '') + '">' + celdas(t) + '<span class="rango">' + (r >= 0 ? (r + 1) + '.º' : '') + '</span></button>'
+                      : '<div class="fila tablilla" aria-label="' + t + '">' + celdas(t) + '</div>';
+      }).join('') + '</div>' + (ordena ? '<p class="aviso" aria-live="polite">' + (orden.length ? orden.map(i => nums[i]).join(' &lt; ') : 'toca las tablillas, de la más barata a la más cara') + '</p>' : '');
+    if(ordena) mesa.querySelectorAll('button.tablilla').forEach(b => b.addEventListener('click', () => {
+      const i = Number(b.dataset.i);
+      orden = orden.includes(i) ? orden.filter(x => x !== i) : orden.concat(i);
+      if(So) So.toque();
+      pinta(); cambia();
+    }));
+    if(foco !== undefined){ const b = mesa.querySelector('[data-i="' + foco + '"]'); if(b) b.focus(); }
+  }
+  pinta();
+  return {resp: () => ordena ? orden.slice() : undefined, pon(v){ orden = v.slice(); pinta(); }};
+}
+
+function escalera(mesa, enc, cambia){
+  const m = enc.maq, ks = m.ks, n0 = N.lee(m.n), k0 = N.mayor(n0), marcha = enc.tipo === 'marcha' && !m.quieta;
+  let s = 0, aviso = '';
+  const vistos = new Set([k0]);
+  function pinta(){
+    const k = k0 + s, n = N.peso(k);
+    const lectura = m.tapa ? '' : '<div class="lectura' + (k < 0 ? ' conComa' : '') + '" aria-live="polite"><b>' + N.pot(k) + '</b> = ' +
+      ks.filter(j => j <= Math.max(k, 0) && j >= Math.min(k, 0)).map(j => (j === -1 ? '<span class="coma">,<span class="nudo">la coma queda aquí</span></span>' : '') + '<span class="cel' + (j < 0 ? ' dec' : '') + '">' + N.cifra(n, j) + '</span>').join('') + '</div>';
+    mesa.innerHTML = lectura + '<ol class="escalera">' + ks.map((j, i) =>
+      '<li style="--i:' + i + '" class="' + (j === k && !m.sinMoneda ? 'aqui' : '') + (j === 0 ? ' suelo' : '') + (j < 0 ? ' dec' : '') + '"><span class="sitio">' + (j === k && !m.sinMoneda ? D.moneda() : '') + '</span><b>' + N.pot(j) + '</b><em>' + N.NOM[j][0] + '</em><span class="vale">' +
+      (!m.tapa && (vistos.has(j) || !marcha) ? N.valorPot(j) : '') + '</span></li>').join('') + '</ol>' +
+      (marcha ? '<div class="mando marcha"><button type="button" id="mqBaja" aria-label="Repartir entre diez: bajar un peldaño">: 10 <i>↓</i></button><div class="que"><b>' + (s ? Math.abs(s) + (Math.abs(s) === 1 ? ' peldaño ' : ' peldaños ') + (s > 0 ? 'arriba' : 'abajo') : 'en ' + N.pot(k0)) + '</b><span>bajar es dividir entre diez</span></div><button type="button" id="mqSube" aria-label="Juntar diez: subir un peldaño">× 10 <i>↑</i></button></div>' : '') +
+      '<p class="aviso" aria-live="polite">' + aviso + '</p>';
+    if(marcha){
+      mesa.querySelector('#mqSube').addEventListener('click', () => anda(1, '#mqSube'));
+      mesa.querySelector('#mqBaja').addEventListener('click', () => anda(-1, '#mqBaja'));
+    }
+  }
+  function anda(d, sel){
+    if(!ks.includes(k0 + s + d)){ aviso = 'la escalera sigue, pero aquí no se ve más'; pinta(); }
+    else { s += d; vistos.add(k0 + s); aviso = d < 0 ? N.pot(k0 + s + 1) + ' : 10 = ' + N.pot(k0 + s) : N.pot(k0 + s - 1) + ' · 10 = ' + N.pot(k0 + s); if(So) So.tambor(); pinta(); cambia(); }
+    const b = mesa.querySelector(sel); if(b) b.focus();
+  }
+  pinta();
+  return {resp: () => marcha ? s : undefined, pon(v){ s = v; for(let j = Math.min(k0, k0 + s); j <= Math.max(k0, k0 + s); j++) vistos.add(j); pinta(); }};
+}
+
+function rollos(mesa, enc){
+  const m = enc.maq, r = x => '<div class="rollo"><b>' + (x.m ? x.m + ' × ' : '') + N.pot(x.e) + '</b></div>';
+  mesa.innerHTML = '<div class="rollos">' + r(m.a) + (m.b ? '<span class="op">' + m.op + '</span>' + r(m.b) : '') + '</div>' +
+    (m.pila ? '<div class="apilado">' + D.apila(m.a.e, m.b.e, m.op) + '<p>La raya gruesa es el suelo, 10⁰. ' + (m.op === ':' ? 'Se andan los peldaños del primero y se <b>desandan</b> los del segundo.' : 'Se andan los peldaños del primero y, desde ahí, los del segundo.') + ' Cuéntalos.' + '</p></div>' : '');
+  return {resp: () => undefined, pon(){}};
+}
+
+const VISTAS = {campo, filas, escalera, rollos};
+function monta(mesa, enc, cambia){
+  if(!enc.maq){ mesa.innerHTML = ''; mesa.hidden = true; return {resp: () => undefined, pon(){}}; }
+  mesa.hidden = false; mesa.dataset.vista = enc.maq.vista;
+  return VISTAS[enc.maq.vista](mesa, enc, cambia || (() => {}));
+}
+raiz.Maquina = {monta};
+})(window);
+</script>
+<script>
+(function (raiz) {
+'use strict';
+const N = raiz.Numeros, S = raiz.Salas, Er = raiz.Errores, P = raiz.Practicar, A = raiz.Acta, D = raiz.Dibujos, So = raiz.Sonido, Mq = raiz.Maquina;
+const $ = id => document.getElementById(id), html = document.documentElement;
+const VERSION = '1.2';
+
+const CL = {aj: 'recuento.ajustes.v1', turno: 'recuento.turno.v1', guia: 'recuento.guia.v1', inicio: 'recuento.inicio'};
+const CADUCA = 4 * 3600 * 1000;
+const almacen = sesion => sesion ? sessionStorage : localStorage;
+const lee = (k, sesion) => { try{ return JSON.parse(almacen(sesion).getItem(k)); }catch(e){ return null; } };
+const guarda = (k, v, sesion) => { try{ almacen(sesion).setItem(k, JSON.stringify(v)); }catch(e){} };
+const AJ0 = {tema: 'claro', inicio: 'si', sonido: 'no', aula: false};
+let AJ = Object.assign({}, AJ0, lee(CL.aj) || {});
+let T = lee(CL.turno);
+const objeto = x => !!x && typeof x === 'object' && !Array.isArray(x);
+if(!objeto(T) || !['hechos', 'fallos', 'errores', 'practica'].every(c => objeto(T[c])) || Date.now() - (T.ts || 0) > CADUCA) T = A.nuevoTurno();
+const guardaTurno = () => { T.ts = Date.now(); guarda(CL.turno, T); };
+
+const E = {sala: 'campamento', m: 1, practica: false, semilla: (Date.now() % 100000) + 1, enc: null, maq: null, hecho: false, fallado: false, elegida: null, ultima: null, desde: 0};
+
+function pintaPestanas(){
+  $('juegos').innerHTML = S.SALAS.map(s => '<button type="button" data-j="' + s.id + '" aria-pressed="' + (s.id === E.sala) + '"><b>' + s.corto + '</b><span>' + s.lema + (s.curso ? ' · 2.º' : '') + '</span></button>').join('');
+  $('juegos').querySelectorAll('button').forEach(b => b.addEventListener('click', () => { ve(b.dataset.j, primeroSinHacer(b.dataset.j), E.practica); alEncargo(); }));
+}
+const primeroSinHacer = id => { const e = S.sala(id).encargos.find(x => !(x.clave in T.hechos)); return e ? e.n : 1; };
+
+function ve(sala, m, practica){
+  if(!S.sala(sala)) sala = 'campamento';
+  E.sala = sala; E.practica = !!practica;
+  E.m = S.encargo(sala, m) ? Number(m) : 1;
+  if(E.practica) E.semilla++;
+  try{ history.replaceState(null, '', '?j=' + sala + (E.practica ? '&p=1' : '&m=' + E.m)); }catch(e){}
+  monta();
+}
+const NOTAS = {
+  botin: ['Lo que aquí se define', '<p><b>10⁰ = 1</b> no se calcula: nadie ha multiplicado diez por sí mismo cero veces. Se <b>define</b> así para que la única regla que había, «bajar un peldaño es dividir entre diez», siga valiendo un peldaño más: 10¹ : 10 tiene que ser 10⁰, y 10 : 10 = 1.</p><p><b>10⁻¹, 10⁻²…</b> son la misma escalera por debajo del jinete: una décima, una centésima. El menos no hace negativo el número: dice que los peldaños se cuentan hacia abajo. Y la definición es buena porque nada se rompe: 10² · 10⁻² = 10⁰ = 1, cien centésimas son uno.</p>'],
+  mensajero: ['Lo que aquí es un convenio', '<p>34 × 10³, 3,4 × 10⁴ y 0,34 × 10⁵ son el mismo número, y los tres son correctos. Pero si cada mensajero elige su forma, dos mensajes iguales parecen distintos. Por eso se <b>acuerda</b> decir siempre el grupo más grande que hay: <b>una sola cifra, que no sea cero, delante de la coma</b> (1 ≤ a &lt; 10). Es un convenio: se elige porque es útil para comparar de un vistazo, no porque las otras formas sean falsas.</p>']
+};
+NOTAS.cuentas = NOTAS.mensajero;
+function monta(){
+  const s = S.sala(E.sala);
+  const enc = E.enc = E.practica ? P.nuevo(E.sala, N.azar(E.semilla)) : S.encargo(E.sala, E.m);
+  E.hecho = false; E.fallado = false; E.elegida = null; E.ultima = null;
+  $('juegos').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.j === E.sala)));
+  $('bPracticar').setAttribute('aria-pressed', String(E.practica));
+  $('rutaTxt').innerHTML = E.practica ? 'Practicar · <b>' + s.nombre + '</b>' : 'Encargo ' + enc.n + ' de ' + s.encargos.length + ' · <b>' + enc.titulo + '</b>';
+  $('bAntes').hidden = $('bDespues').hidden = $('puntos').hidden = E.practica;
+  $('bAntes').disabled = E.m <= 1; $('bDespues').disabled = E.m >= s.encargos.length;
+  $('pide').innerHTML = enc.pide;
+  $('salaRot').innerHTML = s.nombre + ' <i>' + s.lema + '</i>';
+  E.maq = Mq.monta($('mesa'), enc, calla);
+  pintaResp();
+  $('bComprobar').textContent = 'Comprobar';
+  $('bOtro').hidden = !E.practica;
+  const nota = NOTAS[E.sala];
+  $('nota').hidden = !nota; $('nota').open = false;
+  if(nota){ $('nota').querySelector('summary').textContent = nota[0]; $('nota').querySelector('div').innerHTML = nota[1]; }
+  calla(); pintaPuntos(); jacatai('guardia');
+}
+function pintaPuntos(){
+  const s = S.sala(E.sala);
+  $('puntos').innerHTML = s.encargos.map(e => '<i class="' + (e.clave in T.hechos ? 'hecho' : '') + (e.n === E.m ? ' aqui' : '') + '"></i>').join('');
+  const p = T.practica[E.sala], c = E.enc.clave;
+  $('marcador').textContent = E.practica ? (p ? p[0] + ' bien · ' + p[1] + ' mal' : 'no cuenta para la ruta, pero va al acta') : c in T.hechos ? (T.hechos[c] ? 'hecho' : 'hecho a la primera') : '';
+}
+
+function pintaResp(){
+  const enc = E.enc, R = $('resp');
+  if(enc.tipo === 'opcion'){
+    const orden = N.azar(Math.floor(Math.random() * 1e9)).baraja(enc.ops.map((o, i) => i));
+    R.innerHTML = '<div class="opciones" role="group" aria-label="Elige una">' + orden.map(i => '<button type="button" class="op" data-i="' + i + '" aria-pressed="false">' + enc.ops[i].t + '</button>').join('') + '</div>';
+    R.querySelectorAll('.op').forEach(b => b.addEventListener('click', () => {
+      if(E.hecho) return;
+      E.elegida = Number(b.dataset.i);
+      R.querySelectorAll('.op').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      calla();
+    }));
+  } else if(enc.tipo === 'escribe'){
+    R.innerHTML = '<label class="escribe"><span>' + enc.texto + '</span><input id="rTxt" inputmode="decimal" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="' + enc.texto + ' tu respuesta"></label>';
+  } else if(enc.tipo === 'cientifica'){
+    R.innerHTML = '<div class="escribe cient"><span>' + (enc.num ? enc.num + ' ' : '') + '=</span><input id="rM" inputmode="decimal" autocomplete="off" aria-label="la cifra de delante, con sus decimales"><span>× 10</span><input id="rE" class="exp" inputmode="text" autocomplete="off" maxlength="3" aria-label="el exponente"></div>';
+  } else R.innerHTML = '';
+  R.querySelectorAll('input').forEach(i => { i.addEventListener('input', calla); i.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); comprobar(); } }); });
+}
+function respuesta(){
+  const t = E.enc.tipo;
+  if(t === 'opcion') return E.elegida;
+  if(t === 'escribe') return $('rTxt').value;
+  if(t === 'cientifica') return {m: $('rM').value, e: $('rE').value};
+  return E.maq.resp();
+}
+
+let relojJac = 0;
+function jacatai(postura){
+  const j = $('jacatai');
+  clearTimeout(relojJac);
+  j.dataset.postura = postura; j.innerHTML = D.jacatai(postura);
+  j.classList.remove('reacciona');
+  if(postura === 'guardia') return;
+  void j.offsetWidth; j.classList.add('reacciona');
+  relojJac = setTimeout(() => jacatai('guardia'), 900);
+}
+
+const QUIEN = {kan: 'Jefén Giskan, el kan', general: 'Listubotai, que lleva la cuenta'};
+const habla = (q, h, extra) => '<div class="habla"><span class="cara" aria-hidden="true">' + D.CARA[q] + '</span><div><span class="quien">' + QUIEN[q] + (extra || '') + '</span><p>' + h + '</p></div></div>';
+function dice(clase, h){
+  const v = $('voz');
+  v.className = 'panel informe ' + clase; v.innerHTML = h; v.hidden = false;
+  v.scrollIntoView({behavior: html.dataset.quieto || matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest'});
+}
+function calla(){ if(!E.hecho){ $('voz').hidden = true; $('voz').innerHTML = ''; } }
+
+function comprobar(){
+  if(E.hecho){ if(Date.now() - E.desde > 700) siguiente(); return; }
+  const enc = E.enc, r = respuesta();
+  const v = r === null || r === undefined ? {nulo: true, dice: enc.tipo === 'banderin' ? 'Clave primero el banderín en un grupo, mi kan.' : 'Elija una, mi kan.'} : S.comprueba(enc, r);
+  if(v.nulo) return dice('duda', habla('general', v.dice));
+  if(v.ok){
+    E.hecho = true; E.desde = Date.now();
+    if(E.practica){ const p = T.practica[E.sala] || (T.practica[E.sala] = [0, 0]); if(!E.fallado) p[0]++; }
+    else if(!(enc.clave in T.hechos)) T.hechos[enc.clave] = T.fallos[enc.clave] || 0;
+    So.bien();
+    jacatai(!E.practica && E.m === S.sala(E.sala).encargos.length ? 'reverencia' : E.fallado ? 'relincha' : 'bote');
+    dice('bien', habla('general', enc.bien));
+    $('bComprobar').textContent = rotuloSiguiente();
+    $('resp').querySelectorAll('input, .op').forEach(x => { x.disabled = true; });
+  } else {
+    const repetida = JSON.stringify(r) === E.ultima; E.ultima = JSON.stringify(r);
+    if(E.practica){ const p = T.practica[E.sala] || (T.practica[E.sala] = [0, 0]); if(!E.fallado) p[1]++; }
+    else if(!(enc.clave in T.hechos) && !repetida) T.fallos[enc.clave] = (T.fallos[enc.clave] || 0) + 1;
+    E.fallado = true;
+    So.mal();
+    jacatai('planta');
+    const e = v.error && Er.de(v.error);
+    if(e){
+      if(!repetida) T.errores[e.id] = (T.errores[e.id] || 0) + 1;
+      dice('mal', habla(e.quien, '«' + e.frase + '»', ' <span class="nombre">' + e.nombre + '</span>') + habla(Er.otro(e.quien), e.replica));
+    } else dice('mal', habla('general', v.dice));
+  }
+  guardaTurno(); pintaPuntos();
+}
+function despues(){
+  if(E.practica) return {practica: true};
+  const s = S.sala(E.sala), i = S.SALAS.indexOf(s);
+  if(E.m < s.encargos.length) return {sala: E.sala, m: E.m + 1};
+  return i < S.SALAS.length - 1 ? {sala: S.SALAS[i + 1].id, m: 1} : {acta: true};
+}
+function rotuloSiguiente(){
+  const d = despues();
+  return d.practica ? 'Otro' : d.acta ? 'Ver el acta' : d.sala !== E.sala ? ('A ' + S.sala(d.sala).corto.replace(/^(El|La|Los|Las) /, m => m.toLowerCase())).replace(/^A el /, 'Al ') : 'Siguiente';
+}
+function siguiente(){
+  const d = despues();
+  if(d.acta) return abreActa();
+  if(d.practica) ve(E.sala, E.m, true); else ve(d.sala, d.m, false);
+  if(matchMedia('(max-width:699px)').matches) alEncargo(); else $('encargo').scrollIntoView({behavior: 'auto', block: 'nearest'});
+}
+
+function aplica(){
+  html.dataset.tema = AJ.tema;
+  if(AJ.aula) html.dataset.aula = 'si'; else delete html.dataset.aula;
+  So.pon(AJ.sonido === 'si');
+  document.querySelectorAll('.ops[data-aj]').forEach(g => g.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(AJ[g.dataset.aj] === b.dataset.v))));
+  $('bAula').setAttribute('aria-pressed', String(!!AJ.aula));
+}
+document.querySelectorAll('.ops[data-aj]').forEach(g => g.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { AJ[g.dataset.aj] = b.dataset.v; guarda(CL.aj, AJ); aplica(); })));
+$('bAjustes').addEventListener('click', () => { const a = $('ajustes'); a.hidden = !a.hidden; $('bAjustes').setAttribute('aria-expanded', String(!a.hidden)); desarmaBorrar(); });
+$('bAula').addEventListener('click', () => { AJ.aula = !AJ.aula; guarda(CL.aj, AJ); aplica(); });
+$('bVerInicio').addEventListener('click', () => escena());
+let armado = 0;
+function desarmaBorrar(){ clearTimeout(armado); armado = 0; $('bBorrar').textContent = 'Borrar todo'; }
+$('bBorrar').addEventListener('click', () => {
+  if(!armado){ $('bBorrar').textContent = '¿Seguro? Tócalo otra vez'; armado = setTimeout(desarmaBorrar, 4000); return; }
+  desarmaBorrar();
+  try{ Object.keys(CL).forEach(k => localStorage.removeItem(CL[k])); sessionStorage.removeItem(CL.inicio); }catch(e){}
+  AJ = Object.assign({}, AJ0); T = A.nuevoTurno();
+  $('ajustes').hidden = true; $('bAjustes').setAttribute('aria-expanded', 'false');
+  aplica(); ve('campamento', 1, false);
+  scrollTo(0, 0);
+  escena(() => guia(0));
+});
+
+function ventana(caja, alCerrar){
+  const antes = document.activeElement, fondo = $('lienzo');
+  fondo.inert = true;
+  const tocables = () => [...caja.querySelectorAll('button, input, [tabindex="0"]')].filter(x => !x.disabled && x.offsetParent !== null);
+  function tecla(ev){
+    if(ev.key === 'Escape'){ ev.preventDefault(); cierra(); return; }
+    if(ev.key !== 'Tab') return;
+    const t = tocables(), i = t.indexOf(document.activeElement);
+    if(ev.shiftKey && i <= 0){ ev.preventDefault(); t[t.length - 1].focus(); }
+    else if(!ev.shiftKey && (i === t.length - 1 || i < 0)){ ev.preventDefault(); t[0].focus(); }
+  }
+  function cierra(){
+    document.removeEventListener('keydown', tecla, true);
+    fondo.inert = false;
+    if(alCerrar) alCerrar();
+    if(antes && antes.focus) antes.focus();
+  }
+  document.addEventListener('keydown', tecla, true);
+  return cierra;
+}
+
+let cierraActa = null;
+const fecha = () => new Date().toLocaleString('es-ES', {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit'});
+const textoActa = () => A.texto(T, {fecha: fecha(), version: VERSION});
+function abreActa(){
+  $('actaLista').value = T.lista || ''; $('actaTxt').textContent = textoActa(); $('actaAviso').textContent = '';
+  $('mActa').hidden = false;
+  cierraActa = ventana($('mActa').firstElementChild, () => { $('mActa').hidden = true; });
+  $('actaLista').focus();
+}
+$('bActa').addEventListener('click', abreActa);
+$('actaCerrar').addEventListener('click', () => cierraActa());
+$('mActa').addEventListener('click', ev => { if(ev.target === $('mActa')) cierraActa(); });
+$('actaLista').addEventListener('input', () => { T.lista = $('actaLista').value.replace(/\D/g, '').slice(0, 3); $('actaLista').value = T.lista; guardaTurno(); $('actaTxt').textContent = textoActa(); });
+$('actaCopiar').addEventListener('click', async () => {
+  const t = textoActa();
+  try{ await navigator.clipboard.writeText(t); $('actaAviso').textContent = 'copiada: pégala donde te digan'; return; }catch(e){}
+  const r = document.createRange(); r.selectNodeContents($('actaTxt'));
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  $('actaAviso').textContent = 'seleccionada: cópiala con el menú del aparato';
+});
+
+const PASOS = [
+  ['#juegos', 'Las seis salas', 'Cada pestaña es un trozo del recuento: del campamento, donde cada cifra tiene su sitio, a las cuentas de los mensajeros. Las dos últimas son de 2.º.'],
+  ['#encargo', 'El kan pide', 'Jefén Giskan encarga y tú cumples. Con ‹ y › se va de un encargo a otro; los puntos dicen cuáles están hechos.'],
+  ['#mesa', 'Los sitios del recuento', 'Cada columna es un sitio: una potencia de diez, con su nombre. La estaca es la coma, y no se mueve nunca. Toca una columna y súbela o bájala con + y −.'],
+  ['#bComprobar', 'Comprobar', 'Cuando lo tengas, comprueba. Si tropiezas, el kan y Listubotai le ponen nombre al tropiezo y te dan una pista. La respuesta, no: esa es tuya. Al lado, Jacatai, el caballo del kan, relincha si aciertas y se planta si tropiezas.'],
+  ['.acc', 'Practicar, Aula y Acta', 'Practicar da ejercicios nuevos sin fin. Aula lo agranda para la pizarra. El Acta resume lo hecho y dónde has tropezado: se copia y se entrega con tu número de lista.']
+];
+let pasoGuia = -1, cierraGuia = null;
+function colocaGuia(){
+  if(pasoGuia < 0) return;
+  const d = document.querySelector(PASOS[pasoGuia][0]), r = d.getBoundingClientRect(), f = $('foco'), g = $('globo');
+  f.style.cssText = 'left:' + (r.left - 5) + 'px;top:' + (r.top - 5) + 'px;width:' + (r.width + 10) + 'px;height:' + (r.height + 10) + 'px';
+  const h = g.offsetHeight, bajo = r.bottom + 12 + h < innerHeight;
+  g.style.top = (bajo ? r.bottom + 12 : Math.max(8, r.top - h - 12)) + 'px';
+}
+function guia(i){
+  if(i < 0 || i >= PASOS.length) return finGuia();
+  if(pasoGuia < 0){ $('guia').hidden = false; cierraGuia = ventana($('globo'), () => { $('guia').hidden = true; pasoGuia = -1; }); addEventListener('resize', colocaGuia); addEventListener('scroll', colocaGuia, true); }
+  pasoGuia = i;
+  guarda(CL.guia, 'vista');
+  $('guiaTit').textContent = PASOS[i][1]; $('guiaTxt').textContent = PASOS[i][2];
+  $('guiaPaso').textContent = (i + 1) + ' de ' + PASOS.length;
+  $('guiaAntes').disabled = i === 0; $('guiaSigue').textContent = i === PASOS.length - 1 ? 'Empezar' : 'Sigue';
+  document.querySelector(PASOS[i][0]).scrollIntoView({behavior: 'auto', block: 'center'});
+  colocaGuia(); $('guiaSigue').focus();
+}
+function finGuia(){ if(pasoGuia < 0) return; removeEventListener('resize', colocaGuia); removeEventListener('scroll', colocaGuia, true); cierraGuia(); scrollTo(0, 0); }
+$('bGuia').addEventListener('click', () => { if($('mesa').hidden || E.practica) ve('campamento', 1, false); guia(0); });
+$('guiaSigue').addEventListener('click', () => guia(pasoGuia + 1));
+$('guiaAntes').addEventListener('click', () => guia(pasoGuia - 1));
+$('guiaSalir').addEventListener('click', finGuia);
+
+const letras = (t, t0, paso) => { let i = 0; return t.split('\n').map(l => l.split('').map(c => c === ' ' ? '<span class="esp"></span>' : '<span style="animation-delay:' + (t0 + (i++) * paso).toFixed(2) + 's">' + c + '</span>').join('')).join('<br>'); };
+function escena(alAcabar){
+  const i = $('inicio');
+  guarda(CL.inicio, 'vista', true);
+  $('inEscena').innerHTML = '<div class="marco"><div class="tapiz">' + D.amanecer() + '</div></div><p class="inTitulo">' + letras('El recuento\nde Jefén Giskan', 5.7, .035) +
+    '</p><div class="pie"><span class="retrato kan">' + D.KAN + '</span><p class="inLema">cada cifra en su sitio · cada sitio con su nombre</p><span class="retrato gen">' + D.GENERAL + '</span></div>';
+  i.hidden = false; i.classList.remove('fuera'); html.dataset.inicio = '1'; $('lienzo').inert = true;
+  let hecho = false;
+  const reloj = setTimeout(fin, 10500);
+  function fin(){
+    if(hecho) return; hecho = true;
+    clearTimeout(reloj); removeEventListener('keydown', tecla, true); i.removeEventListener('click', fin);
+    i.classList.add('fuera'); delete html.dataset.inicio; $('lienzo').inert = false;
+    setTimeout(() => { i.hidden = true; if(alAcabar) alAcabar(); }, 480);
+  }
+  function tecla(ev){ ev.stopPropagation(); if(['Enter', ' ', 'Escape'].includes(ev.key)){ ev.preventDefault(); fin(); } }
+  i.addEventListener('click', fin);
+  addEventListener('keydown', tecla, true);
+}
+
+function alEncargo(){ if(matchMedia('(max-width:699px)').matches) $('encargo').scrollIntoView({behavior: 'auto', block: 'start'}); }
+
+$('bPracticar').addEventListener('click', () => ve(E.sala, E.m, !E.practica));
+$('bComprobar').addEventListener('click', comprobar);
+$('bOtro').addEventListener('click', () => ve(E.sala, E.m, true));
+$('bAntes').addEventListener('click', () => ve(E.sala, E.m - 1, false));
+$('bDespues').addEventListener('click', () => ve(E.sala, E.m + 1, false));
+$('caraKan').innerHTML = D.KAN;
+
+const q = new URLSearchParams(location.search);
+if(q.get('quieto')) html.dataset.quieto = '1';
+if(['claro', 'oscuro', 'proyector'].includes(q.get('tema'))) AJ.tema = q.get('tema');
+aplica();
+const j = (q.get('j') || '').toLowerCase();
+if(S.sala(j)){ E.sala = j; pintaPestanas(); ve(j, q.get('m') || primeroSinHacer(j), !!q.get('p')); requestAnimationFrame(alEncargo); }
+else {
+  pintaPestanas(); E.semilla--; ve('campamento', primeroSinHacer('campamento'), false);
+  const guiaSiToca = () => { if(lee(CL.guia) !== 'vista') guia(0); };
+  if(AJ.inicio === 'si' && lee(CL.inicio, true) !== 'vista') escena(guiaSiToca); else guiaSiToca();
+}
+
+raiz.Recuento = {E, turno: () => T, ve, comprobar, guia, escena, textoActa};
+})(window);
+</script>
+</body>
+</html>
